@@ -14,9 +14,9 @@ import ruamel.yaml as ryaml
 from google.cloud.storage.blob import Blob
 from unidecode import unidecode
 
-from pipelines.utils.bd import create_table_and_upload_to_gcs
-from pipelines.utils.io import get_root_path, to_partitions
-from pipelines.utils.logging import log
+from prefeitura_rio.pipelines_utils.bd import create_table_and_upload_to_gcs
+from prefeitura_rio.pipelines_utils.io import get_root_path, to_partitions
+from prefeitura_rio.pipelines_utils.logging import log
 
 
 def get_tables_names_dict(name: str) -> dict:
