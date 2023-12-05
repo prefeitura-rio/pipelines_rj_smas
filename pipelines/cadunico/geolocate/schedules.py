@@ -17,7 +17,7 @@ cadunico_geolocate_schedule = Schedule(
             interval=timedelta(days=1),
             start_date=datetime(2021, 1, 1),
             labels=[
-                constants.RJ_SMAC_AGENT_LABEL.value,
+                constants.RJ_SMAS_AGENT_LABEL.value,
             ],
             parameter_defaults={
                 "source_dataset_id": "protecao_social_cadunico",
