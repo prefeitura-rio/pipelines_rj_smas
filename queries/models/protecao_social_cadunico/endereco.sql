@@ -36,7 +36,8 @@ FROM `rj-smas.protecao_social_cadunico.identificacao_controle`
 
 SELECT 
   address,
-  count(address) as count
+  count(address) as count,
+  ROUND(COUNT(address) * 100.0 / (SELECT COUNT(*) FROM endereco), 2) AS percentage
 FROM endereco
 GROUP BY 1
 ORDER BY 2 DESC
