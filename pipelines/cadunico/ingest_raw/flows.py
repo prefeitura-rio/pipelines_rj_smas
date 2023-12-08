@@ -29,7 +29,7 @@ from pipelines.cadunico.ingest_raw.tasks import (
 from pipelines.constants import constants
 
 with Flow(
-    name="CadUnico: Ingestão de dados brutos", state_handlers=[handler_inject_bd_credentials]
+    name="CadUnico: Ingestão de dados brutos", state_handlers=[handler_inject_bd_credentials()]
 ) as cadunico__ingest_raw__flow:
     # Parameters
     dataset_id = Parameter("dataset_id", default="protecao_social_cadunico")
