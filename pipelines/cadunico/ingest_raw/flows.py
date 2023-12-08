@@ -8,6 +8,13 @@ from prefect.run_configs import KubernetesRun
 from prefect.storage import GCS
 from prefect.tasks.prefect import create_flow_run, wait_for_flow_run
 from prefect.utilities.edges import unmapped
+from prefeitura_rio.core import settings
+from prefeitura_rio.pipelines_utils.custom import Flow
+from prefeitura_rio.pipelines_utils.prefect import (
+    task_get_current_flow_run_labels,
+    task_get_flow_group_id,
+)
+from prefeitura_rio.pipelines_utils.state_handlers import inject_bd_credentials
 
 from pipelines.cadunico.ingest_raw.tasks import (
     append_data_to_storage,
@@ -21,15 +28,8 @@ from pipelines.cadunico.ingest_raw.tasks import (
 )
 from pipelines.constants import constants
 
-from prefeitura_rio.core import settings
-from prefeitura_rio.pipelines_utils.custom import Flow
-from prefeitura_rio.pipelines_utils.prefect import (
-    task_get_current_flow_run_labels,
-    task_get_flow_group_id,
-)
-
 with Flow(
-    name="CadUnico: Ingestão de dados brutos",
+    name="CadUnico: Ingestão de dados brutos", state_handlers=[inject_bd_credentials]
 ) as cadunico__ingest_raw__flow:
     # Parameters
     dataset_id = Parameter("dataset_id", default="protecao_social_cadunico")
