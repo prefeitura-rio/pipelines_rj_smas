@@ -14,7 +14,7 @@ from prefeitura_rio.pipelines_utils.prefect import (
     task_get_current_flow_run_labels,
     task_get_flow_group_id,
 )
-from prefeitura_rio.pipelines_utils.state_handlers import inject_bd_credentials
+from prefeitura_rio.pipelines_utils.state_handlers import handler_inject_bd_credentials
 
 from pipelines.cadunico.ingest_raw.tasks import (
     append_data_to_storage,
@@ -29,7 +29,7 @@ from pipelines.cadunico.ingest_raw.tasks import (
 from pipelines.constants import constants
 
 with Flow(
-    name="CadUnico: Ingestão de dados brutos", state_handlers=[inject_bd_credentials]
+    name="CadUnico: Ingestão de dados brutos", state_handlers=[handler_inject_bd_credentials]
 ) as cadunico__ingest_raw__flow:
     # Parameters
     dataset_id = Parameter("dataset_id", default="protecao_social_cadunico")

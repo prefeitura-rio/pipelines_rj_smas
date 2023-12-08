@@ -9,13 +9,13 @@ from prefect.run_configs import KubernetesRun
 from prefect.storage import GCS
 from prefeitura_rio.pipelines_templates.geolocate import utils_geolocate_flow
 from prefeitura_rio.pipelines_utils.prefect import set_default_parameters
-from prefeitura_rio.pipelines_utils.state_handlers import inject_bd_credentials
+from prefeitura_rio.pipelines_utils.state_handlers import handler_inject_bd_credentials
 
 from pipelines.cadunico.geolocate.schedules import cadunico_geolocate_schedule
 from pipelines.constants import constants
 
 cadunico_geolocate_flow = deepcopy(utils_geolocate_flow)
-cadunico_geolocate_flow.state_handlers = [inject_bd_credentials]
+cadunico_geolocate_flow.state_handlers = [handler_inject_bd_credentials()]
 cadunico_geolocate_flow.name = "GEOLOCATE: cadunico - Geolocalização de endereços do Cadunico"
 cadunico_geolocate_flow.storage = GCS(constants.GCS_FLOWS_BUCKET.value)
 
