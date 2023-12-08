@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-CADUNICO: INGEST RAW FLOW
+GEOLOCATE CADUNICO ADDRESS FLOW.
 """
 
 from copy import deepcopy
