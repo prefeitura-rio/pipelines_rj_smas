@@ -15,7 +15,7 @@ from pipelines.cadunico.geolocate.schedules import cadunico_geolocate_schedule
 from pipelines.constants import constants
 
 cadunico_geolocate_flow = deepcopy(utils_geolocate_flow)
-cadunico_geolocate_flow.state_handlers = [handler_inject_bd_credentials()]
+cadunico_geolocate_flow.state_handlers = [handler_inject_bd_credentials]
 cadunico_geolocate_flow.name = "GEOLOCATE: cadunico - Geolocalização de endereços do Cadunico"
 cadunico_geolocate_flow.storage = GCS(constants.GCS_FLOWS_BUCKET.value)
 
