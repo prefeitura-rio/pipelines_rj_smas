@@ -1645,23 +1645,28 @@ viz = ["graphviz (>=0.8.3)"]
 
 [[package]]
 name = "prefeitura-rio"
-version = "1.1.2"
+version = "1.1.3a1"
 description = "Pacote Python que implementa utilidades para nossos projetos!"
 optional = false
 python-versions = ">=3.9,<3.11"
-files = [
-    {file = "prefeitura_rio-1.1.2-py3-none-any.whl", hash = "sha256:918865095026d616e0d1d1f644f2ee60c16c059c696f9fe42830cacb71667c76"},
-    {file = "prefeitura_rio-1.1.2.tar.gz", hash = "sha256:83fabe0b622bbd53fd5c1055edc0636d58bb01e7af3fa1deea7ce7bcb0f4208b"},
-]
+files = []
+develop = false
 
 [package.dependencies]
-loguru = ">=0.7.0,<0.8.0"
+loguru = "^0.7.0"
 
 [package.extras]
-all = ["aiohttp (>=3.8.5,<4.0.0)", "basedosdados[upload] (==2.0.0b13)", "google-cloud-storage (>=2.10.0,<3.0.0)", "infisical (>=1.4.2,<2.0.0)", "numpy (>=1.23.3,<2.0.0)", "pandas (>=2.0.3,<3.0.0)", "pendulum (>=2.1.2,<3.0.0)", "prefect (==1.4.1)", "pytz (>=2023.3,<2024.0)", "requests (>=2.31.0,<3.0.0)", "scikit-learn (>=1.1.2,<2.0.0)", "sentry-sdk (>=1.29.2,<2.0.0)"]
+all = ["aiohttp (>=3.8.5,<4.0.0)", "basedosdados[upload] (==2.0.0b13)", "croniter (>=2.0.1,<3.0.0)", "cx-oracle (>=8.3.0,<9.0.0)", "dask (>=2023.11.0,<2024.0.0)", "earthengine-api (>=0.1.379,<0.2.0)", "geojsplit (>=0.1.2,<0.2.0)", "geopandas (>=0.14.1,<0.15.0)", "geopy (>=2.4.1,<3.0.0)", "google-cloud-storage (>=2.10.0,<3.0.0)", "infisical (>=1.4.2,<2.0.0)", "numpy (>=1.23.3,<2.0.0)", "pandas (>=2.0.3,<3.0.0)", "pendulum (>=2.1.2,<3.0.0)", "prefect (==1.4.1)", "pymongo (>=4.6.0,<5.0.0)", "pymysql (>=1.1.0,<2.0.0)", "pyodbc (>=5.0.1,<6.0.0)", "pytz (>=2023.3,<2024.0)", "redis-pal (>=1.0.0,<2.0.0)", "requests (>=2.31.0,<3.0.0)", "scikit-learn (>=1.1.2,<2.0.0)", "sentry-sdk (>=1.29.2,<2.0.0)", "shapely (>=2.0.2,<3.0.0)"]
 metrics = ["numpy (>=1.23.3,<2.0.0)", "scikit-learn (>=1.1.2,<2.0.0)"]
-pipelines = ["basedosdados[upload] (==2.0.0b13)", "google-cloud-storage (>=2.10.0,<3.0.0)", "infisical (>=1.4.2,<2.0.0)", "pandas (>=2.0.3,<3.0.0)", "prefect (==1.4.1)", "sentry-sdk (>=1.29.2,<2.0.0)"]
+pipelines = ["basedosdados[upload] (==2.0.0b13)", "dask (>=2023.11.0,<2024.0.0)", "google-cloud-storage (>=2.10.0,<3.0.0)", "infisical (>=1.4.2,<2.0.0)", "pandas (>=2.0.3,<3.0.0)", "prefect (==1.4.1)", "sentry-sdk (>=1.29.2,<2.0.0)"]
+pipelines-templates = ["croniter (>=2.0.1,<3.0.0)", "cx-oracle (>=8.3.0,<9.0.0)", "earthengine-api (>=0.1.379,<0.2.0)", "geojsplit (>=0.1.2,<0.2.0)", "geopandas (>=0.14.1,<0.15.0)", "geopy (>=2.4.1,<3.0.0)", "pymongo (>=4.6.0,<5.0.0)", "pymysql (>=1.1.0,<2.0.0)", "pyodbc (>=5.0.1,<6.0.0)", "redis-pal (>=1.0.0,<2.0.0)", "requests (>=2.31.0,<3.0.0)", "shapely (>=2.0.2,<3.0.0)"]
 sgrc = ["aiohttp (>=3.8.5,<4.0.0)", "pendulum (>=2.1.2,<3.0.0)", "pytz (>=2023.3,<2024.0)", "requests (>=2.31.0,<3.0.0)"]
+
+[package.source]
+type = "git"
+url = "https://github.com/prefeitura-rio/prefeitura-rio"
+reference = "1cecd8b587657496544f84b0fbb07d6365473da8"
+resolved_reference = "1cecd8b587657496544f84b0fbb07d6365473da8"
 
 [[package]]
 name = "proto-plus"
@@ -2539,4 +2544,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.11"
-content-hash = "1fae4192b9a32664121b75fb91cdb7cebff027459ddf0bfffb76eb78939cb117"
+content-hash = "a9e8f133a32125036e7e7ad1b18ac7b386b1ee527b5d4f1d74e12e358ba6f9be"
