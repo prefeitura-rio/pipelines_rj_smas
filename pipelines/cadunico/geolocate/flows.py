@@ -2,10 +2,6 @@
 """
 CADUNICO: INGEST RAW FLOW.
 """
-# -*- coding: utf-8 -*-
-"""
-Database dumping flows for SME project..
-"""
 
 from copy import deepcopy
 

@@ -1,8 +1,8 @@
--- CREATE OR REPLACE TABLE `rj-smas.protecao_social_cadunico.bairro` AS (
+CREATE OR REPLACE TABLE `rj-smas.protecao_social_cadunico.bairro` AS (
 
 WITH address AS (
     SELECT 
-        bairro_limpo_cadunico AS nome_limpo_cadunico,
+        bairro_limpo AS nome_limpo_cadunico,
         SUM(count) as count
     FROM `rj-smas.protecao_social_cadunico.endereco`
     GROUP BY  1
@@ -35,11 +35,11 @@ SELECT
     a.nome_limpo_cadunico,
     a.count,
     a.percentage,
-    ROUND(SUM(percentage) OVER (ORDER BY count DESC), 2) AS cumulative_percentage,
     subprefeitura,
     geometry_wkt,
+    ROUND(SUM(percentage) OVER (ORDER BY count DESC), 2) AS cumulative_percentage,
 FROM address_percentage a
 FULL OUTER JOIN bairro b
   ON a.nome_limpo_cadunico = b.nome_limpo
 ORDER BY count DESC
--- )
+)
