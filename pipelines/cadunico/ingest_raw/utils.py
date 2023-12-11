@@ -757,7 +757,7 @@ def get_dbt_models_to_materialize(
     table_dbt_alias = [
         True if "__" in q.split("/")[-1] else False for q in files_path if q.endswith(".sql")
     ]
-
+    log(f"TABLES TO MATERIALIZE LIST CONTROL: {dbt_models_to_materialize_list}")
     for _table_id_, dbt_alias in zip(tables, table_dbt_alias):
         if _table_id_ in dbt_models_to_materialize_list:
             parameters = {
@@ -768,9 +768,14 @@ def get_dbt_models_to_materialize(
             parameters_list.append(parameters)
 
     # reorder tables to materialize to put aditional_dbt_models_to_materialize in the end os the materializations # noqa
-    parameters_list_ordered = sorted(
-        parameters_list, key=lambda x: dbt_models_to_materialize_list.index(x["table_id"])
-    )
+    parameters_list_ordered = []
+    for model in parameters_list:
+        for model_name in dbt_models_to_materialize_list:
+            model_table_id = model.get("table_id")
+            if model_name == model_table_id:
+                print(model_name, model)
+                parameters_list_ordered.append(model)
+                break
 
     parameters_list_log = json.dumps(parameters_list_ordered, indent=4)
     log(f"{len(parameters_list_ordered)} TABLES TO MATERIALIZE:\n{parameters_list_log}")
