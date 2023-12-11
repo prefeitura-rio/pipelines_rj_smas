@@ -31,6 +31,7 @@ cadunico_geolocate_default_parameters = {
     "source_table_id": "endereco",
     "source_table_address_column": "address",
     "source_table_address_query": "SELECT DISTINCT address FROM `rj-smas.protecao_social_cadunico.endereco` LIMIT 10",  # noqa
+    "use_source_table_address_query": False,
     "destination_dataset_id": "protecao_social_cadunico",
     "destination_table_id": "endereco_geolocalizado",
     "georeference_mode": "distinct",
