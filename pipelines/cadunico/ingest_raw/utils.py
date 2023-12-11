@@ -275,6 +275,7 @@ def get_layout_table_from_staging(
         FROM `rj-smas.protecao_social_cadunico_staging.layout` t1
         LEFT JOIN `rj-smas.protecao_social_cadunico_staging.layout_dicionario_colunas` t2
         ON t1.column = t2.column
+        WHERE table != "REG_99_DIARIA"
     """
     log(f"Using project_id: {project_id}\n\n{query}")
     dataframe = bd.read_sql(query=query, billing_project_id=project_id, from_file=True)
@@ -600,7 +601,6 @@ def parse_columns_version_control(df):
     df_ascending = columns_version_control_diff(
         df=df.sort_values(["reg", "versao_layout_particao"])
     )
-
     # create new row for versions lass than versao_layout_anterior
     versions = df_ascending["versao_layout_particao"].unique()
     versions.sort()
@@ -623,10 +623,22 @@ def parse_columns_version_control(df):
     df_descending = columns_version_control_diff(
         df=df.sort_values(["reg", "versao_layout_particao"], ascending=False)
     )
-    df_descending_filterd = df_descending[df_descending["coluna_esta_versao_anterior"] == "False"]
 
-    df_final = pd.concat([df_final, df_descending_filterd])
+    # create new row for versions lass than versao_layout_anterior
+    versions = df_descending["versao_layout_particao"].unique()
+    versions.sort()
+    df_new = pd.DataFrame()
+    diff = df_descending[df_descending["coluna_esta_versao_anterior"] == "False"]
+    for index, row in diff.iterrows():
+        df_new = pd.concat([df_new, row.to_frame().T])
+        for version in versions:
+            if version > row["versao_layout_anterior"]:
+                new_row = row.copy()
+                new_row["versao_layout_anterior"] = version
+                df_new = pd.concat([df_new, new_row.to_frame().T])
 
+    df_final = pd.concat([df_final, df_new])
+    df_final = df_final.sort_values(["reg", "versao_layout_particao"])
     return df_final
 
 
