@@ -722,14 +722,11 @@ def get_dbt_models_to_materialize(
     """
     # if first_execution:
     tables_dict = get_tables_names_dict()
-
-    log(f"ADITIONAL TABLES TO MATERIALIZE STR: {aditional_dbt_models_to_materialize}")
     aditional_dbt_models_to_materialize = aditional_dbt_models_to_materialize.split(",")
-    log(f"ADITIONAL TABLES TO MATERIALIZE LIST: {aditional_dbt_models_to_materialize}")
-
     dbt_models_to_materialize_list = (
         list(tables_dict.values()) + aditional_dbt_models_to_materialize
     )
+
     log("STARTING LAYOUT TABLE MANAGEMENT AND DBT MODELS CREATION")
     update_layout_from_storage_and_create_versions_dbt_models(
         project_id=project_id,
@@ -772,10 +769,11 @@ def get_dbt_models_to_materialize(
 
     # reorder tables to materialize to put aditional_dbt_models_to_materialize in the end os the materializations # noqa
     parameters_list_ordered = []
-    for model in parameters_list:
-        for model_name in dbt_models_to_materialize_list:
+    for model_name in dbt_models_to_materialize_list:
+        for model in parameters_list:
             model_table_id = model.get("table_id")
             if model_name == model_table_id:
+                log(f"ADDING MODEL TO ORDERED PARAMETERS LIST: {model_name}\n{model}")
                 parameters_list_ordered.append(model)
                 break
 
