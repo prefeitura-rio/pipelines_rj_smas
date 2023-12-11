@@ -52,6 +52,10 @@ with Flow(
     force_materialize_harmonized_dbt_models = Parameter(
         "force_materialize_harmonized_dbt_models", default=False, required=False
     )
+
+    aditional_dbt_models_to_materialize = Parameter(
+        "aditional_dbt_models_to_materialize", default="bairro,endereco", required=False
+    )
     # Tasks
     project_id = get_project_id_task()
     materialization_flow_id = task_get_flow_group_id(flow_name=settings.FLOW_NAME_EXECUTE_DBT_MODEL)
@@ -103,6 +107,7 @@ with Flow(
                 layout_table_id=layout_table_id,
                 layout_output_path=layout_output_path,
                 force_create_models=force_create_models,
+                aditional_dbt_models_to_materialize=aditional_dbt_models_to_materialize,
             )
             dump_prod_tables_to_materialize_parameters.set_upstream(append_data_to_gcs)
 
@@ -148,4 +153,9 @@ with Flow(
 
 # Storage and run configs
 cadunico__ingest_raw__flow.storage = GCS(constants.GCS_FLOWS_BUCKET.value)
-cadunico__ingest_raw__flow.run_config = KubernetesRun(image=constants.DOCKER_IMAGE.value)
+cadunico__ingest_raw__flow.run_config = KubernetesRun(
+    image=constants.DOCKER_IMAGE.value,
+    labels=[
+        constants.RJ_SMAS_AGENT_LABEL.value,
+    ],
+)

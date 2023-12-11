@@ -9,19 +9,22 @@ import basedosdados as bd
 import pandas as pd
 from google.cloud.storage.blob import Blob
 from prefect import task
-
-from pipelines.cadunico.ingest_raw.utils import (
-    get_dbt_models_to_materialize,
-    parse_partition,
-    parse_txt_first_line,
+from prefeitura_rio.pipelines_utils.bd import (
+    create_table_and_upload_to_gcs,
+    get_project_id,
 )
-from prefeitura_rio.pipelines_utils.bd import create_table_and_upload_to_gcs, get_project_id
 from prefeitura_rio.pipelines_utils.gcs import (
     get_gcs_client,
     list_blobs_with_prefix,
     parse_blobs_to_partition_list,
 )
 from prefeitura_rio.pipelines_utils.logging import log
+
+from pipelines.cadunico.ingest_raw.utils import (
+    get_dbt_models_to_materialize,
+    parse_partition,
+    parse_txt_first_line,
+)
 
 
 @task
@@ -294,6 +297,7 @@ def get_dbt_models_to_materialize_task(
     layout_table_id: str,
     layout_output_path: str | Path,
     force_create_models: bool,
+    aditional_dbt_models_to_materialize=str,
 ) -> List:
     parameters_models_to_materialize = get_dbt_models_to_materialize(
         project_id=project_id,
@@ -303,6 +307,7 @@ def get_dbt_models_to_materialize_task(
         layout_table_id=layout_table_id,
         layout_output_path=layout_output_path,
         force_create_models=force_create_models,
+        aditional_dbt_models_to_materialize=aditional_dbt_models_to_materialize,
     )
 
     return parameters_models_to_materialize

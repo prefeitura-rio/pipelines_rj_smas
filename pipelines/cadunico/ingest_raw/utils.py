@@ -12,14 +12,13 @@ import numpy as np
 import pandas as pd
 import ruamel.yaml as ryaml
 from google.cloud.storage.blob import Blob
-from unidecode import unidecode
-
 from prefeitura_rio.pipelines_utils.bd import create_table_and_upload_to_gcs
 from prefeitura_rio.pipelines_utils.io import get_root_path, to_partitions
 from prefeitura_rio.pipelines_utils.logging import log
+from unidecode import unidecode
 
 
-def get_tables_names_dict(name: str) -> dict:
+def get_tables_names_dict() -> dict:
     table_dict = {
         "00": "controle",
         "01": "identificacao_controle",
@@ -45,7 +44,7 @@ def get_tables_names_dict(name: str) -> dict:
         "98": "prefeitura",
         "99": "registros",
     }
-    return table_dict[name]
+    return table_dict
 
 
 def parse_partition(blob: Blob) -> str:
@@ -284,7 +283,7 @@ def get_layout_table_from_staging(
         project_id=project_id, dataset_id=dataset_id, table_id=table_id
     )
     log(
-        f"Dataframe will be filtered using versions from {project_id}.{dataset_id}_staging.{table_id}: {versions}"
+        f"Dataframe will be filtered using versions from {project_id}.{dataset_id}_staging.{table_id}: {versions}"  # noqa
     )
 
     return dataframe[dataframe["versao_layout_particao"].isin(versions)]
@@ -351,12 +350,12 @@ def create_cadunico_dbt_consolidated_models(
     # remove columns that are empty
     df = df[np.logical_not(df["column"].str.contains("vazio"))]
     df = df.sort_values(["reg", "versao_layout_particao"])
-
+    tables_dict = get_tables_names_dict()
     schema = {"version": 2, "models": []}
     log_created_models = []
     for table_number in df["reg"].unique():
         table_schema = {}
-        table_model_name = get_tables_names_dict(table_number)
+        table_model_name = tables_dict[table_number]
         model_name = (
             table_model_name if "test" not in model_dataset_id else f"{table_model_name}_test"
         )
@@ -412,19 +411,19 @@ def create_cadunico_dbt_consolidated_models(
                         col_name_padronizado_dict_atr = col_name_padronizado.replace("id_", "", 1)
                     else:
                         raise Exception(
-                            f"col_name_padronizado: {col_name_padronizado} should have id_ in the name"
+                            f"col_name_padronizado: {col_name_padronizado} should have id_ in the name"  # noqa
                         )
 
                 if col_in_last_version == "False":
                     col_expression = (
                         f"\n    --column: {column}\n"
-                        + f"    NULL AS {col_name_padronizado}, --Essa coluna não esta na versao posterior"
+                        + f"    NULL AS {col_name_padronizado}, --Essa coluna não esta na versao posterior"  # noqa
                     )
                     if dicionario_atributos is not None:
                         col_expression = (
                             col_expression
                             + f"\n    --column: {column}\n"
-                            + f"    NULL AS {col_name_padronizado_dict_atr}, --Essa coluna não esta na versao posterior"
+                            + f"    NULL AS {col_name_padronizado_dict_atr}, --Essa coluna não esta na versao posterior"  # noqa
                         )
                 else:
                     if bigquery_type == "DATE":
@@ -454,7 +453,7 @@ def create_cadunico_dbt_consolidated_models(
                             + "    SAFE_CAST(\n"
                             + "        CASE\n"
                             + f"            WHEN REGEXP_CONTAINS({col_name}, r'^\s*$') THEN NULL\n"  # noqa
-                            + f"            ELSE SAFE_CAST( TRIM({col_name}) AS INT64) / {ajuste_decimal}\n"
+                            + f"            ELSE SAFE_CAST( TRIM({col_name}) AS INT64) / {ajuste_decimal}\n"  # noqa
                             + f"        END AS {bigquery_type}\n"
                             + f"    ) AS {col_name_padronizado},"
                         )
@@ -480,7 +479,7 @@ def create_cadunico_dbt_consolidated_models(
                             for key in dicionario_atributos.keys():
                                 col_expression = (
                                     col_expression
-                                    + f"            WHEN REGEXP_CONTAINS({col_name}, r'^{key}$') THEN '{dicionario_atributos[key]}'\n"
+                                    + f"            WHEN REGEXP_CONTAINS({col_name}, r'^{key}$') THEN '{dicionario_atributos[key]}'\n"  # noqa
                                 )
                             col_expression = (
                                 col_expression
@@ -712,6 +711,7 @@ def get_dbt_models_to_materialize(
     layout_table_id: str,
     layout_output_path: str | Path,
     force_create_models: bool,
+    aditional_dbt_models_to_materialize: str,
 ) -> List[dict]:
     """
     Get tables parameters to materialize from queries/models/{dataset_id}/.
@@ -721,6 +721,12 @@ def get_dbt_models_to_materialize(
         ingested_files_output (str | Path): The path to the ingested files.
     """
     # if first_execution:
+    tables_dict = get_tables_names_dict()
+    aditional_dbt_models_to_materialize = aditional_dbt_models_to_materialize.split(",")
+
+    dbt_models_to_materialize_list = (
+        list(tables_dict.values()) + aditional_dbt_models_to_materialize
+    )
     log("STARTING LAYOUT TABLE MANAGEMENT AND DBT MODELS CREATION")
     update_layout_from_storage_and_create_versions_dbt_models(
         project_id=project_id,
@@ -753,13 +759,19 @@ def get_dbt_models_to_materialize(
     ]
 
     for _table_id_, dbt_alias in zip(tables, table_dbt_alias):
-        parameters = {
-            "dataset_id": dataset_id_original,
-            "table_id": f"{_table_id_}",
-            "dbt_alias": dbt_alias,
-        }
-        parameters_list.append(parameters)
+        if _table_id_ in dbt_models_to_materialize_list:
+            parameters = {
+                "dataset_id": dataset_id_original,
+                "table_id": f"{_table_id_}",
+                "dbt_alias": dbt_alias,
+            }
+            parameters_list.append(parameters)
 
-    parameters_list_log = json.dumps(parameters_list, indent=4)
-    log(f"{len(parameters_list)} TABLES TO MATERIALIZE:\n{parameters_list_log}")
-    return parameters_list
+    # reorder tables to materialize to put aditional_dbt_models_to_materialize in the end os the materializations # noqa
+    parameters_list_ordered = sorted(
+        parameters_list, key=lambda x: dbt_models_to_materialize_list.index(x["table_id"])
+    )
+
+    parameters_list_log = json.dumps(parameters_list_ordered, indent=4)
+    log(f"{len(parameters_list_ordered)} TABLES TO MATERIALIZE:\n{parameters_list_log}")
+    return parameters_list_ordered
