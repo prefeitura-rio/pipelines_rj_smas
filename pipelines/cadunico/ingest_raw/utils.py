@@ -722,7 +722,10 @@ def get_dbt_models_to_materialize(
     """
     # if first_execution:
     tables_dict = get_tables_names_dict()
+
+    log(f"ADITIONAL TABLES TO MATERIALIZE STR: {aditional_dbt_models_to_materialize}")
     aditional_dbt_models_to_materialize = aditional_dbt_models_to_materialize.split(",")
+    log(f"ADITIONAL TABLES TO MATERIALIZE LIST: {aditional_dbt_models_to_materialize}")
 
     dbt_models_to_materialize_list = (
         list(tables_dict.values()) + aditional_dbt_models_to_materialize
