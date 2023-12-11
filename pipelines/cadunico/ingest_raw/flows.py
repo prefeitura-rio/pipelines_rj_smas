@@ -134,6 +134,7 @@ with Flow(
             layout_table_id=layout_table_id,
             layout_output_path=layout_output_path,
             force_create_models=force_create_models,
+            aditional_dbt_models_to_materialize=aditional_dbt_models_to_materialize,
         )
         only_prod_tables_to_materialize_parameters.set_upstream(need_to_ingest_bool)
 
