@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-CADUNICO: INGEST RAW FLOW
+CADUNICO: INGEST RAW FLOW.
 """
 
 from prefect import Parameter, case
