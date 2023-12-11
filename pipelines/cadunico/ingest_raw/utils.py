@@ -776,7 +776,6 @@ def get_dbt_models_to_materialize(
         for model_name in dbt_models_to_materialize_list:
             model_table_id = model.get("table_id")
             if model_name == model_table_id:
-                print(model_name, model)
                 parameters_list_ordered.append(model)
                 break
 
