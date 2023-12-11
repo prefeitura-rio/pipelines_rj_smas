@@ -54,7 +54,7 @@ with Flow(
     )
 
     aditional_dbt_models_to_materialize = Parameter(
-        "aditional_dbt_models_to_materialize", default="bairro,endereco", required=False
+        "aditional_dbt_models_to_materialize", default="endereco,bairro,endereco", required=False
     )
     # Tasks
     project_id = get_project_id_task()

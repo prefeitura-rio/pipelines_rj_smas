@@ -1,7 +1,5 @@
-CREATE OR REPLACE TABLE `rj-smas.protecao_social_cadunico.bairro` AS (
-
 WITH address AS (
-    SELECT 
+    SELECT
         bairro_limpo AS nome_limpo_cadunico,
         SUM(count) as count
     FROM `rj-smas.protecao_social_cadunico.endereco`
@@ -9,7 +7,7 @@ WITH address AS (
 ),
 
 address_percentage AS (
-  SELECT 
+  SELECT
     a.nome_limpo_cadunico,
     count,
     ROUND(count * 100.0 / SUM(count) OVER (), 5) AS percentage,
@@ -28,7 +26,7 @@ bairro AS (
 
 )
 
-SELECT 
+SELECT
     id_bairro,
     b.nome,
     b.nome_limpo,
@@ -42,4 +40,3 @@ FROM address_percentage a
 FULL OUTER JOIN bairro b
   ON a.nome_limpo_cadunico = b.nome_limpo
 ORDER BY count DESC
-)

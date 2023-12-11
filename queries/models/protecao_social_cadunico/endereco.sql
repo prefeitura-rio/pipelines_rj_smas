@@ -1,5 +1,3 @@
-CREATE OR REPLACE TABLE `rj-smas.protecao_social_cadunico.endereco` AS (
-
 WITH endereco_tb AS (
   SELECT
     CONCAT(
@@ -104,5 +102,3 @@ FROM address_prep_tb a
 LEFT JOIN bairro b
   ON a.bairro_limpo_cadunico = b.bairro_limpo
 ORDER BY count DESC
-LIMIT 10
-)
