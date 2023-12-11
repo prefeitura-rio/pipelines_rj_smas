@@ -1,7 +1,7 @@
 version: 2
 models :
   - name: controle
-    description: Table controle
+    description: Table controle from number 00
     columns:
       - name: versao_layout_arquivo
         description: "FORMATO '06.09' | version: 0617"
@@ -15,7 +15,7 @@ models :
         description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
           0617"
   - name: identificacao_controle
-    description: Table identificacao_controle
+    description: Table identificacao_controle from number 01
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -154,7 +154,7 @@ models :
         description: 'Valor da renda média (per capita) da família, formato NNNNNNNNN
           | version: 0617'
   - name: domicilio
-    description: Table domicilio
+    description: Table domicilio from number 02
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -236,7 +236,7 @@ models :
         description: 'Qtd de comodo servindo como dormitório do domicilio, campo numérico
           de 2 posições | version: 0617'
   - name: familia
-    description: Table familia
+    description: Table familia from number 03
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -353,7 +353,7 @@ models :
         description: "Valor de despesas com transportes\nCampo numérico de 5 posições
           formato NNNNN (não existem casas decimais) | version: 0617"
   - name: identificacao_primeira_pessoa
-    description: Table identificacao_primeira_pessoa
+    description: Table identificacao_primeira_pessoa from number 04
     columns:
       - name: id_pessoa
         description: 'Chave natural atual da Pessoa | version: 0617'
@@ -494,7 +494,7 @@ models :
       - name: sigla_uf_municipio_nascimento
         description: 'UF de nascimento da Pessoa | version: 0617'
   - name: documento_pessoa
-    description: Table documento_pessoa
+    description: Table documento_pessoa from number 05
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -560,7 +560,7 @@ models :
       - name: sigla_uf_rg
         description: 'UF da CI da Pessoa | version: 0617'
   - name: pessoa_deficiencia
-    description: Table pessoa_deficiencia
+    description: Table pessoa_deficiencia from number 06
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -618,7 +618,7 @@ models :
         description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
           0617"
   - name: escolaridade
-    description: Table escolaridade
+    description: Table escolaridade from number 07
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -684,7 +684,7 @@ models :
       - name: sigla_uf_escola
         description: 'UF da Escola da Pessoa | version: 0617'
   - name: trabalho_remuneracao
-    description: Table trabalho_remuneracao
+    description: Table trabalho_remuneracao from number 08
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -822,7 +822,7 @@ models :
         description: "Valor recebido de seguro desemprego\nCampo numérico de 6 posições
           formato NNNNNN (sem casas decimais) | version: 0617"
   - name: contato
-    description: Table contato
+    description: Table contato from number 09
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -891,7 +891,7 @@ models :
       - name: contato_2_telefone
         description: '2º telefone de contato da família | version: 0617'
   - name: seguranca_alimentar
-    description: Table seguranca_alimentar
+    description: Table seguranca_alimentar from number 11
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -1073,7 +1073,7 @@ models :
         description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
           0617"
   - name: condicao_rua
-    description: Table condicao_rua
+    description: Table condicao_rua from number 12
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -1222,7 +1222,7 @@ models :
         description: 'Quantidade de vezes por semana que dorme de outra forma | version:
           0617'
   - name: status_familia
-    description: Table status_familia
+    description: Table status_familia from number 13
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -1555,7 +1555,7 @@ models :
         description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
           0617"
   - name: documento_membro
-    description: Table documento_membro
+    description: Table documento_membro from number 14
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -1865,7 +1865,7 @@ models :
         description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
           0617"
   - name: habitacao
-    description: Table habitacao
+    description: Table habitacao from number 15
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -1885,7 +1885,7 @@ models :
         description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
           0617"
   - name: transferencia_familia
-    description: Table transferencia_familia
+    description: Table transferencia_familia from number 16
     columns:
       - name: id_prefeitura_antes_transferencia
         description: 'Chave única de identificação da Prefeitura de origem antes da
@@ -1915,7 +1915,7 @@ models :
       - name: numero_registro_transferencia
         description: '16 | version: 0617'
   - name: identificacao_membro
-    description: Table identificacao_membro
+    description: Table identificacao_membro from number 17
     columns:
       - name: id_prefeitura_origem
         description: 'Chave única de identificação da Prefeitura de origem antes da
@@ -2004,7 +2004,7 @@ models :
       - name: sigla_uf_nascimento
         description: 'UF de nascimento da Pessoa | version: 0617'
   - name: exclusao_servidor
-    description: Table exclusao_servidor
+    description: Table exclusao_servidor from number 18
     columns:
       - name: id_prefeitura_exclusao
         description: 'Chave única de identificação da Prefeitura da família excluída
@@ -2074,7 +2074,7 @@ models :
         description: 'UF do Parecer da Gestão Municipal do Cadastro Único | version:
           0617'
   - name: exclusao_membro
-    description: Table exclusao_membro
+    description: Table exclusao_membro from number 19
     columns:
       - name: id_prefeitura_membro_excluido
         description: 'Chave única de identificação da Prefeitura da família a qual
@@ -2164,7 +2164,7 @@ models :
         description: 'UF do Parecer da Gestão Municipal do Cadastro Único do Membro
           Excluído | version: 0617'
   - name: representante_legal
-    description: Table representante_legal
+    description: Table representante_legal from number 20
     columns:
       - name: id_prefeitura_representante_legal
         description: 'Chave única de identificação da Prefeitura da família a qual
@@ -2267,7 +2267,7 @@ models :
         description: "Tipo de Representação Legal para aquela família\nEx.: 01-Curatela,
           02-Tutela, 03-Guarda | version: 0617"
   - name: renda
-    description: Table renda
+    description: Table renda from number 21
     columns:
       - name: id_prefeitura
         description: 'Chave única de identificação da Prefeitura | version: 0617'
@@ -2390,7 +2390,7 @@ models :
         description: 'Quantidade de meses trabalhados nos últimos 12, campo numérico
           de 2 posições, formato NN | version: 0617'
   - name: prefeitura
-    description: Table prefeitura
+    description: Table prefeitura from number 98
     columns:
       - name: id_prefeitura
         description: 'Chave de identificação da Prefeitura | version: 0617'
@@ -2409,7 +2409,7 @@ models :
         description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
           0617"
   - name: registros
-    description: Table registros
+    description: Table registros from number 99
     columns:
       - name: numero_registro_arquivo
         description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:

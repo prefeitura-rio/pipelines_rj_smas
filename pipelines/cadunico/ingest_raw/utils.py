@@ -363,7 +363,7 @@ def create_cadunico_dbt_consolidated_models(
         tables = df[df["reg"] == table_number]
         versions = tables["version"].unique()
         table_schema["name"] = model_name
-        table_schema["description"] = f"Table {model_name}"
+        table_schema["description"] = f"Table {model_name} from number {table_number}"
         table_schema["columns"] = []
         final_query = ""
         ini_query = """
