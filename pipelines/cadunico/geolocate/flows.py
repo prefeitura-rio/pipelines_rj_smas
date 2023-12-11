@@ -33,6 +33,9 @@ cadunico_geolocate_default_parameters = {
     "destination_dataset_id": "protecao_social_cadunico",
     "destination_table_id": "endereco_geolocalizado",
     "georeference_mode": "distinct",
+    "retry_request_number": 5,
+    "retry_request_time": 60,
+    "time_between_requests": 2,
 }
 cadunico_geolocate_flow = set_default_parameters(
     cadunico_geolocate_flow, default_parameters=cadunico_geolocate_default_parameters

@@ -3,13 +3,12 @@
 Schedules for cor
 """
 
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 
 from prefect.schedules import Schedule
 from prefect.schedules.clocks import IntervalClock
 
 from pipelines.constants import constants
-
 
 cadunico_geolocate_schedule = Schedule(
     clocks=[
@@ -26,6 +25,9 @@ cadunico_geolocate_schedule = Schedule(
                 "destination_dataset_id": "protecao_social_cadunico",
                 "destination_table_id": "endereco_geolocalizado",
                 "georeference_mode": "distinct",
+                "retry_request_number": 5,
+                "retry_request_time": 60,
+                "time_between_requests": 2,
             },
         ),
     ],
