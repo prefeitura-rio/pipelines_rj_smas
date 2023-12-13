@@ -28,9 +28,9 @@ bairro AS (
 
 SELECT
     id_bairro,
-    b.nome,
-    b.nome_limpo,
-    a.nome_limpo_cadunico,
+    b.nome AS bairro,
+    b.nome_limpo AS bairro_limpo,
+    a.nome_limpo_cadunico AS bairro_limpo_cadunico,
     a.count,
     a.percentage,
     subprefeitura,

@@ -77,6 +77,7 @@ bairro AS (
 )
 
 SELECT
+  address AS endereco,
   REGEXP_REPLACE(
     CONCAT(
       address_array[OFFSET(0)],
