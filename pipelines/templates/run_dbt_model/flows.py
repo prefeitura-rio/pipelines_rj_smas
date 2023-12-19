@@ -7,7 +7,7 @@ from copy import deepcopy
 
 from prefect.run_configs import KubernetesRun
 from prefect.storage import GCS
-from prefeitura_rio.pipelines_templates.run_dbt_model import (
+from prefeitura_rio.pipelines_templates.run_dbt_model.flows import (
     templates__run_dbt_model__flow,
 )
 from prefeitura_rio.pipelines_utils.prefect import set_default_parameters

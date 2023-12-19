@@ -7,7 +7,7 @@ from copy import deepcopy
 
 from prefect.run_configs import KubernetesRun
 from prefect.storage import GCS
-from prefeitura_rio.pipelines_templates.geolocate import utils_geolocate_flow
+from prefeitura_rio.pipelines_templates.geolocate.flows import utils_geolocate_flow
 from prefeitura_rio.pipelines_utils.prefect import set_default_parameters
 from prefeitura_rio.pipelines_utils.state_handlers import handler_inject_bd_credentials
 
