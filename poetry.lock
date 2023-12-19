@@ -2392,6 +2392,7 @@ geopandas = {version = "^0.14.1", optional = true}
 geopy = {version = "^2.4.1", optional = true}
 google-cloud-storage = {version = "^2.10.0", optional = true}
 infisical = {version = "^1.4.2", optional = true}
+jinja2 = "^3.1.2"
 loguru = "^0.7.0"
 pandas = {version = "^2.0.3", optional = true}
 prefect = {version = "1.4.1", optional = true}
@@ -2404,17 +2405,17 @@ sentry-sdk = {version = "^1.29.2", optional = true}
 shapely = {version = "^2.0.2", optional = true}
 
 [package.extras]
-all = ["aiohttp (>=3.8.5,<4.0.0)", "basedosdados[upload] (==2.0.0b15)", "croniter (>=2.0.1,<3.0.0)", "cx-oracle (>=8.3.0,<9.0.0)", "dask (>=2023.11.0,<2024.0.0)", "earthengine-api (>=0.1.379,<0.2.0)", "geojsplit (>=0.1.2,<0.2.0)", "geopandas (>=0.14.1,<0.15.0)", "geopy (>=2.4.1,<3.0.0)", "google-cloud-storage (>=2.10.0,<3.0.0)", "infisical (>=1.4.2,<2.0.0)", "numpy (>=1.23.3,<2.0.0)", "pandas (>=2.0.3,<3.0.0)", "pendulum (>=2.1.2,<3.0.0)", "prefect (==1.4.1)", "pymongo (>=4.6.0,<5.0.0)", "pymysql (>=1.1.0,<2.0.0)", "pyodbc (>=5.0.1,<6.0.0)", "pytz (>=2023.3,<2024.0)", "redis-pal (>=1.0.0,<2.0.0)", "requests (>=2.31.0,<3.0.0)", "scikit-learn (>=1.1.2,<2.0.0)", "sentry-sdk (>=1.29.2,<2.0.0)", "shapely (>=2.0.2,<3.0.0)"]
+all = ["aiohttp (>=3.8.5,<4.0.0)", "basedosdados[upload] (==2.0.0b15)", "croniter (>=2.0.1,<3.0.0)", "cx-oracle (>=8.3.0,<9.0.0)", "dask (>=2023.11.0,<2024.0.0)", "earthengine-api (>=0.1.379,<0.2.0)", "geojsplit (>=0.1.2,<0.2.0)", "geopandas (>=0.14.1,<0.15.0)", "geopy (>=2.4.1,<3.0.0)", "google-cloud-storage (>=2.10.0,<3.0.0)", "infisical (>=1.4.2,<2.0.0)", "jinja2 (>=3.1.2,<4.0.0)", "numpy (>=1.23.3,<2.0.0)", "pandas (>=2.0.3,<3.0.0)", "pendulum (>=2.1.2,<3.0.0)", "prefect (==1.4.1)", "pymongo (>=4.6.0,<5.0.0)", "pymysql (>=1.1.0,<2.0.0)", "pyodbc (>=5.0.1,<6.0.0)", "pytz (>=2023.3,<2024.0)", "redis-pal (>=1.0.0,<2.0.0)", "requests (>=2.31.0,<3.0.0)", "scikit-learn (>=1.1.2,<2.0.0)", "sentry-sdk (>=1.29.2,<2.0.0)", "shapely (>=2.0.2,<3.0.0)"]
 metrics = ["numpy (>=1.23.3,<2.0.0)", "scikit-learn (>=1.1.2,<2.0.0)"]
-pipelines = ["basedosdados[upload] (==2.0.0b15)", "dask (>=2023.11.0,<2024.0.0)", "google-cloud-storage (>=2.10.0,<3.0.0)", "infisical (>=1.4.2,<2.0.0)", "pandas (>=2.0.3,<3.0.0)", "prefect (==1.4.1)", "sentry-sdk (>=1.29.2,<2.0.0)"]
-pipelines-templates = ["croniter (>=2.0.1,<3.0.0)", "cx-oracle (>=8.3.0,<9.0.0)", "earthengine-api (>=0.1.379,<0.2.0)", "geojsplit (>=0.1.2,<0.2.0)", "geopandas (>=0.14.1,<0.15.0)", "geopy (>=2.4.1,<3.0.0)", "pymongo (>=4.6.0,<5.0.0)", "pymysql (>=1.1.0,<2.0.0)", "pyodbc (>=5.0.1,<6.0.0)", "redis-pal (>=1.0.0,<2.0.0)", "requests (>=2.31.0,<3.0.0)", "shapely (>=2.0.2,<3.0.0)"]
+pipelines = ["basedosdados[upload] (==2.0.0b15)", "dask (>=2023.11.0,<2024.0.0)", "google-cloud-storage (>=2.10.0,<3.0.0)", "infisical (>=1.4.2,<2.0.0)", "jinja2 (>=3.1.2,<4.0.0)", "pandas (>=2.0.3,<3.0.0)", "prefect (==1.4.1)", "sentry-sdk (>=1.29.2,<2.0.0)"]
+pipelines-templates = ["croniter (>=2.0.1,<3.0.0)", "cx-oracle (>=8.3.0,<9.0.0)", "earthengine-api (>=0.1.379,<0.2.0)", "geojsplit (>=0.1.2,<0.2.0)", "geopandas (>=0.14.1,<0.15.0)", "geopy (>=2.4.1,<3.0.0)", "jinja2 (>=3.1.2,<4.0.0)", "pymongo (>=4.6.0,<5.0.0)", "pymysql (>=1.1.0,<2.0.0)", "pyodbc (>=5.0.1,<6.0.0)", "redis-pal (>=1.0.0,<2.0.0)", "requests (>=2.31.0,<3.0.0)", "shapely (>=2.0.2,<3.0.0)"]
 sgrc = ["aiohttp (>=3.8.5,<4.0.0)", "pendulum (>=2.1.2,<3.0.0)", "pytz (>=2023.3,<2024.0)", "requests (>=2.31.0,<3.0.0)"]
 
 [package.source]
 type = "git"
 url = "https://github.com/prefeitura-rio/prefeitura-rio"
-reference = "b0de536bed8833542d34a293b5ffe7bc3f38c676"
-resolved_reference = "b0de536bed8833542d34a293b5ffe7bc3f38c676"
+reference = "af17a1b14228ccd7542b7bad06d0174bed542e32"
+resolved_reference = "af17a1b14228ccd7542b7bad06d0174bed542e32"
 
 [[package]]
 name = "proto-plus"
@@ -4079,4 +4080,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.11"
-content-hash = "76bab0836b8ab1073dabfef0ab5b911c1cdffb9e2df9a39e47293e00aded85ee"
+content-hash = "25169ca40b1bc231f0e7f08c33178e7708b8f10200cd51b17f0c5ec2afd8eb6a"
