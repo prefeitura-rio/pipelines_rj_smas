@@ -17,8 +17,9 @@ class constants(Enum):
     # Agent labels
     ######################################
     # EXAMPLE_AGENT_LABEL = "example_agent"
-
+    RJ_SMAS_AGENT_LABEL = "smas"
+    RJ_SMAS_DEV_AGENT_LABEL = "smas-dev"
     ######################################
     # Other constants
     ######################################
-    # EXAMPLE_CONSTANT = "example_constant"
+    FLOW_NAME_EXECUTE_DBT_MODEL_SMAS = "[TEMPLATE] Executar modelo DBT - SMAS"
