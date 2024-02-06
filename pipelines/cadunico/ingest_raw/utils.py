@@ -792,3 +792,25 @@ def get_dbt_models_to_materialize(
     parameters_list_log = json.dumps(parameters_list_ordered, indent=4)
     log(f"{len(parameters_list_ordered)} TABLES TO MATERIALIZE:\n{parameters_list_log}")
     return parameters_list_ordered
+
+
+def update_local_layout():
+    project_id = "rj-smas"
+    layout_dataset_id = "protecao_social_cadunico"
+    layout_table_id = "layout"
+
+    model_dataset_id = "protecao_social_cadunico"
+    model_table_id = "registro_familia"
+    force_create_models = True
+
+    output_path = f"/tmp/cadunico/layout_parsed/{layout_dataset_id}/{layout_table_id}"
+
+    update_layout_from_storage_and_create_versions_dbt_models(
+        project_id=project_id,
+        layout_dataset_id=layout_dataset_id,
+        layout_table_id=layout_table_id,
+        output_path=output_path,
+        model_dataset_id=model_dataset_id,
+        model_table_id=model_table_id,
+        force_create_models=force_create_models,
+    )
