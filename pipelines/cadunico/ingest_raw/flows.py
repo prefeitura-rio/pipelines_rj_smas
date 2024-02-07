@@ -8,6 +8,7 @@ from prefect.run_configs import KubernetesRun
 from prefect.storage import GCS
 from prefect.tasks.prefect import create_flow_run, wait_for_flow_run
 from prefect.utilities.edges import unmapped
+from prefeitura_rio.core import settings
 from prefeitura_rio.pipelines_utils.custom import Flow
 from prefeitura_rio.pipelines_utils.prefect import (
     task_get_current_flow_run_labels,
@@ -57,9 +58,7 @@ with Flow(
     )
     # Tasks
     project_id = get_project_id_task()
-    materialization_flow_id = task_get_flow_group_id(
-        flow_name=constants.FLOW_NAME_EXECUTE_DBT_MODEL_SMAS.value
-    )
+    materialization_flow_id = task_get_flow_group_id(flow_name=settings.FLOW_NAME_EXECUTE_DBT_MODEL)
     materialization_labels = task_get_current_flow_run_labels()
 
     existing_partitions = get_existing_partitions(

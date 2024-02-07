@@ -22,4 +22,3 @@ class constants(Enum):
     ######################################
     # Other constants
     ######################################
-    FLOW_NAME_EXECUTE_DBT_MODEL_SMAS = "[TEMPLATE] Executar modelo DBT - SMAS"

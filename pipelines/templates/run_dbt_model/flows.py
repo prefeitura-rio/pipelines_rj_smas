@@ -16,8 +16,6 @@ from prefeitura_rio.pipelines_utils.state_handlers import handler_inject_bd_cred
 from pipelines.constants import constants
 
 templates__run_dbt_model_smas__flow = deepcopy(templates__run_dbt_model__flow)
-templates__run_dbt_model_smas__flow.name = constants.FLOW_NAME_EXECUTE_DBT_MODEL_SMAS.value
-
 templates__run_dbt_model_smas__flow.state_handlers = [handler_inject_bd_credentials]
 
 templates__run_dbt_model_smas__flow.storage = GCS(constants.GCS_FLOWS_BUCKET.value)
