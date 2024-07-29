@@ -175,6 +175,8 @@ def parse_tables_from_xlsx(xlsx_input, csv_output, target_pattern, filter_versio
     log(f"Parsed csv file: {output_filepath}")
     df_final.to_csv(output_filepath, index=False)
 
+    return df_final
+
 
 def get_staging_partitions_versions(project_id, dataset_id, table_id):
     st = bd.Storage(dataset_id=dataset_id, table_id=table_id)
@@ -234,9 +236,11 @@ def parse_xlsx_files_and_save_partition(output_path, raw_filespaths_to_ingest):
         csv_output = Path(output_path) / f"versao_layout_particao={version}"
         csv_output.mkdir(parents=True, exist_ok=True)
         csv_name = name.replace(".xlsx", ".csv").replace(".xls", ".csv")
-        version_float = str(float(version[:2] + "." + version[2:]))
 
-        parse_tables_from_xlsx(
+        version_float = str(float(version[:2] + "." + version[2:]))
+        version_float = version_float if len(version_float) == 4 else f"{version_float}0"
+
+        df_final = parse_tables_from_xlsx(  # noqa
             xlsx_input=raw_file,
             csv_output=csv_output / csv_name,
             target_pattern="LEIAUTE VERSÃO",
