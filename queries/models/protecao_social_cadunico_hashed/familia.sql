@@ -1,0 +1,25 @@
+CREATE OR REPLACE TABLE `rj-smas-dev-432320.protecao_social_cadunico.familia` AS
+SELECT
+  id_familia,
+  familia_indigena,
+  familia_quilombola,
+  pessoas_internadas_0_17_anos,
+  pessoas_internadas_18_59_anos,
+  pessoas_internadas_mais_60_anos,
+  pessoas_domicilio,
+  despesa_agua_esgoto,
+  despesa_alimentacao,
+  despesa_aluguel,
+  despesa_energia,
+  despesa_gas,
+  despesa_medicamentos,
+  despesa_transporte,
+  nao_tem_despesa_agua_esgoto,
+  nao_tem_despesa_alimentacao,
+  nao_tem_despesa_aluguel,
+  nao_tem_despesa_energia,
+  nao_tem_despesa_gas,
+  nao_tem_despesa_medicamentos,
+  nao_tem_despesa_transporte,
+FROM `rj-smas.protecao_social_cadunico.familia`
+where data_particao >= "2024-07-01"
