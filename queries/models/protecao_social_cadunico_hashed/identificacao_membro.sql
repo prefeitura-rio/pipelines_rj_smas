@@ -1,4 +1,4 @@
-CREATE OR REPLACE TABLE `rj-smas-dev-432320.protecao_social_cadunico.identificacao_membro` AS
+-- CREATE OR REPLACE TABLE `rj-smas-dev-432320.protecao_social_cadunico.identificacao_membro` AS
 with raw_table AS
 (
   SELECT

@@ -1,4 +1,4 @@
-CREATE OR REPLACE TABLE `rj-smas-dev-432320.protecao_social_cadunico.pessoa_deficiencia` AS
+-- CREATE OR REPLACE TABLE `rj-smas-dev-432320.protecao_social_cadunico.pessoa_deficiencia` AS
 SELECT
   id_familia,
   id_membro_familia,

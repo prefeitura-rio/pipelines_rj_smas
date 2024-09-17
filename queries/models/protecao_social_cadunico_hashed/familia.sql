@@ -1,4 +1,4 @@
-CREATE OR REPLACE TABLE `rj-smas-dev-432320.protecao_social_cadunico.familia` AS
+-- CREATE OR REPLACE TABLE `rj-smas-dev-432320.protecao_social_cadunico.familia` AS
 SELECT
   id_familia,
   familia_indigena,
@@ -21,5 +21,9 @@ SELECT
   nao_tem_despesa_gas,
   nao_tem_despesa_medicamentos,
   nao_tem_despesa_transporte,
+  id_cras_creas,
+  cras_creas,
+  id_estabelecimento_saude,
+  estabelecimento_saude,
 FROM `rj-smas.protecao_social_cadunico.familia`
 where data_particao >= "2024-07-01"
