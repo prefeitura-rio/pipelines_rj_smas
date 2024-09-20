@@ -11,5 +11,6 @@ SELECT
   id_sabe_ler_escrever,
   escola_nao_tem_inep,
   frequenta_escola,
+  data_particao
 FROM `rj-smas.protecao_social_cadunico.escolaridade`
 where data_particao >= "2024-07-01"

@@ -9,7 +9,6 @@ with raw_table AS
     data_particao
   FROM `rj-smas.protecao_social_cadunico.identificacao_membro`
   WHERE data_particao = "2024-07-01"
-  AND id_estado_cadastral != "4"
 )
 SELECT
   * EXCEPT(idade),

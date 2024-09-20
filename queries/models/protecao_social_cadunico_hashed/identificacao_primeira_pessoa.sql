@@ -10,10 +10,14 @@ with raw_table AS
     id_sexo,
     DATE_DIFF(CURRENT_DATE, CAST(data_nascimento AS DATE), YEAR) idade,
     trabalho_infantil,
+    id_parentesco_responsavel_familia,
+    parentesco_responsavel_familia,
+    id_estado_cadastral,
+    estado_cadastral,
     data_particao
   FROM `rj-smas.protecao_social_cadunico.identificacao_primeira_pessoa`
-  WHERE data_particao = "2024-06-15"
-  AND id_estado_cadastral != "4"
+  WHERE data_particao >= "2024-07-01"
+  -- AND id_estado_cadastral != "4"
 )
 SELECT
   * EXCEPT(idade),

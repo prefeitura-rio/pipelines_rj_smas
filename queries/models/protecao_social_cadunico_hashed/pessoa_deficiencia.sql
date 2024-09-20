@@ -11,5 +11,6 @@ SELECT
   deficiencia_surdez_leve,
   deficiencia_surdez_profunda,
   deficiencia_transtorno_mental,
+  data_particao
 FROM `rj-smas.protecao_social_cadunico.pessoa_deficiencia`
 where data_particao >= "2024-07-01"
