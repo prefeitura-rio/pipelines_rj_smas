@@ -1,6 +1,7 @@
 CREATE OR REPLACE TABLE `rj-smas-dev-432320.protecao_social_cadunico.identificacao_controle` AS
 SELECT
   id_familia,
+  valor_renda_media,
   condicao_cadastro,
   estado_cadastro,
   data_alteracao,
