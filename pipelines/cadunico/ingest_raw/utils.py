@@ -13,8 +13,9 @@ import pandas as pd
 import ruamel.yaml as ryaml
 from google.cloud.storage.blob import Blob
 from prefeitura_rio.pipelines_utils.bd import create_table_and_upload_to_gcs
-from prefeitura_rio.pipelines_utils.io import get_root_path, to_partitions
+from prefeitura_rio.pipelines_utils.io import get_root_path
 from prefeitura_rio.pipelines_utils.logging import log
+from prefeitura_rio.pipelines_utils.pandas import to_partitions
 from unidecode import unidecode
 
 
