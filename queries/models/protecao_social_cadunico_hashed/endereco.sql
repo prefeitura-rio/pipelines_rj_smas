@@ -41,16 +41,19 @@ WITH endereco_tb AS (
         END, NFD)), r'[^a-z0-9]+', ''),
       r'\s+', ' '
     ) AS bairro_limpo_cadunico,
+    data_particao
   FROM `rj-smas.protecao_social_cadunico.identificacao_controle`
+  where data_particao >= "2024-07-01"
 ),
 
 address_tb AS (
     SELECT
     distinct
     id_familia,
-      REGEXP_REPLACE(address, r'\s+', ' ') AS address,
-      bairro_cadunico,
-      bairro_limpo_cadunico,
+    REGEXP_REPLACE(address, r'\s+', ' ') AS address,
+    bairro_cadunico,
+    bairro_limpo_cadunico,
+    data_particao
   FROM endereco_tb
 ),
 
@@ -61,6 +64,7 @@ address_prep_tb AS (
         SPLIT(address, ',') AS address_array,
         bairro_cadunico,
         bairro_limpo_cadunico,
+        data_particao
     FROM address_tb
 ),
 
@@ -95,6 +99,7 @@ endereco_normalizado AS (
   a.bairro_cadunico,
   a.bairro_limpo_cadunico,
   b.subprefeitura,
+  a.data_particao
 FROM address_prep_tb a
 LEFT JOIN bairro b
   ON a.bairro_limpo_cadunico = b.bairro_limpo
@@ -104,7 +109,8 @@ LEFT JOIN bairro b
   SELECT
     -- count(distinct end_geo.address)
     id_familia,
-    ibge.CD_SETOR AS id_setor_censitario
+    ibge.CD_SETOR AS id_setor_censitario,
+    data_particao
   FROM endereco_normalizado end_norm
   INNER JOIN rj-smas.protecao_social_cadunico.endereco_geolocalizado end_geo ON end_norm.address = end_geo.address AND end_geo.geometry IS NOT NULL
   INNER JOIN `rj-escritorio-dev.dados_mestres_staging.ibge_setor_censitario_2022` ibge ON ST_Within(ST_GEOGPOINT(end_geo.longitude, end_geo.latitude), ST_GEOGFROMTEXT(ibge.geometry)) 

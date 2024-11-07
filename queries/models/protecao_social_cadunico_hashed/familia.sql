@@ -25,5 +25,6 @@ SELECT
   cras_creas,
   id_estabelecimento_saude,
   estabelecimento_saude,
+  data_particao
 FROM `rj-smas.protecao_social_cadunico.familia`
 where data_particao >= "2024-07-01"
