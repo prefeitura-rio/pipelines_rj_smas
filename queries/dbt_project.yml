@@ -27,3 +27,6 @@ models:
     protecao_social_cadunico:
       +materialized: table
       +schema: protecao_social_cadunico
+    app_identidade_unica:
+      +materialized: table
+      +schema: app_identidade_unica
