@@ -1,3 +1,15 @@
+{{
+    config(
+        materialized="table",
+        cluster_by="cpf",
+        partition_by={
+            "field": "cpf_particao",
+            "data_type": "int64",
+            "range": {"start": 0, "end": 100000000000, "interval": 34722222},
+        },
+    )
+}}
+
 with
     documento_pessoa_tb as (
         select
@@ -148,7 +160,6 @@ with
             array_agg(
                 struct(
                     dp.cpf_valido_indicador,
-                    dp.numeros_membros_familia,
                     dp.nome,
                     dp.raca_cor,
                     dp.sexo,
@@ -160,7 +171,8 @@ with
                     dp.data_ultima_atualizacao,
                     dp.data_cadastro,
                     dp.nome_mae,
-                    dp.nome_pai
+                    dp.nome_pai,
+                    dp.numeros_membros_familia
                 )
             ) as dados,
             array_agg(struct(dp.tem_deficiencia, dp.tipo_deficiencia)) as deficiencia,
@@ -187,9 +199,10 @@ select
     dp.id_familia,
     dp.data_particao,
     dp.dados,
-    dp.deficiencia,
     m.membros,
-    dp.renda
+    dp.deficiencia,
+    dp.renda,
+    safe_cast(dp.cpf as int64) as cpf_particao
 from dados dp
 left join
     membros m on dp.id_familia = m.id_familia and dp.data_particao = m.data_particao
