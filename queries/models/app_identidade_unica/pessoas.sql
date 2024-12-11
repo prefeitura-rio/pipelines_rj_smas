@@ -117,7 +117,7 @@ with
             r.renda_pensao_alimenticia,
             r.renda_seguro_desemprego,
             r.nao_recebe_remuneracao,
-
+            {{ validate_cpf("cpf") }} as cpf_valido_indicador,
         from documento_pessoa_tb dp
         left join
             identificacao as i
@@ -147,6 +147,7 @@ with
             dp.data_particao,
             array_agg(
                 struct(
+                    dp.cpf_valido_indicador,
                     dp.numeros_membros_familia,
                     dp.nome,
                     dp.raca_cor,
@@ -192,3 +193,4 @@ select
 from dados dp
 left join
     membros m on dp.id_familia = m.id_familia and dp.data_particao = m.data_particao
+order by id_familia
