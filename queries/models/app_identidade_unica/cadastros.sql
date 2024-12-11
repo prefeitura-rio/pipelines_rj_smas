@@ -191,19 +191,26 @@ with
         from documento_pessoa_tb_filter dp
         where rank = 1
         group by dp.cpf, dp.id_membro_familia, dp.id_familia, dp.data_particao
+    ),
+
+    final_data as (
+        select
+            dp.cpf,
+            dp.id_membro_familia,
+            dp.id_familia,
+            dp.data_particao,
+            dp.dados,
+            m.membros,
+            dp.deficiencia,
+            dp.renda,
+            safe_cast(dp.cpf as int64) as cpf_particao
+        from dados dp
+        left join
+            membros m
+            on dp.id_familia = m.id_familia
+            and dp.data_particao = m.data_particao
+        order by id_familia
     )
 
-select
-    dp.cpf,
-    dp.id_membro_familia,
-    dp.id_familia,
-    dp.data_particao,
-    dp.dados,
-    m.membros,
-    dp.deficiencia,
-    dp.renda,
-    safe_cast(dp.cpf as int64) as cpf_particao
-from dados dp
-left join
-    membros m on dp.id_familia = m.id_familia and dp.data_particao = m.data_particao
-order by id_familia
+select *
+from final_data
