@@ -147,7 +147,6 @@ with
             and dp.id_familia = r.id_familia
             and dp.data_particao = r.data_particao
         where cpf is not null
-        order by cpf
 
     ),
 
@@ -209,7 +208,6 @@ with
             membros m
             on dp.id_familia = m.id_familia
             and dp.data_particao = m.data_particao
-        order by id_familia
     )
 
 select *
