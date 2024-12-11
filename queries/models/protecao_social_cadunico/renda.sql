@@ -246,6 +246,22 @@ SELECT
         END AS FLOAT64
     ) AS renda_outras_rendas,
 
+    --column: fx_rnd_val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,61,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,61,2))
+        END AS STRING
+    ) AS renda_outras_rendas_original,
+
+    --column: fx_rnd_val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,2))
+        END AS STRING
+    ) AS renda_emprego_ultimo_mes_original,
+
     --column: fx_rnd_val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -253,6 +269,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_emprego_ultimo_mes,
+
+    --column: fx_rnd_val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,55,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,55,2))
+        END AS STRING
+    ) AS renda_aposentadoria_original,
 
     --column: fx_rnd_val_renda_aposent_memb
     SAFE_CAST(
@@ -263,6 +287,14 @@ SELECT
     ) AS renda_aposentadoria,
 
     --column: fx_rnd_val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,51,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,51,2))
+        END AS STRING
+    ) AS renda_bruta_12_meses_original,
+
+    --column: fx_rnd_val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,51,2), r'^\s*$') THEN NULL
@@ -271,12 +303,28 @@ SELECT
     ) AS renda_bruta_12_meses,
 
     --column: fx_rnd_val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,53,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,53,2))
+        END AS STRING
+    ) AS renda_doacao_original,
+
+    --column: fx_rnd_val_renda_doacao_memb
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,53,2), r'^\s*$') THEN NULL
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,53,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_doacao,
+
+    --column: fx_rnd_val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,2))
+        END AS STRING
+    ) AS renda_pensao_alimenticia_original,
 
     --column: fx_rnd_val_renda_pensao_alimen_memb
     SAFE_CAST(
@@ -293,6 +341,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,57,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_seguro_desemprego,
+
+    --column: fx_rnd_val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,57,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,57,2))
+        END AS STRING
+    ) AS renda_seguro_desemprego_original,
 
     --column: ind_val_remuner_emprego_memb
     CAST(
@@ -569,6 +625,22 @@ SELECT
         END AS FLOAT64
     ) AS renda_outras_rendas,
 
+    --column: fx_rnd_val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,61,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,61,2))
+        END AS STRING
+    ) AS renda_outras_rendas_original,
+
+    --column: fx_rnd_val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,2))
+        END AS STRING
+    ) AS renda_emprego_ultimo_mes_original,
+
     --column: fx_rnd_val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -576,6 +648,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_emprego_ultimo_mes,
+
+    --column: fx_rnd_val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,55,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,55,2))
+        END AS STRING
+    ) AS renda_aposentadoria_original,
 
     --column: fx_rnd_val_renda_aposent_memb
     SAFE_CAST(
@@ -586,6 +666,14 @@ SELECT
     ) AS renda_aposentadoria,
 
     --column: fx_rnd_val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,51,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,51,2))
+        END AS STRING
+    ) AS renda_bruta_12_meses_original,
+
+    --column: fx_rnd_val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,51,2), r'^\s*$') THEN NULL
@@ -594,12 +682,28 @@ SELECT
     ) AS renda_bruta_12_meses,
 
     --column: fx_rnd_val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,53,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,53,2))
+        END AS STRING
+    ) AS renda_doacao_original,
+
+    --column: fx_rnd_val_renda_doacao_memb
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,53,2), r'^\s*$') THEN NULL
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,53,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_doacao,
+
+    --column: fx_rnd_val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,2))
+        END AS STRING
+    ) AS renda_pensao_alimenticia_original,
 
     --column: fx_rnd_val_renda_pensao_alimen_memb
     SAFE_CAST(
@@ -616,6 +720,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,57,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_seguro_desemprego,
+
+    --column: fx_rnd_val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,57,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,57,2))
+        END AS STRING
+    ) AS renda_seguro_desemprego_original,
 
     --column: ind_val_remuner_emprego_memb
     CAST(
@@ -892,6 +1004,22 @@ SELECT
         END AS FLOAT64
     ) AS renda_outras_rendas,
 
+    --column: fx_rnd_val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,61,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,61,2))
+        END AS STRING
+    ) AS renda_outras_rendas_original,
+
+    --column: fx_rnd_val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,2))
+        END AS STRING
+    ) AS renda_emprego_ultimo_mes_original,
+
     --column: fx_rnd_val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -899,6 +1027,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_emprego_ultimo_mes,
+
+    --column: fx_rnd_val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,55,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,55,2))
+        END AS STRING
+    ) AS renda_aposentadoria_original,
 
     --column: fx_rnd_val_renda_aposent_memb
     SAFE_CAST(
@@ -909,6 +1045,14 @@ SELECT
     ) AS renda_aposentadoria,
 
     --column: fx_rnd_val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,51,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,51,2))
+        END AS STRING
+    ) AS renda_bruta_12_meses_original,
+
+    --column: fx_rnd_val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,51,2), r'^\s*$') THEN NULL
@@ -917,12 +1061,28 @@ SELECT
     ) AS renda_bruta_12_meses,
 
     --column: fx_rnd_val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,53,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,53,2))
+        END AS STRING
+    ) AS renda_doacao_original,
+
+    --column: fx_rnd_val_renda_doacao_memb
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,53,2), r'^\s*$') THEN NULL
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,53,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_doacao,
+
+    --column: fx_rnd_val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,2))
+        END AS STRING
+    ) AS renda_pensao_alimenticia_original,
 
     --column: fx_rnd_val_renda_pensao_alimen_memb
     SAFE_CAST(
@@ -939,6 +1099,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,57,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_seguro_desemprego,
+
+    --column: fx_rnd_val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,57,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,57,2))
+        END AS STRING
+    ) AS renda_seguro_desemprego_original,
 
     --column: ind_val_remuner_emprego_memb
     CAST(
@@ -1215,6 +1383,22 @@ SELECT
         END AS FLOAT64
     ) AS renda_outras_rendas,
 
+    --column: fx_rnd_val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,61,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,61,2))
+        END AS STRING
+    ) AS renda_outras_rendas_original,
+
+    --column: fx_rnd_val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,2))
+        END AS STRING
+    ) AS renda_emprego_ultimo_mes_original,
+
     --column: fx_rnd_val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -1222,6 +1406,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_emprego_ultimo_mes,
+
+    --column: fx_rnd_val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,55,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,55,2))
+        END AS STRING
+    ) AS renda_aposentadoria_original,
 
     --column: fx_rnd_val_renda_aposent_memb
     SAFE_CAST(
@@ -1232,6 +1424,14 @@ SELECT
     ) AS renda_aposentadoria,
 
     --column: fx_rnd_val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,51,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,51,2))
+        END AS STRING
+    ) AS renda_bruta_12_meses_original,
+
+    --column: fx_rnd_val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,51,2), r'^\s*$') THEN NULL
@@ -1240,12 +1440,28 @@ SELECT
     ) AS renda_bruta_12_meses,
 
     --column: fx_rnd_val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,53,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,53,2))
+        END AS STRING
+    ) AS renda_doacao_original,
+
+    --column: fx_rnd_val_renda_doacao_memb
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,53,2), r'^\s*$') THEN NULL
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,53,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_doacao,
+
+    --column: fx_rnd_val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,2))
+        END AS STRING
+    ) AS renda_pensao_alimenticia_original,
 
     --column: fx_rnd_val_renda_pensao_alimen_memb
     SAFE_CAST(
@@ -1262,6 +1478,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,57,2)) AS INT64) / 100
         END AS FLOAT64
     ) AS renda_seguro_desemprego,
+
+    --column: fx_rnd_val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,57,2), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,57,2))
+        END AS STRING
+    ) AS renda_seguro_desemprego_original,
 
     --column: ind_val_remuner_emprego_memb
     CAST(

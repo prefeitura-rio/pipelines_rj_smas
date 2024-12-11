@@ -214,6 +214,14 @@ SELECT
         END AS FLOAT64
     ) AS outras_fontes,
 
+    --column: val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,83,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,83,5))
+        END AS STRING
+    ) AS outras_fontes_original,
+
     --column: val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -221,6 +229,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,5)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao,
+
+    --column: val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,5))
+        END AS STRING
+    ) AS remuneracao_original,
 
     --column: val_renda_aposent_memb
     SAFE_CAST(
@@ -230,6 +246,22 @@ SELECT
         END AS FLOAT64
     ) AS aposentadoria,
 
+    --column: val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,65,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,65,5))
+        END AS STRING
+    ) AS aposentadoria_original,
+
+    --column: val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,54,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,54,5))
+        END AS STRING
+    ) AS remuneracao_bruta_original,
+
     --column: val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
@@ -237,6 +269,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,54,5)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao_bruta,
+
+    --column: val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,5))
+        END AS STRING
+    ) AS doacoes_original,
 
     --column: val_renda_doacao_memb
     SAFE_CAST(
@@ -254,6 +294,14 @@ SELECT
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
+    --column: val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,77,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,77,5))
+        END AS STRING
+    ) AS pensao_alimenticia_original,
+
     --column: val_renda_seguro_desemp_memb
     SAFE_CAST(
         CASE
@@ -261,6 +309,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,71,5)) AS INT64) / 100
         END AS FLOAT64
     ) AS seguro_desemprego,
+
+    --column: val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,71,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,71,5))
+        END AS STRING
+    ) AS seguro_desemprego_original,
     SAFE_CAST(versao_layout_particao AS STRING) AS versao_layout,
     SAFE_CAST(data_particao AS DATE) AS data_particao
 FROM `rj-smas.protecao_social_cadunico_staging.registro_familia`
@@ -473,6 +529,14 @@ SELECT
         END AS FLOAT64
     ) AS outras_fontes,
 
+    --column: val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,83,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,83,5))
+        END AS STRING
+    ) AS outras_fontes_original,
+
     --column: val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -480,6 +544,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,5)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao,
+
+    --column: val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,5))
+        END AS STRING
+    ) AS remuneracao_original,
 
     --column: val_renda_aposent_memb
     SAFE_CAST(
@@ -489,6 +561,22 @@ SELECT
         END AS FLOAT64
     ) AS aposentadoria,
 
+    --column: val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,65,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,65,5))
+        END AS STRING
+    ) AS aposentadoria_original,
+
+    --column: val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,54,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,54,5))
+        END AS STRING
+    ) AS remuneracao_bruta_original,
+
     --column: val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
@@ -496,6 +584,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,54,5)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao_bruta,
+
+    --column: val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,5))
+        END AS STRING
+    ) AS doacoes_original,
 
     --column: val_renda_doacao_memb
     SAFE_CAST(
@@ -513,6 +609,14 @@ SELECT
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
+    --column: val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,77,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,77,5))
+        END AS STRING
+    ) AS pensao_alimenticia_original,
+
     --column: val_renda_seguro_desemp_memb
     SAFE_CAST(
         CASE
@@ -520,6 +624,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,71,5)) AS INT64) / 100
         END AS FLOAT64
     ) AS seguro_desemprego,
+
+    --column: val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,71,5), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,71,5))
+        END AS STRING
+    ) AS seguro_desemprego_original,
     SAFE_CAST(versao_layout_particao AS STRING) AS versao_layout,
     SAFE_CAST(data_particao AS DATE) AS data_particao
 FROM `rj-smas.protecao_social_cadunico_staging.registro_familia`
@@ -732,6 +844,14 @@ SELECT
         END AS FLOAT64
     ) AS outras_fontes,
 
+    --column: val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,89,6))
+        END AS STRING
+    ) AS outras_fontes_original,
+
     --column: val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -739,6 +859,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao,
+
+    --column: val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,6))
+        END AS STRING
+    ) AS remuneracao_original,
 
     --column: val_renda_aposent_memb
     SAFE_CAST(
@@ -748,6 +876,22 @@ SELECT
         END AS FLOAT64
     ) AS aposentadoria,
 
+    --column: val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,68,6))
+        END AS STRING
+    ) AS aposentadoria_original,
+
+    --column: val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,55,6))
+        END AS STRING
+    ) AS remuneracao_bruta_original,
+
     --column: val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
@@ -755,6 +899,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao_bruta,
+
+    --column: val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,61,6))
+        END AS STRING
+    ) AS doacoes_original,
 
     --column: val_renda_doacao_memb
     SAFE_CAST(
@@ -772,6 +924,14 @@ SELECT
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
+    --column: val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,82,6))
+        END AS STRING
+    ) AS pensao_alimenticia_original,
+
     --column: val_renda_seguro_desemp_memb
     SAFE_CAST(
         CASE
@@ -779,6 +939,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS seguro_desemprego,
+
+    --column: val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,75,6))
+        END AS STRING
+    ) AS seguro_desemprego_original,
     SAFE_CAST(versao_layout_particao AS STRING) AS versao_layout,
     SAFE_CAST(data_particao AS DATE) AS data_particao
 FROM `rj-smas.protecao_social_cadunico_staging.registro_familia`
@@ -1075,6 +1243,14 @@ SELECT
         END AS FLOAT64
     ) AS outras_fontes,
 
+    --column: val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,89,6))
+        END AS STRING
+    ) AS outras_fontes_original,
+
     --column: val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -1082,6 +1258,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao,
+
+    --column: val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,6))
+        END AS STRING
+    ) AS remuneracao_original,
 
     --column: val_renda_aposent_memb
     SAFE_CAST(
@@ -1091,6 +1275,22 @@ SELECT
         END AS FLOAT64
     ) AS aposentadoria,
 
+    --column: val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,68,6))
+        END AS STRING
+    ) AS aposentadoria_original,
+
+    --column: val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,55,6))
+        END AS STRING
+    ) AS remuneracao_bruta_original,
+
     --column: val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
@@ -1098,6 +1298,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao_bruta,
+
+    --column: val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,61,6))
+        END AS STRING
+    ) AS doacoes_original,
 
     --column: val_renda_doacao_memb
     SAFE_CAST(
@@ -1115,6 +1323,14 @@ SELECT
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
+    --column: val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,82,6))
+        END AS STRING
+    ) AS pensao_alimenticia_original,
+
     --column: val_renda_seguro_desemp_memb
     SAFE_CAST(
         CASE
@@ -1122,6 +1338,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS seguro_desemprego,
+
+    --column: val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,75,6))
+        END AS STRING
+    ) AS seguro_desemprego_original,
     SAFE_CAST(versao_layout_particao AS STRING) AS versao_layout,
     SAFE_CAST(data_particao AS DATE) AS data_particao
 FROM `rj-smas.protecao_social_cadunico_staging.registro_familia`
@@ -1418,6 +1642,14 @@ SELECT
         END AS FLOAT64
     ) AS outras_fontes,
 
+    --column: val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,89,6))
+        END AS STRING
+    ) AS outras_fontes_original,
+
     --column: val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -1425,6 +1657,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao,
+
+    --column: val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,6))
+        END AS STRING
+    ) AS remuneracao_original,
 
     --column: val_renda_aposent_memb
     SAFE_CAST(
@@ -1434,6 +1674,22 @@ SELECT
         END AS FLOAT64
     ) AS aposentadoria,
 
+    --column: val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,68,6))
+        END AS STRING
+    ) AS aposentadoria_original,
+
+    --column: val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,55,6))
+        END AS STRING
+    ) AS remuneracao_bruta_original,
+
     --column: val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
@@ -1441,6 +1697,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao_bruta,
+
+    --column: val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,61,6))
+        END AS STRING
+    ) AS doacoes_original,
 
     --column: val_renda_doacao_memb
     SAFE_CAST(
@@ -1458,6 +1722,14 @@ SELECT
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
+    --column: val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,82,6))
+        END AS STRING
+    ) AS pensao_alimenticia_original,
+
     --column: val_renda_seguro_desemp_memb
     SAFE_CAST(
         CASE
@@ -1465,6 +1737,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS seguro_desemprego,
+
+    --column: val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,75,6))
+        END AS STRING
+    ) AS seguro_desemprego_original,
     SAFE_CAST(versao_layout_particao AS STRING) AS versao_layout,
     SAFE_CAST(data_particao AS DATE) AS data_particao
 FROM `rj-smas.protecao_social_cadunico_staging.registro_familia`
@@ -1781,6 +2061,14 @@ SELECT
         END AS FLOAT64
     ) AS outras_fontes,
 
+    --column: val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,89,6))
+        END AS STRING
+    ) AS outras_fontes_original,
+
     --column: val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -1788,6 +2076,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao,
+
+    --column: val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,6))
+        END AS STRING
+    ) AS remuneracao_original,
 
     --column: val_renda_aposent_memb
     SAFE_CAST(
@@ -1797,6 +2093,22 @@ SELECT
         END AS FLOAT64
     ) AS aposentadoria,
 
+    --column: val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,68,6))
+        END AS STRING
+    ) AS aposentadoria_original,
+
+    --column: val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,55,6))
+        END AS STRING
+    ) AS remuneracao_bruta_original,
+
     --column: val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
@@ -1804,6 +2116,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao_bruta,
+
+    --column: val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,61,6))
+        END AS STRING
+    ) AS doacoes_original,
 
     --column: val_renda_doacao_memb
     SAFE_CAST(
@@ -1821,6 +2141,14 @@ SELECT
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
+    --column: val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,82,6))
+        END AS STRING
+    ) AS pensao_alimenticia_original,
+
     --column: val_renda_seguro_desemp_memb
     SAFE_CAST(
         CASE
@@ -1828,6 +2156,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS seguro_desemprego,
+
+    --column: val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,75,6))
+        END AS STRING
+    ) AS seguro_desemprego_original,
     SAFE_CAST(versao_layout_particao AS STRING) AS versao_layout,
     SAFE_CAST(data_particao AS DATE) AS data_particao
 FROM `rj-smas.protecao_social_cadunico_staging.registro_familia`
@@ -2144,6 +2480,14 @@ SELECT
         END AS FLOAT64
     ) AS outras_fontes,
 
+    --column: val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,89,6))
+        END AS STRING
+    ) AS outras_fontes_original,
+
     --column: val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -2151,6 +2495,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao,
+
+    --column: val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,6))
+        END AS STRING
+    ) AS remuneracao_original,
 
     --column: val_renda_aposent_memb
     SAFE_CAST(
@@ -2160,6 +2512,22 @@ SELECT
         END AS FLOAT64
     ) AS aposentadoria,
 
+    --column: val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,68,6))
+        END AS STRING
+    ) AS aposentadoria_original,
+
+    --column: val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,55,6))
+        END AS STRING
+    ) AS remuneracao_bruta_original,
+
     --column: val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
@@ -2167,6 +2535,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao_bruta,
+
+    --column: val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,61,6))
+        END AS STRING
+    ) AS doacoes_original,
 
     --column: val_renda_doacao_memb
     SAFE_CAST(
@@ -2184,6 +2560,14 @@ SELECT
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
+    --column: val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,82,6))
+        END AS STRING
+    ) AS pensao_alimenticia_original,
+
     --column: val_renda_seguro_desemp_memb
     SAFE_CAST(
         CASE
@@ -2191,6 +2575,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS seguro_desemprego,
+
+    --column: val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,75,6))
+        END AS STRING
+    ) AS seguro_desemprego_original,
     SAFE_CAST(versao_layout_particao AS STRING) AS versao_layout,
     SAFE_CAST(data_particao AS DATE) AS data_particao
 FROM `rj-smas.protecao_social_cadunico_staging.registro_familia`
@@ -2507,6 +2899,14 @@ SELECT
         END AS FLOAT64
     ) AS outras_fontes,
 
+    --column: val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,89,6))
+        END AS STRING
+    ) AS outras_fontes_original,
+
     --column: val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -2514,6 +2914,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao,
+
+    --column: val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,6))
+        END AS STRING
+    ) AS remuneracao_original,
 
     --column: val_renda_aposent_memb
     SAFE_CAST(
@@ -2523,6 +2931,22 @@ SELECT
         END AS FLOAT64
     ) AS aposentadoria,
 
+    --column: val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,68,6))
+        END AS STRING
+    ) AS aposentadoria_original,
+
+    --column: val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,55,6))
+        END AS STRING
+    ) AS remuneracao_bruta_original,
+
     --column: val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
@@ -2530,6 +2954,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao_bruta,
+
+    --column: val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,61,6))
+        END AS STRING
+    ) AS doacoes_original,
 
     --column: val_renda_doacao_memb
     SAFE_CAST(
@@ -2547,6 +2979,14 @@ SELECT
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
+    --column: val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,82,6))
+        END AS STRING
+    ) AS pensao_alimenticia_original,
+
     --column: val_renda_seguro_desemp_memb
     SAFE_CAST(
         CASE
@@ -2554,6 +2994,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS seguro_desemprego,
+
+    --column: val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,75,6))
+        END AS STRING
+    ) AS seguro_desemprego_original,
     SAFE_CAST(versao_layout_particao AS STRING) AS versao_layout,
     SAFE_CAST(data_particao AS DATE) AS data_particao
 FROM `rj-smas.protecao_social_cadunico_staging.registro_familia`
@@ -2870,6 +3318,14 @@ SELECT
         END AS FLOAT64
     ) AS outras_fontes,
 
+    --column: val_outras_rendas_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,89,6))
+        END AS STRING
+    ) AS outras_fontes_original,
+
     --column: val_remuner_emprego_memb
     SAFE_CAST(
         CASE
@@ -2877,6 +3333,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao,
+
+    --column: val_remuner_emprego_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,45,6))
+        END AS STRING
+    ) AS remuneracao_original,
 
     --column: val_renda_aposent_memb
     SAFE_CAST(
@@ -2886,6 +3350,22 @@ SELECT
         END AS FLOAT64
     ) AS aposentadoria,
 
+    --column: val_renda_aposent_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,68,6))
+        END AS STRING
+    ) AS aposentadoria_original,
+
+    --column: val_renda_bruta_12_meses_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,55,6))
+        END AS STRING
+    ) AS remuneracao_bruta_original,
+
     --column: val_renda_bruta_12_meses_memb
     SAFE_CAST(
         CASE
@@ -2893,6 +3373,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS remuneracao_bruta,
+
+    --column: val_renda_doacao_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,61,6))
+        END AS STRING
+    ) AS doacoes_original,
 
     --column: val_renda_doacao_memb
     SAFE_CAST(
@@ -2910,6 +3398,14 @@ SELECT
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
+    --column: val_renda_pensao_alimen_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,82,6))
+        END AS STRING
+    ) AS pensao_alimenticia_original,
+
     --column: val_renda_seguro_desemp_memb
     SAFE_CAST(
         CASE
@@ -2917,6 +3413,14 @@ SELECT
             ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
         END AS FLOAT64
     ) AS seguro_desemprego,
+
+    --column: val_renda_seguro_desemp_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,75,6))
+        END AS STRING
+    ) AS seguro_desemprego_original,
     SAFE_CAST(versao_layout_particao AS STRING) AS versao_layout,
     SAFE_CAST(data_particao AS DATE) AS data_particao
 FROM `rj-smas.protecao_social_cadunico_staging.registro_familia`

@@ -429,6 +429,14 @@ SELECT
     ) AS refencia_logradouro,
 
     --column: vlr_renda_media_fam
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,9))
+        END AS STRING
+    ) AS valor_renda_media_original,
+
+    --column: vlr_renda_media_fam
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
@@ -865,6 +873,14 @@ SELECT
             ELSE TRIM(SUBSTRING(text,486,256))
         END AS STRING
     ) AS refencia_logradouro,
+
+    --column: vlr_renda_media_fam
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,9))
+        END AS STRING
+    ) AS valor_renda_media_original,
 
     --column: vlr_renda_media_fam
     SAFE_CAST(
@@ -1305,6 +1321,14 @@ SELECT
     ) AS refencia_logradouro,
 
     --column: vlr_renda_media_fam
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,9))
+        END AS STRING
+    ) AS valor_renda_media_original,
+
+    --column: vlr_renda_media_fam
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
@@ -1743,6 +1767,14 @@ SELECT
     ) AS refencia_logradouro,
 
     --column: vlr_renda_media_fam
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,9))
+        END AS STRING
+    ) AS valor_renda_media_original,
+
+    --column: vlr_renda_media_fam
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
@@ -2179,6 +2211,14 @@ SELECT
             ELSE TRIM(SUBSTRING(text,486,256))
         END AS STRING
     ) AS refencia_logradouro,
+
+    --column: vlr_renda_media_fam
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,9))
+        END AS STRING
+    ) AS valor_renda_media_original,
 
     --column: vlr_renda_media_fam
     SAFE_CAST(
@@ -2624,6 +2664,14 @@ SELECT
     ) AS refencia_logradouro,
 
     --column: vlr_renda_media_fam
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,9))
+        END AS STRING
+    ) AS valor_renda_media_original,
+
+    --column: vlr_renda_media_fam
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
@@ -3065,6 +3113,14 @@ SELECT
             ELSE TRIM(SUBSTRING(text,486,256))
         END AS STRING
     ) AS refencia_logradouro,
+
+    --column: vlr_renda_media_fam
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,9))
+        END AS STRING
+    ) AS valor_renda_media_original,
 
     --column: vlr_renda_media_fam
     SAFE_CAST(
@@ -3515,6 +3571,14 @@ SELECT
     ) AS refencia_logradouro,
 
     --column: vlr_renda_media_fam
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,9))
+        END AS STRING
+    ) AS valor_renda_media_original,
+
+    --column: vlr_renda_media_fam
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
@@ -3961,6 +4025,14 @@ SELECT
             ELSE TRIM(SUBSTRING(text,486,256))
         END AS STRING
     ) AS refencia_logradouro,
+
+    --column: vlr_renda_media_fam
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,9), r'^\s*$') THEN NULL
+            ELSE TRIM(SUBSTRING(text,59,9))
+        END AS STRING
+    ) AS valor_renda_media_original,
 
     --column: vlr_renda_media_fam
     SAFE_CAST(

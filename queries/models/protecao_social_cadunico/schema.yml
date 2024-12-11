@@ -153,6 +153,9 @@ models :
         description: 'Observações apontadas pelo entrevistador | version: 0620'
       - name: refencia_logradouro
         description: 'Referência para localização do endereço | version: 0620'
+      - name: valor_renda_media_original
+        description: 'Valor da renda média (per capita) da família, formato NNNNNNNNN
+          | version: 0620'
       - name: valor_renda_media
         description: 'Valor da renda média (per capita) da família, formato NNNNNNNNN
           | version: 0620'
@@ -352,25 +355,46 @@ models :
       - name: pessoas_domicilio
         description: 'Quantidade de pessoas no domicílio, campo numérico de 2 posições,
           formato NN | version: 0620'
+      - name: despesa_agua_esgoto_original
+        description: "Valor de despesas com água\nCampo numérico de 5 posições formato
+          NNNNN (não existem casas decimais) | version: 0620"
       - name: despesa_agua_esgoto
         description: "Valor de despesas com água\nCampo numérico de 5 posições formato
           NNNNN (não existem casas decimais) | version: 0620"
       - name: despesa_alimentacao
         description: "Valor de despesas com alimentação\nCampo numérico de 5 posições
           formato NNNNN (não existem casas decimais) | version: 0620"
+      - name: despesa_alimentacao_original
+        description: "Valor de despesas com alimentação\nCampo numérico de 5 posições
+          formato NNNNN (não existem casas decimais) | version: 0620"
       - name: despesa_aluguel
+        description: "Valor de despesas com aluguel\nCampo numérico de 5 posições
+          formato NNNNN (não existem casas decimais) | version: 0620"
+      - name: despesa_aluguel_original
         description: "Valor de despesas com aluguel\nCampo numérico de 5 posições
           formato NNNNN (não existem casas decimais) | version: 0620"
       - name: despesa_energia
         description: "Valor de despesas com energia\nCampo numérico de 5 posições
           formato NNNNN (não existem casas decimais) | version: 0620"
+      - name: despesa_energia_original
+        description: "Valor de despesas com energia\nCampo numérico de 5 posições
+          formato NNNNN (não existem casas decimais) | version: 0620"
+      - name: despesa_gas_original
+        description: "Valor de despesas com gás\nCampo numérico de 5 posições formato
+          NNNNN (não existem casas decimais) | version: 0620"
       - name: despesa_gas
         description: "Valor de despesas com gás\nCampo numérico de 5 posições formato
           NNNNN (não existem casas decimais) | version: 0620"
+      - name: despesa_medicamentos_original
+        description: "Valor de despesas com medicamentos\nCampo numérico de 5 posições
+          formato NNNNN (não existem casas decimais) | version: 0620"
       - name: despesa_medicamentos
         description: "Valor de despesas com medicamentos\nCampo numérico de 5 posições
           formato NNNNN (não existem casas decimais) | version: 0620"
       - name: despesa_transporte
+        description: "Valor de despesas com transportes\nCampo numérico de 5 posições
+          formato NNNNN (não existem casas decimais) | version: 0620"
+      - name: despesa_transporte_original
         description: "Valor de despesas com transportes\nCampo numérico de 5 posições
           formato NNNNN (não existem casas decimais) | version: 0620"
   - name: identificacao_primeira_pessoa
@@ -830,14 +854,29 @@ models :
       - name: outras_fontes
         description: "Valor recebido de outras fontes\nCampo numérico de 6 posições
           formato NNNNNN (sem casas decimais) | version: 0620"
+      - name: outras_fontes_original
+        description: "Valor recebido de outras fontes\nCampo numérico de 6 posições
+          formato NNNNNN (sem casas decimais) | version: 0620"
       - name: remuneracao
+        description: "Valor de remuneração\nCampo numérico de 6 posições formato NNNNNN
+          (sem casas decimais) | version: 0620"
+      - name: remuneracao_original
         description: "Valor de remuneração\nCampo numérico de 6 posições formato NNNNNN
           (sem casas decimais) | version: 0620"
       - name: aposentadoria
         description: "Valor recebido de aposentadoria\nCampo numérico de 6 posições
           formato NNNNNN (sem casas decimais) | version: 0620"
+      - name: aposentadoria_original
+        description: "Valor recebido de aposentadoria\nCampo numérico de 6 posições
+          formato NNNNNN (sem casas decimais) | version: 0620"
+      - name: remuneracao_bruta_original
+        description: "Valor de remuneração bruta\nCampo numérico de 6 posições formato
+          NNNNNN (sem casas decimais) | version: 0620"
       - name: remuneracao_bruta
         description: "Valor de remuneração bruta\nCampo numérico de 6 posições formato
+          NNNNNN (sem casas decimais) | version: 0620"
+      - name: doacoes_original
+        description: "Valor recebido de doação\nCampo numérico de 6 posições formato
           NNNNNN (sem casas decimais) | version: 0620"
       - name: doacoes
         description: "Valor recebido de doação\nCampo numérico de 6 posições formato
@@ -845,7 +884,13 @@ models :
       - name: pensao_alimenticia
         description: "Valor recebido de pensão alimentícia\nCampo numérico de 6 posições
           formato NNNNNN (sem casas decimais) | version: 0620"
+      - name: pensao_alimenticia_original
+        description: "Valor recebido de pensão alimentícia\nCampo numérico de 6 posições
+          formato NNNNNN (sem casas decimais) | version: 0620"
       - name: seguro_desemprego
+        description: "Valor recebido de seguro desemprego\nCampo numérico de 6 posições
+          formato NNNNNN (sem casas decimais) | version: 0620"
+      - name: seguro_desemprego_original
         description: "Valor recebido de seguro desemprego\nCampo numérico de 6 posições
           formato NNNNNN (sem casas decimais) | version: 0620"
   - name: contato
@@ -2387,22 +2432,43 @@ models :
       - name: renda_outras_rendas
         description: "Valor recebido de outras fontes\nCampo numérico de 6 posições
           formato NNNNNN (sem casas decimais) | version: 0620"
+      - name: renda_outras_rendas_original
+        description: "Valor recebido de outras fontes\nCampo numérico de 6 posições
+          formato NNNNNN (sem casas decimais) | version: 0620"
+      - name: renda_emprego_ultimo_mes_original
+        description: "Valor de remuneração\nCampo numérico de 6 posições formato NNNNNN
+          (sem casas decimais) | version: 0620"
       - name: renda_emprego_ultimo_mes
         description: "Valor de remuneração\nCampo numérico de 6 posições formato NNNNNN
           (sem casas decimais) | version: 0620"
+      - name: renda_aposentadoria_original
+        description: "Valor recebido de aposentadoria\nCampo numérico de 6 posições
+          formato NNNNNN (sem casas decimais) | version: 0620"
       - name: renda_aposentadoria
         description: "Valor recebido de aposentadoria\nCampo numérico de 6 posições
           formato NNNNNN (sem casas decimais) | version: 0620"
+      - name: renda_bruta_12_meses_original
+        description: "Valor de remuneração bruta\nCampo numérico de 6 posições formato
+          NNNNNN (sem casas decimais) | version: 0620"
       - name: renda_bruta_12_meses
         description: "Valor de remuneração bruta\nCampo numérico de 6 posições formato
+          NNNNNN (sem casas decimais) | version: 0620"
+      - name: renda_doacao_original
+        description: "Valor recebido de doação\nCampo numérico de 6 posições formato
           NNNNNN (sem casas decimais) | version: 0620"
       - name: renda_doacao
         description: "Valor recebido de doação\nCampo numérico de 6 posições formato
           NNNNNN (sem casas decimais) | version: 0620"
+      - name: renda_pensao_alimenticia_original
+        description: "Valor recebido de pensão alimentícia\nCampo numérico de 6 posições
+          formato NNNNNN (sem casas decimais) | version: 0620"
       - name: renda_pensao_alimenticia
         description: "Valor recebido de pensão alimentícia\nCampo numérico de 6 posições
           formato NNNNNN (sem casas decimais) | version: 0620"
       - name: renda_seguro_desemprego
+        description: "Valor recebido de seguro desemprego\nCampo numérico de 6 posições
+          formato NNNNNN (sem casas decimais) | version: 0620"
+      - name: renda_seguro_desemprego_original
         description: "Valor recebido de seguro desemprego\nCampo numérico de 6 posições
           formato NNNNNN (sem casas decimais) | version: 0620"
       - name: nao_recebe_remuneracao
