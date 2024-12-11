@@ -4,7 +4,7 @@ models :
     description: Table controle from number 00
     columns:
       - name: versao_layout_arquivo
-        description: "FORMATO '06.09' | version: 0620"
+        description: "FORMATO '99.99' | version: 0620"
       - name: data_extracao_dados
         description: 'Data da extração no formato DDMMAAAA | version: 0620'
       - name: data_posicao_cadastro
@@ -12,8 +12,7 @@ models :
       - name: nome_arquivo
         description: 'ESPELHO CADUNICO 7 MUNICIPAL | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '0 | version: 0620'
   - name: identificacao_controle
     description: Table identificacao_controle from number 01
     columns:
@@ -22,11 +21,11 @@ models :
       - name: id_condicao_cadastro
         description: 'Código de condição do cadastro da família: 1- ATUALIZADO 2-
           DESATUALIZADO 3- POR CONFIRMAÇÃO 4- NÃO SE APLICA 5 – POR CONFIRMAÇÃO DO
-          USUÁRIO | version: 0620'
+          USUÁRIO 6 – PELO RF AO CONFIRMAR O INDICATIVO DE ÓBITO | version: 0620'
       - name: condicao_cadastro
         description: 'Código de condição do cadastro da família: 1- ATUALIZADO 2-
           DESATUALIZADO 3- POR CONFIRMAÇÃO 4- NÃO SE APLICA 5 – POR CONFIRMAÇÃO DO
-          USUÁRIO | version: 0620'
+          USUÁRIO 6 – PELO RF AO CONFIRMAR O INDICATIVO DE ÓBITO | version: 0620'
       - name: id_estado_cadastro
         description: 'Estado cadastral da família: 1- EM CADASTRAMENTO 2- SEM REGISTRO
           CIVIL 3- CADASTRADO 4- EXCLUIDO | version: 0620'
@@ -147,8 +146,7 @@ models :
       - name: numero_logradouro
         description: 'Número do endereço | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '01 | version: 0620'
       - name: observacoes_entrevistador
         description: 'Observações apontadas pelo entrevistador | version: 0620'
       - name: refencia_logradouro
@@ -163,7 +161,7 @@ models :
     description: Table domicilio from number 02
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_forma_abatecimento_agua_domicilio
         description: 'Forma de abastecimento de água: campo numérico de 1 posição
           variando de 1 a 4, dependendo da opção marcada no formulário | version:
@@ -233,8 +231,7 @@ models :
           1 posição variando de 1 a 7 dependendo da opção marcada no formulário |
           version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '02 | version: 0620'
       - name: quantidade_comodos_domicilio
         description: 'Qtd de comodos do domicilio, campo numérico de 2 posições |
           version: 0620'
@@ -245,7 +242,7 @@ models :
     description: Table familia from number 03
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_cras_creas
         description: 'Código do CRAS/CREAS | version: 0620'
       - name: id_comunidade_quilombola
@@ -274,7 +271,7 @@ models :
         description: 'Data de integração referente ao campo IND-RISCO-SCL-VLCO-DRTS
           conforme data de processamento de arquivo | version: 0620'
       - name: nao_sabe_comunidade_quilombola
-        description: "Não sabe(comunidade quilombola da família)': 0-Opção não marcada
+        description: "'Não sabe(comunidade quilombola da família)': 0-Opção não marcada
           no formulário, 1-Opção marcada no formulário | version: 0620"
       - name: nao_tem_despesa_agua_esgoto
         description: 'Não tem despesa com água: 0-Opção não marcada no formulário,
@@ -311,7 +308,7 @@ models :
         description: 'Não tem pessoas internadas faixa >= 60 anos: 0-Opção não marcada
           no formulário, 1-Opção marcada no formulário | version: 0620'
       - name: nao_sabe_reserva_indigena
-        description: "Não sabe(reserva indígena da família)': 0-Opção não marcada
+        description: "'Não sabe(reserva indígena da família)': 0-Opção não marcada
           no formulário, 1-Opção marcada no formulário | version: 0620"
       - name: id_risco_inseguranca_alimentar
         description: "Indicador de família associada à risco de insegurança alimentar\n
@@ -338,8 +335,7 @@ models :
       - name: id_estabelecimento_saude
         description: 'Código do estabelecimento EAS/MS | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '03 | version: 0620'
       - name: familias_domicilio
         description: 'Quantidade de famílias no domicílio, campo numérico de 2 posições,
           formato NN | version: 0620'
@@ -401,11 +397,11 @@ models :
     description: Table identificacao_primeira_pessoa from number 04
     columns:
       - name: id_pessoa
-        description: 'Chave natural atual da Pessoa | version: 0620'
+        description: 'Chave natural atual da Pessoa  | version: 0620'
       - name: id_original_pessoa
-        description: 'Chave natural original da Pessoa | version: 0620'
+        description: 'Chave natural original da Pessoa  | version: 0620'
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_certidao_registrada_cartorio
         description: 'Pessoa registrada em cartório: campo numérico de 1 posição variando
           de 1 a 4, dependendo da opção marcada no formulário | version: 0620'
@@ -432,16 +428,14 @@ models :
         description: 'Local de nascimento: 1-Neste município, 2-Em outro município,
           3-Em outro país | version: 0620'
       - name: id_familia_origem
-        description: 'CÓDIGO DA FAMÍLIA DE ORIGEM ANTES DA TRANFERÊNCIA | version:
+        description: 'CÓDIGO DA FAMÍLIA DE ORIGEM ANTES DA TRANFERÊNCIA  | version:
           0620'
       - name: id_prefeitura_origem
-        description: 'CÓDIGO DA PREFEITURA DE ORIGEM ANTES DA TRANFERÊNCIA | version:
+        description: 'CÓDIGO DA PREFEITURA DE ORIGEM ANTES DA TRANFERÊNCIA  | version:
           0620'
       - name: id_pais_origem
         description: "Código do País de nascimento da Pessoa\nCampo numérico de 4
-          posições formato NNNN Número do NIS original\nNúmero de NIS localizado ou
-          atribuído à pessoa no momento de sua inclusão no Cadastro Único\nO número
-          de NIS original do membro nunca será alterado. | version: 0620"
+          posições formato NNNN | version: 0620"
       - name: id_parentesco_responsavel_familia
         description: 'Relaçao de parentesco com o RF: campo numérico de 2 posições
           variando de 1 a 11, dependendo da opção marcada no formulário | version:
@@ -526,7 +520,7 @@ models :
           momento de sua inclusão no Cadastro Único\nO número de NIS original do membro
           nunca será alterado. | version: 0620"
       - name: id_membro_familia
-        description: 'Número do membro da Família | version: 0620'
+        description: 'Número do membro da Família  | version: 0620'
       - name: nis
         description: 'NIS atual da pessoa, campo numérico de 11 posições formato NNNNNNNNNNN
           | version: 0620'
@@ -534,15 +528,14 @@ models :
         description: 'Número de ordem, campo numérico de 2 posições no formato NN
           | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '04 | version: 0620'
       - name: sigla_uf_municipio_nascimento
         description: 'UF de nascimento da Pessoa | version: 0620'
   - name: documento_pessoa
     description: Table documento_pessoa from number 05
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_cartorio_certidao
         description: 'Código do cartório da certidão | version: 0620'
       - name: id_certidao_civil
@@ -564,7 +557,7 @@ models :
       - name: livro_certidao_obito_excluido
         description: 'Livro da certidão | version: 0620'
       - name: id_termi_matricula_certidao
-        description: 'Número do Termo / Matrícula.da Certidão. | version: 0620'
+        description: "Número do Termo / Matrícula.da Certidão\n | version: 0620"
       - name: data_emissao_carteira_trabalho
         description: 'Data de emissão da CTPS da Pessoa, formato DDMMAAAA | version:
           0620'
@@ -586,8 +579,7 @@ models :
       - name: id_membro_familia
         description: 'Número do membro da Família | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '05 | version: 0620'
       - name: id_secao_titulo_eleitor
         description: 'Seção do Título de Eleitor da Pessoa | version: 0620'
       - name: id_serie_carteira_trabalho
@@ -608,7 +600,7 @@ models :
     description: Table pessoa_deficiencia from number 06
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_tem_deficiencia
         description: 'Pessoa tem deficiência: 1-Sim, 2-Não | version: 0620'
       - name: tem_deficiencia
@@ -660,13 +652,12 @@ models :
       - name: id_membro_familia
         description: 'Número do membro da Família | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '06 | version: 0620'
   - name: escolaridade
     description: Table escolaridade from number 07
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_ano_serie_frequenta
         description: 'Ano e série que a pessoa frequenta: campo numérico de 2 posições
           variando de 1 a 10, dependendo da opção marcada no formulário | version:
@@ -728,17 +719,16 @@ models :
       - name: municipio_escola
         description: 'Nome do Município da Escola da Pessoa | version: 0620'
       - name: id_membro_familia
-        description: 'Número do membro da Família | version: 0620'
+        description: 'Número do membro da Família  | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '07 | version: 0620'
       - name: sigla_uf_escola
         description: 'UF da Escola da Pessoa | version: 0620'
   - name: trabalho_remuneracao
     description: Table trabalho_remuneracao from number 08
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_afastado_semana_passada
         description: 'Pessoa afastada na semana passada: 1-Sim, 2-Não | version: 0620'
       - name: id_atividade_extravista
@@ -844,10 +834,9 @@ models :
         description: 'Não recebe seguro desemprego: 0-Opção não marcada no formulário,
           1-Opção marcada no formulário | version: 0620'
       - name: id_membro_familia
-        description: 'Número do membro da Família | version: 0620'
+        description: 'Número do membro da Família  | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '08 | version: 0620'
       - name: meses_trabalhados_nos_ultimos_12
         description: 'Quantidade de meses trabalhados nos últimos 12, campo numérico
           de 2 posições, formato NN | version: 0620'
@@ -897,7 +886,7 @@ models :
     description: Table contato from number 09
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_familia
         description: 'Código Familiar | version: 0620'
       - name: cpf_operador_responsavel
@@ -956,8 +945,7 @@ models :
       - name: contato_2_ddd
         description: '2º DDD do telefone de contato da família | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '09 | version: 0620'
       - name: contato_telefone
         description: '1º telefone de contato da família | version: 0620'
       - name: contato_2_telefone
@@ -966,7 +954,7 @@ models :
     description: Table seguranca_alimentar from number 11
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_conta_energia_numero_ordem
         description: "Número de ordem do membro da família associado a conta de energia
           elétrica do domicílio\nQuando não houver membro da família associado, o
@@ -1003,7 +991,8 @@ models :
           da Reforma Agrária 302 Família beneficiária do Programa Nacional de Crédito
           Fundiário 303 Família Acampada 304 Família Atingida por Empreendimentos
           de Infraestrutura 305 Família de Preso do Sistema Carcerário 306 Família
-          de Catadores de Material Reciclável 000 Nenhuma | version: 0620'
+          de Catadores de Material Reciclável 401 Desalojados ou desabrigados 000
+          Nenhuma | version: 0620'
       - name: ind_parc_mds_fam
         description: '101 Família Cigana 201 Família Extrativista 202 Família de Pescadores
           Artesanais 203 Família pertencente a Comunidade de Terreiro 204 Família
@@ -1011,7 +1000,8 @@ models :
           da Reforma Agrária 302 Família beneficiária do Programa Nacional de Crédito
           Fundiário 303 Família Acampada 304 Família Atingida por Empreendimentos
           de Infraestrutura 305 Família de Preso do Sistema Carcerário 306 Família
-          de Catadores de Material Reciclável 000 Nenhuma | version: 0620'
+          de Catadores de Material Reciclável 401 Desalojados ou desabrigados 000
+          Nenhuma | version: 0620'
       - name: nao_beneficiaria_programa_ministerio_cidades
         description: 'Família não é beneficiária de programas do Ministério das Cidade:
           0 – Opção não marcada no formulário, 1 – Opção marcada no formulário | version:
@@ -1142,13 +1132,12 @@ models :
         description: 'ProJovem Urbano: 0-Opção não marcada no formulário, 1-Opção
           marcada no formulário | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '11 | version: 0620'
   - name: condicao_rua
     description: Table condicao_rua from number 12
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_carteira_assinada
         description: 'Teve emprego com carteira assinada: 1-Sim, 2-Não, 3-Não sabe
           | version: 0620'
@@ -1280,8 +1269,7 @@ models :
       - name: id_membro_familia
         description: 'Número do membro da Família | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '12 | version: 0620'
       - name: dorme_albergue_vezes_semana
         description: 'Quantidade de vezes por semana que dorme em albergue | version:
           0620'
@@ -1624,13 +1612,12 @@ models :
         description: 'Existência de pendência "Família sem Responsável Familiar Cadastrado"
           para a família 0- Não Existe 1- Existe NULO | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '13 | version: 0620'
   - name: documento_membro
     description: Table documento_membro from number 14
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_familia
         description: 'Código Familiar | version: 0620'
       - name: id_oaud_indicativo_obito
@@ -1714,10 +1701,10 @@ models :
         description: 'Existência de pendência “CPF suspenso na base da Receita Federal”
           0 – Não Existe 1 – Existe NULO | version: 0620'
       - name: id_paud_cpf_suspenso_base_receita_federal
-        description: 'Existência de pendência “CPF suspenso na base da Receita Federal”
+        description: 'Existência de pendência “CPF cancelado na base da Receita Federal”
           0 – Não Existe 1 – Existe NULO | version: 0620'
       - name: paud_cpf_suspenso_base_receita_federal
-        description: 'Existência de pendência “CPF suspenso na base da Receita Federal”
+        description: 'Existência de pendência “CPF cancelado na base da Receita Federal”
           0 – Não Existe 1 – Existe NULO | version: 0620'
       - name: id_paud_campo_obrigatorio_nao_preenchido
         description: 'Existência de pendência " Campos Obrigatórios ou Obrigatórios
@@ -1932,15 +1919,14 @@ models :
         description: 'Existência de pendência "• Pessoa sem relação de parentesco"
           para a pessoa: 0- Não Existe 1- Existe NULO | version: 0620'
       - name: id_membro_familia
-        description: 'Número do membro da Família | version: 0620'
+        description: 'Numero do membro da Família | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '14 | version: 0620'
   - name: habitacao
     description: Table habitacao from number 15
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: contrato_pro_habitacao
         description: 'Número do contrato do programa | version: 0620'
       - name: id_familia
@@ -1952,10 +1938,9 @@ models :
           variando de 1 a 8, dependendo da opção marcada no formulário | version:
           0620'
       - name: id_membro_familia
-        description: 'Número do membro da Família | version: 0620'
+        description: 'Número do membro da Família  | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '11 | version: 0620'
   - name: transferencia_familia
     description: Table transferencia_familia from number 16
     columns:
@@ -1999,9 +1984,9 @@ models :
         description: 'Pessoa registrada em cartório: campo numérico de 1 posição variando
           de 1 a 4, dependendo da opção marcada no formulário | version: 0620'
       - name: id_familia_destino_transferencia
-        description: 'CÓDIGO DA FAMÍLIA DE DESTINO | version: 0620'
+        description: 'CÓDIGO DA FAMÍLIA DE DESTINO  | version: 0620'
       - name: id_prefeitura_destino_transferencia
-        description: 'CÓDIGO DA PREFEITURA DE DESTINO | version: 0620'
+        description: 'CÓDIGO DA PREFEITURA DE DESTINO  | version: 0620'
       - name: id_estado_cadastro_transferencia_membro
         description: 'Estado cadastral da pessoa: 1- EM CADASTRAMENTO 2- SEM REGISTRO
           CIVIL 3- CADASTRADO 4- EXCLUIDO 5- AGUARDANDO ATRIBUIÇÃO NIS 6- AGUARDANDO
@@ -2066,13 +2051,12 @@ models :
       - name: pais_nascimento
         description: 'Nome do país de nascimento da Pessoa | version: 0620'
       - name: id_membro_familia
-        description: 'Número do membro da Família | version: 0620'
+        description: 'Número do membro da Família  | version: 0620'
       - name: nis
         description: 'NIS da pessoa, campo numérico de 11 posições formato NNNNNNNNNNN
           | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '17 | version: 0620'
       - name: sigla_uf_nascimento
         description: 'UF de nascimento da Pessoa | version: 0620'
   - name: exclusao_servidor
@@ -2098,8 +2082,7 @@ models :
         description: 'Data da exclusão da família, no formato dd/mm/aaaa | version:
           0620'
       - name: descricao_cotivo_exclusao
-        description: 'Descrição do complemento do Motivo de Exclusão da pessoa | version:
-          0620'
+        description: 'Descrição do complemento do Motivo de Exclusão | version: 0620'
       - name: id_motivo_exclusao
         description: "Código identificador do motivo de exclusão da família\nPodendo
           ser: 01-Falecimento de toda a família\n02-Recusa da família em prestar informações\n
@@ -2140,8 +2123,7 @@ models :
         description: 'Número do Parecer da Gestão Municipal do Cadastro Único | version:
           0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '18 | version: 0620'
       - name: sigla_uf_parecer_gestao_municipal_cadunico
         description: 'UF do Parecer da Gestão Municipal do Cadastro Único | version:
           0620'
@@ -2160,7 +2142,7 @@ models :
         description: 'Código IBGE do município da certidão de óbito da pessoa excluída
           | version: 0620'
       - name: livro_certidao_obito_excluido
-        description: 'Livro da certidão de óbito da pessoa excluída | version: 0620'
+        description: 'Livro da certidão de óbito da pessoa excluída  | version: 0620'
       - name: numero_termo_matricula_certidao_excluido
         description: 'Número do Termo / Matrícula da Certidão. | version: 0620'
       - name: cpf_operador_exclusao_membro
@@ -2184,32 +2166,34 @@ models :
           formato DDMMAAAA | version: 0620'
       - name: id_motivo_exclusao_membro
         description: "Código identificador do motivo de exclusão da pessoa\nPodendo
-          ser: 01-Falecimento da pessoa\n02-Desligamento da pessoa daquela família\n
-          03-Solicitação da pessoa\n04-Decisão judicial\n05-Decurso de prazo no estado
-          cadastral “Em cadastramento”\n06-Mudança de endereço ocorrido anteriormente
-          a V7\n07-Cadastramento incorreto ocorrido anteriormente a V7\n08-Pessoa
-          Transferida\n09-Cadastro desatualizado há mais de 48 meses\n10-Averiguação
-          Cadastral\n11-Multiplicidade\n12-NIS cancelado no Cadastro NIS\n13-Averiguação-Suspeita
-          de fraude\n14-Pessoa excluída por decurso de prazo na situação \"Atribuindo
-          NIS\"\n15-Averiguação-Suspeita de fraude identificada pelo município\n16
-          – Pessoa excluída por possuir CPF nulo\n17-Membro excluído por ter sido
-          incluído pelo próprio operador/Entrevistador da família\n99 – Exclusão da
-          família (para casos em que a pessoa tenha sido excluída pela exclusão de
-          sua família). | version: 0620"
+          ser: 01-Falecimento da pessoa\n02-Desligamento da pessoa da Família em que
+          está cadastrada\n03-Solicitação da pessoa\n04-Decisão judicial\n05-Decurso
+          de prazo no estado cadastral “Em cadastramento”\n06-Mudança de endereço
+          ocorrido anteriormente a V7\n07-Cadastramento incorreto ocorrido anteriormente
+          a V7\n08-Pessoa Transferida\n09-Cadastro desatualizado há mais de 48 meses\n
+          10-Averiguação Cadastral\n11-Multiplicidade\n12-NIS cancelado no Cadastro
+          NIS\n13-Averiguação-Suspeita de fraude\n14-Pessoa excluída por decurso de
+          prazo na situação \"Atribuindo NIS\"\n15-Averiguação-Suspeita de fraude
+          identificada pelo município\n16 – Pessoa excluída por possuir CPF nulo\n
+          17-Membro excluído por ter sido incluído pelo próprio operador/Entrevistador
+          da família\n18-Identificação de cadastros incluídos ou alterados indevidamente
+          por agente público por má fé\n19-Indicativo de óbito há mais de 12 meses-exclusão
+          batch 20-Confirmação de óbito pelo RF via aplicativo 21-Indicativo de ób"
       - name: motivo_exclusao_membro
         description: "Código identificador do motivo de exclusão da pessoa\nPodendo
-          ser: 01-Falecimento da pessoa\n02-Desligamento da pessoa daquela família\n
-          03-Solicitação da pessoa\n04-Decisão judicial\n05-Decurso de prazo no estado
-          cadastral “Em cadastramento”\n06-Mudança de endereço ocorrido anteriormente
-          a V7\n07-Cadastramento incorreto ocorrido anteriormente a V7\n08-Pessoa
-          Transferida\n09-Cadastro desatualizado há mais de 48 meses\n10-Averiguação
-          Cadastral\n11-Multiplicidade\n12-NIS cancelado no Cadastro NIS\n13-Averiguação-Suspeita
-          de fraude\n14-Pessoa excluída por decurso de prazo na situação \"Atribuindo
-          NIS\"\n15-Averiguação-Suspeita de fraude identificada pelo município\n16
-          – Pessoa excluída por possuir CPF nulo\n17-Membro excluído por ter sido
-          incluído pelo próprio operador/Entrevistador da família\n99 – Exclusão da
-          família (para casos em que a pessoa tenha sido excluída pela exclusão de
-          sua família). | version: 0620"
+          ser: 01-Falecimento da pessoa\n02-Desligamento da pessoa da Família em que
+          está cadastrada\n03-Solicitação da pessoa\n04-Decisão judicial\n05-Decurso
+          de prazo no estado cadastral “Em cadastramento”\n06-Mudança de endereço
+          ocorrido anteriormente a V7\n07-Cadastramento incorreto ocorrido anteriormente
+          a V7\n08-Pessoa Transferida\n09-Cadastro desatualizado há mais de 48 meses\n
+          10-Averiguação Cadastral\n11-Multiplicidade\n12-NIS cancelado no Cadastro
+          NIS\n13-Averiguação-Suspeita de fraude\n14-Pessoa excluída por decurso de
+          prazo na situação \"Atribuindo NIS\"\n15-Averiguação-Suspeita de fraude
+          identificada pelo município\n16 – Pessoa excluída por possuir CPF nulo\n
+          17-Membro excluído por ter sido incluído pelo próprio operador/Entrevistador
+          da família\n18-Identificação de cadastros incluídos ou alterados indevidamente
+          por agente público por má fé\n19-Indicativo de óbito há mais de 12 meses-exclusão
+          batch 20-Confirmação de óbito pelo RF via aplicativo 21-Indicativo de ób"
       - name: id_municipio_parecer_gestao_municipal_cadunico_membro
         description: 'Código IBGE do Município do Parecer da Gestão Municipal do Cadastro
           Único do Membro Excluído | version: 0620'
@@ -2228,8 +2212,7 @@ models :
         description: 'Número do Parecer da Gestão Municipal do Cadastro Único do Membro
           Excluído | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '19 | version: 0620'
       - name: sigla_uf_certidao_obito_excluido
         description: 'UF da Certidão de óbito da pessoa excluída | version: 0620'
       - name: sigla_uf_parecer_gestao_municipal_cadunico_membro
@@ -2342,7 +2325,7 @@ models :
     description: Table renda from number 21
     columns:
       - name: id_prefeitura
-        description: 'Chave única de identificação da Prefeitura | version: 0620'
+        description: 'Chave única de identificação da Família | version: 0620'
       - name: id_afastado_semana_passada
         description: 'Pessoa afastada na semana passada: 1-Sim, 2-Não | version: 0620'
       - name: id_atividade_extravista
@@ -2430,55 +2413,58 @@ models :
           conforme data de processamento de arquivo de renda origem CNIS no formato
           DDMMAAAA | version: 0620'
       - name: renda_outras_rendas
-        description: "Valor recebido de outras fontes\nCampo numérico de 6 posições
-          formato NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: renda_outras_rendas_original
-        description: "Valor recebido de outras fontes\nCampo numérico de 6 posições
-          formato NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: renda_emprego_ultimo_mes_original
-        description: "Valor de remuneração\nCampo numérico de 6 posições formato NNNNNN
-          (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: renda_emprego_ultimo_mes
-        description: "Valor de remuneração\nCampo numérico de 6 posições formato NNNNNN
-          (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: renda_aposentadoria_original
-        description: "Valor recebido de aposentadoria\nCampo numérico de 6 posições
-          formato NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: renda_aposentadoria
-        description: "Valor recebido de aposentadoria\nCampo numérico de 6 posições
-          formato NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: renda_bruta_12_meses_original
-        description: "Valor de remuneração bruta\nCampo numérico de 6 posições formato
-          NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN\n
+          O valor representado na faixa de renda é o conteúdo do campo 8.08 dividido
+          por 12\n0-0 1-1 até 109 2-110 até 218 3-219 até SM/2 4-SM/2 + 1 até SM 5-SM+1
+          até 2SM 6-2SM + 1 até 3SM 7-3SM + 1 | version: 0620"
       - name: renda_bruta_12_meses
-        description: "Valor de remuneração bruta\nCampo numérico de 6 posições formato
-          NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN\n
+          O valor representado na faixa de renda é o conteúdo do campo 8.08 dividido
+          por 12\n0-0 1-1 até 109 2-110 até 218 3-219 até SM/2 4-SM/2 + 1 até SM 5-SM+1
+          até 2SM 6-2SM + 1 até 3SM 7-3SM + 1 | version: 0620"
       - name: renda_doacao_original
-        description: "Valor recebido de doação\nCampo numérico de 6 posições formato
-          NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: renda_doacao
-        description: "Valor recebido de doação\nCampo numérico de 6 posições formato
-          NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: renda_pensao_alimenticia_original
-        description: "Valor recebido de pensão alimentícia\nCampo numérico de 6 posições
-          formato NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: renda_pensao_alimenticia
-        description: "Valor recebido de pensão alimentícia\nCampo numérico de 6 posições
-          formato NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: renda_seguro_desemprego
-        description: "Valor recebido de seguro desemprego\nCampo numérico de 6 posições
-          formato NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: renda_seguro_desemprego_original
-        description: "Valor recebido de seguro desemprego\nCampo numérico de 6 posições
-          formato NNNNNN (sem casas decimais) | version: 0620"
+        description: "Valor de remuneração\nCampo numérico de 2 posições formato NN
+          | version: 0620"
       - name: nao_recebe_remuneracao
         description: 'Não recebeu remuneração de trabalho: 0-Opção não marcada no
           formulário, 1-Opção marcada no formulário | version: 0620'
       - name: id_membro_familia
-        description: 'Número do membro da Família | version: 0620'
+        description: 'Número do membro da Família  | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '21 | version: 0620'
       - name: meses_trabalhados_nos_ultimos_12
         description: 'Quantidade de meses trabalhados nos últimos 12, campo numérico
           de 2 posições, formato NN | version: 0620'
@@ -2499,14 +2485,12 @@ models :
       - name: prefeitura
         description: 'Nome da Prefeitura | version: 0620'
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '98 | version: 0620'
   - name: registros
     description: Table registros from number 99
     columns:
       - name: numero_registro_arquivo
-        description: "Número do tipo de registro\nPara o FS3 será sempre 20 | version:
-          0620"
+        description: '99 | version: 0620'
       - name: registros_tipo_00
         description: 'Quantidade de registros do tipo 00, campo numérico de 9 posições,
           formato 999999999 | version: 0620'

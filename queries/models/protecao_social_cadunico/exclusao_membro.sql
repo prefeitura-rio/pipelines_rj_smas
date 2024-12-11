@@ -137,6 +137,10 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^15$') THEN 'Averiguação - Suspeita De Fraude Identificada Pelo Município'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^16$') THEN 'Pessoa Excluída Por Possuir CPF Nulo'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^17$') THEN 'Membro Excluído Por Ter Sido Incluído Pelo Próprio Operador/Entrevistador Da Família'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^18$') THEN 'Identificação De Cadastros Incluídos Ou Alterados Indevidamente Por Agente Público Por Má Fé'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^19$') THEN 'Indicativo De Óbito Há Mais De 12 Meses - Exclusão Batch'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^20$') THEN 'Confirmação De Óbito Pelo RF Via Aplicativo'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^21$') THEN 'Indicativo De Óbito - Bases Do Governo Federal'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^99$') THEN 'Exclusão Da Família (Para Casos Em Que A Pessoa Tenha Sido Excluída Pela Exclusão De Sua Família)'
             ELSE TRIM(SUBSTRING(text,59,2))
         END AS STRING
@@ -348,6 +352,10 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^15$') THEN 'Averiguação - Suspeita De Fraude Identificada Pelo Município'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^16$') THEN 'Pessoa Excluída Por Possuir CPF Nulo'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^17$') THEN 'Membro Excluído Por Ter Sido Incluído Pelo Próprio Operador/Entrevistador Da Família'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^18$') THEN 'Identificação De Cadastros Incluídos Ou Alterados Indevidamente Por Agente Público Por Má Fé'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^19$') THEN 'Indicativo De Óbito Há Mais De 12 Meses - Exclusão Batch'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^20$') THEN 'Confirmação De Óbito Pelo RF Via Aplicativo'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^21$') THEN 'Indicativo De Óbito - Bases Do Governo Federal'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^99$') THEN 'Exclusão Da Família (Para Casos Em Que A Pessoa Tenha Sido Excluída Pela Exclusão De Sua Família)'
             ELSE TRIM(SUBSTRING(text,59,2))
         END AS STRING
@@ -559,6 +567,10 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^15$') THEN 'Averiguação - Suspeita De Fraude Identificada Pelo Município'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^16$') THEN 'Pessoa Excluída Por Possuir CPF Nulo'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^17$') THEN 'Membro Excluído Por Ter Sido Incluído Pelo Próprio Operador/Entrevistador Da Família'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^18$') THEN 'Identificação De Cadastros Incluídos Ou Alterados Indevidamente Por Agente Público Por Má Fé'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^19$') THEN 'Indicativo De Óbito Há Mais De 12 Meses - Exclusão Batch'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^20$') THEN 'Confirmação De Óbito Pelo RF Via Aplicativo'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^21$') THEN 'Indicativo De Óbito - Bases Do Governo Federal'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^99$') THEN 'Exclusão Da Família (Para Casos Em Que A Pessoa Tenha Sido Excluída Pela Exclusão De Sua Família)'
             ELSE TRIM(SUBSTRING(text,59,2))
         END AS STRING
@@ -770,6 +782,10 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^15$') THEN 'Averiguação - Suspeita De Fraude Identificada Pelo Município'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^16$') THEN 'Pessoa Excluída Por Possuir CPF Nulo'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^17$') THEN 'Membro Excluído Por Ter Sido Incluído Pelo Próprio Operador/Entrevistador Da Família'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^18$') THEN 'Identificação De Cadastros Incluídos Ou Alterados Indevidamente Por Agente Público Por Má Fé'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^19$') THEN 'Indicativo De Óbito Há Mais De 12 Meses - Exclusão Batch'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^20$') THEN 'Confirmação De Óbito Pelo RF Via Aplicativo'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^21$') THEN 'Indicativo De Óbito - Bases Do Governo Federal'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^99$') THEN 'Exclusão Da Família (Para Casos Em Que A Pessoa Tenha Sido Excluída Pela Exclusão De Sua Família)'
             ELSE TRIM(SUBSTRING(text,59,2))
         END AS STRING
@@ -981,6 +997,10 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^15$') THEN 'Averiguação - Suspeita De Fraude Identificada Pelo Município'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^16$') THEN 'Pessoa Excluída Por Possuir CPF Nulo'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^17$') THEN 'Membro Excluído Por Ter Sido Incluído Pelo Próprio Operador/Entrevistador Da Família'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^18$') THEN 'Identificação De Cadastros Incluídos Ou Alterados Indevidamente Por Agente Público Por Má Fé'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^19$') THEN 'Indicativo De Óbito Há Mais De 12 Meses - Exclusão Batch'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^20$') THEN 'Confirmação De Óbito Pelo RF Via Aplicativo'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^21$') THEN 'Indicativo De Óbito - Bases Do Governo Federal'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^99$') THEN 'Exclusão Da Família (Para Casos Em Que A Pessoa Tenha Sido Excluída Pela Exclusão De Sua Família)'
             ELSE TRIM(SUBSTRING(text,59,2))
         END AS STRING
@@ -1192,6 +1212,10 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^15$') THEN 'Averiguação - Suspeita De Fraude Identificada Pelo Município'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^16$') THEN 'Pessoa Excluída Por Possuir CPF Nulo'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^17$') THEN 'Membro Excluído Por Ter Sido Incluído Pelo Próprio Operador/Entrevistador Da Família'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^18$') THEN 'Identificação De Cadastros Incluídos Ou Alterados Indevidamente Por Agente Público Por Má Fé'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^19$') THEN 'Indicativo De Óbito Há Mais De 12 Meses - Exclusão Batch'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^20$') THEN 'Confirmação De Óbito Pelo RF Via Aplicativo'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^21$') THEN 'Indicativo De Óbito - Bases Do Governo Federal'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^99$') THEN 'Exclusão Da Família (Para Casos Em Que A Pessoa Tenha Sido Excluída Pela Exclusão De Sua Família)'
             ELSE TRIM(SUBSTRING(text,59,2))
         END AS STRING
@@ -1403,6 +1427,10 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^15$') THEN 'Averiguação - Suspeita De Fraude Identificada Pelo Município'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^16$') THEN 'Pessoa Excluída Por Possuir CPF Nulo'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^17$') THEN 'Membro Excluído Por Ter Sido Incluído Pelo Próprio Operador/Entrevistador Da Família'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^18$') THEN 'Identificação De Cadastros Incluídos Ou Alterados Indevidamente Por Agente Público Por Má Fé'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^19$') THEN 'Indicativo De Óbito Há Mais De 12 Meses - Exclusão Batch'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^20$') THEN 'Confirmação De Óbito Pelo RF Via Aplicativo'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^21$') THEN 'Indicativo De Óbito - Bases Do Governo Federal'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^99$') THEN 'Exclusão Da Família (Para Casos Em Que A Pessoa Tenha Sido Excluída Pela Exclusão De Sua Família)'
             ELSE TRIM(SUBSTRING(text,59,2))
         END AS STRING
@@ -1614,6 +1642,10 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^15$') THEN 'Averiguação - Suspeita De Fraude Identificada Pelo Município'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^16$') THEN 'Pessoa Excluída Por Possuir CPF Nulo'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^17$') THEN 'Membro Excluído Por Ter Sido Incluído Pelo Próprio Operador/Entrevistador Da Família'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^18$') THEN 'Identificação De Cadastros Incluídos Ou Alterados Indevidamente Por Agente Público Por Má Fé'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^19$') THEN 'Indicativo De Óbito Há Mais De 12 Meses - Exclusão Batch'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^20$') THEN 'Confirmação De Óbito Pelo RF Via Aplicativo'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^21$') THEN 'Indicativo De Óbito - Bases Do Governo Federal'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^99$') THEN 'Exclusão Da Família (Para Casos Em Que A Pessoa Tenha Sido Excluída Pela Exclusão De Sua Família)'
             ELSE TRIM(SUBSTRING(text,59,2))
         END AS STRING
@@ -1825,6 +1857,10 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^15$') THEN 'Averiguação - Suspeita De Fraude Identificada Pelo Município'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^16$') THEN 'Pessoa Excluída Por Possuir CPF Nulo'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^17$') THEN 'Membro Excluído Por Ter Sido Incluído Pelo Próprio Operador/Entrevistador Da Família'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^18$') THEN 'Identificação De Cadastros Incluídos Ou Alterados Indevidamente Por Agente Público Por Má Fé'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^19$') THEN 'Indicativo De Óbito Há Mais De 12 Meses - Exclusão Batch'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^20$') THEN 'Confirmação De Óbito Pelo RF Via Aplicativo'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^21$') THEN 'Indicativo De Óbito - Bases Do Governo Federal'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,2), r'^99$') THEN 'Exclusão Da Família (Para Casos Em Que A Pessoa Tenha Sido Excluída Pela Exclusão De Sua Família)'
             ELSE TRIM(SUBSTRING(text,59,2))
         END AS STRING

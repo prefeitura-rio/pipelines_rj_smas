@@ -275,8 +275,8 @@ def get_layout_table_from_staging(
 ):
     query = """
         SELECT
-            t1.* EXCEPT(column, descricao),
-            t2.*
+            t1.* EXCEPT(column),
+            t2.* EXCEPT(descricao)
         FROM `rj-smas.protecao_social_cadunico_staging.layout` t1
         LEFT JOIN `rj-smas.protecao_social_cadunico_staging.layout_dicionario_colunas` t2
         ON t1.column = t2.column
@@ -359,6 +359,10 @@ def create_cadunico_dbt_consolidated_models(
     tables_dict = get_tables_names_dict()
     schema = {"version": 2, "models": []}
     log_created_models = []
+
+    last_version = max(df["version"])
+    log(f"Schema.yml will use the last version of the layout: {last_version}")
+
     for table_number in df["reg"].unique():
         table_schema = {}
         table_model_name = tables_dict[table_number]
@@ -495,29 +499,32 @@ def create_cadunico_dbt_consolidated_models(
                             )
 
                 columns.append(col_expression)
-                col_description = (
-                    row["descricao"] if row["descricao"] is not None else "Sem descrição"
-                )
-                col_description = (
-                    re.sub(r"\s+", " ", col_description)
-                    .replace(";", "\n")
-                    .replace("\\", "")
-                    .replace(". ", "\n")
-                    .replace("\n ", "\n")
-                    .replace(" - ", "-")
-                )
-                col_description = col_description + f" | version: {version}"
-                # bigquery limits the description to 1024 characters
-                col_description = col_description[:1020]
 
-                col_schema = {"name": col_name_padronizado, "description": col_description}
-                table_schema["columns"].append(col_schema)
-                if dicionario_atributos is not None:
-                    col_schema_dict_atr = {
-                        "name": col_name_padronizado_dict_atr,
-                        "description": col_description,
-                    }
-                    table_schema["columns"].append(col_schema_dict_atr)
+                # get the description from the last version of the layout
+                if version == last_version:
+                    col_description = (
+                        row["descricao"] if row["descricao"] is not None else "Sem descrição"
+                    )
+                    col_description = (
+                        re.sub(r"\s+", " ", col_description)
+                        .replace(";", "\n")
+                        .replace("\\", "")
+                        .replace(". ", "\n")
+                        .replace("\n ", "\n")
+                        .replace(" - ", "-")
+                    )
+                    col_description = col_description + f" | version: {version}"
+                    # bigquery limits the description to 1024 characters
+                    col_description = col_description[:1020]
+
+                    col_schema = {"name": col_name_padronizado, "description": col_description}
+                    table_schema["columns"].append(col_schema)
+                    if dicionario_atributos is not None:
+                        col_schema_dict_atr = {
+                            "name": col_name_padronizado_dict_atr,
+                            "description": col_description,
+                        }
+                        table_schema["columns"].append(col_schema_dict_atr)
 
             column_dict = {}
 

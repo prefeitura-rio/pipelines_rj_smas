@@ -37,6 +37,7 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^3$') THEN 'Por Confirmação'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^4$') THEN 'Não Se Aplica'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^5$') THEN 'Por Confirmação Do Usuário'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^6$') THEN 'Pelo RF Ao Confirmar O Indicativo De Óbito'
             ELSE TRIM(SUBSTRING(text,58,1))
         END AS STRING
     ) AS condicao_cadastro,
@@ -478,6 +479,7 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^3$') THEN 'Por Confirmação'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^4$') THEN 'Não Se Aplica'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^5$') THEN 'Por Confirmação Do Usuário'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^6$') THEN 'Pelo RF Ao Confirmar O Indicativo De Óbito'
             ELSE TRIM(SUBSTRING(text,58,1))
         END AS STRING
     ) AS condicao_cadastro,
@@ -924,6 +926,7 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^3$') THEN 'Por Confirmação'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^4$') THEN 'Não Se Aplica'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^5$') THEN 'Por Confirmação Do Usuário'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^6$') THEN 'Pelo RF Ao Confirmar O Indicativo De Óbito'
             ELSE TRIM(SUBSTRING(text,58,1))
         END AS STRING
     ) AS condicao_cadastro,
@@ -1370,6 +1373,7 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^3$') THEN 'Por Confirmação'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^4$') THEN 'Não Se Aplica'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^5$') THEN 'Por Confirmação Do Usuário'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^6$') THEN 'Pelo RF Ao Confirmar O Indicativo De Óbito'
             ELSE TRIM(SUBSTRING(text,58,1))
         END AS STRING
     ) AS condicao_cadastro,
@@ -1816,6 +1820,7 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^3$') THEN 'Por Confirmação'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^4$') THEN 'Não Se Aplica'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^5$') THEN 'Por Confirmação Do Usuário'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^6$') THEN 'Pelo RF Ao Confirmar O Indicativo De Óbito'
             ELSE TRIM(SUBSTRING(text,58,1))
         END AS STRING
     ) AS condicao_cadastro,
@@ -2262,6 +2267,7 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^3$') THEN 'Por Confirmação'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^4$') THEN 'Não Se Aplica'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^5$') THEN 'Por Confirmação Do Usuário'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^6$') THEN 'Pelo RF Ao Confirmar O Indicativo De Óbito'
             ELSE TRIM(SUBSTRING(text,58,1))
         END AS STRING
     ) AS condicao_cadastro,
@@ -2713,6 +2719,7 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^3$') THEN 'Por Confirmação'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^4$') THEN 'Não Se Aplica'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^5$') THEN 'Por Confirmação Do Usuário'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^6$') THEN 'Pelo RF Ao Confirmar O Indicativo De Óbito'
             ELSE TRIM(SUBSTRING(text,58,1))
         END AS STRING
     ) AS condicao_cadastro,
@@ -3164,6 +3171,7 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^3$') THEN 'Por Confirmação'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^4$') THEN 'Não Se Aplica'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^5$') THEN 'Por Confirmação Do Usuário'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^6$') THEN 'Pelo RF Ao Confirmar O Indicativo De Óbito'
             ELSE TRIM(SUBSTRING(text,58,1))
         END AS STRING
     ) AS condicao_cadastro,
@@ -3620,6 +3628,7 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^3$') THEN 'Por Confirmação'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^4$') THEN 'Não Se Aplica'
             WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^5$') THEN 'Por Confirmação Do Usuário'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,58,1), r'^6$') THEN 'Pelo RF Ao Confirmar O Indicativo De Óbito'
             ELSE TRIM(SUBSTRING(text,58,1))
         END AS STRING
     ) AS condicao_cadastro,
