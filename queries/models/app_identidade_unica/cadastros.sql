@@ -17,6 +17,7 @@ with
             i.data_cadastro,
             i.nome_mae,
             i.nome_pai,
+            i.trabalho_infantil,
             count(*) over (
                 partition by dp.id_familia, dp.data_particao
                 order by dp.data_particao desc
@@ -87,20 +88,30 @@ with
 
     domicilio as (
         select
-            id_familia,
-            data_particao,
+            f.id_familia,
+            f.data_particao,
             array_agg(
                 struct(
-                    especie_domicilio,
-                    iluminacao_domicilio as iluminacao,
-                    quantidade_comodos_domicilio as comodos,
-                    forma_abatecimento_agua_domicilio as forma_abastecimento_agua,
-                    possui_agua_encanada_domicilio as possui_agua_encanada,
-                    escoamento_sanitario_domicilio as escoamento_sanitario,
-                    local_domicilio as local
+                    d.especie_domicilio,
+                    d.iluminacao_domicilio as iluminacao,
+                    d.quantidade_comodos_domicilio as comodos,
+                    d.forma_abatecimento_agua_domicilio as forma_abastecimento_agua,
+                    d.possui_agua_encanada_domicilio as possui_agua_encanada,
+                    d.escoamento_sanitario_domicilio as escoamento_sanitario,
+                    d.local_domicilio as local,
+                    f.despesa_agua_esgoto_original,
+                    f.despesa_alimentacao_original,
+                    f.despesa_aluguel_original,
+                    f.despesa_energia_original,
+                    f.despesa_gas_original,
+                    f.despesa_transporte_original
                 )
             ) as domicilio
-        from `rj-smas.protecao_social_cadunico.domicilio`
+        from `rj-smas.protecao_social_cadunico.familia` f
+        left join
+            `rj-smas.protecao_social_cadunico.domicilio` d
+            on f.id_familia = d.id_familia
+            and f.data_particao = d.data_particao
         group by id_familia, data_particao
     ),
 
@@ -114,15 +125,10 @@ with
         from `rj-smas.protecao_social_cadunico.escolaridade`
     ),
 
-    condicao_rua AS (
-        select
-            id_familia,
-            id_membro_familia,
-            data_particao,
-            TRUE as condicao_rua
+    condicao_rua as (
+        select id_familia, id_membro_familia, data_particao, true as condicao_rua
         from `rj-smas.protecao_social_cadunico.condicao_rua`
     ),
-
 
     membros as (
         select
@@ -157,6 +163,7 @@ with
             dp.data_cadastro,
             dp.nome_mae,
             dp.nome_pai,
+            dp.trabalho_infantil,
             pd.tem_deficiencia,
             pd.tipo_deficiencia,
             r.renda_media_familia,
@@ -219,6 +226,7 @@ with
                     dp.nome_mae,
                     dp.nome_pai,
                     dp.condicao_rua,
+                    dp.trabalho_infantil,
                     dp.numeros_membros_familia
                 )
             ) as dados,
