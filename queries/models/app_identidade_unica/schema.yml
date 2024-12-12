@@ -1,0 +1,111 @@
+version: 2
+models :
+  - name: cadastros
+    description: Tabela unificada de cpfs dos cadastrados no CADUNICO
+    columns:
+      - name: cpf
+        description: CPF da Pessoa, formato NNNNNNNNNNN
+      - name: id_membro_familia
+        description: Número do membro da Família
+      - name: id_familia
+        description: Código Familiar
+      - name: data_particao
+        description: Data do particionamento dos dados
+      - name: dados.cpf_valido_indicador
+        description: Indicador de CPF válido
+      - name: dados.nome
+        description: Nome da pessoa
+      - name: dados.raca_cor
+        description: Cor ou raça da pessoa
+      - name: dados.sexo
+        description: Sexo da pessoa
+      - name: dados.municipio_nascimento
+        description: Municipio de nascimento
+      - name: dados.sigla_uf_municipio_nascimento
+        description: Estado do municipio de nascimento
+      - name: dados.estado_cadastral
+        description: Estado cadastral da família
+      - name: dados.parentesco_responsavel_familia
+        description: Relaçao de parentesco com o representante familiar
+      - name: dados.data_nascimento
+        description: Data de nascimento
+      - name: dados.data_ultima_atualizacao
+        description: Data da ultima atualização do cadastro
+      - name: dados.data_cadastro
+        description: Data de última atualização dos dados sociais da pessoa
+      - name: dados.nome_mae
+        description: Nome da mãe da pessoa
+      - name: dados.nome_pai
+        description: Nome do pai da pessoa
+      - name: dados.condicao_rua
+        description: Indica se a pessoa está em condição de rua
+      - name: dados.trabalho_infantil
+        description: Indica se a pessoa esteve envolvida em trabalho infantil
+      - name: dados.numeros_membros_familia
+        description: Número total de membros da família
+      - name: deficiencia.tem_deficiencia
+        description: Indicador se a pessoa tem algum tipo de deficiência
+      - name: deficiencia.tipo_deficiencia
+        description: Tipo de deficiência que a pessoa possui
+      - name: escolaridade.sabe_ler_escrever
+        description: Indica se a pessoa sabe ler e escrever
+      - name: escolaridade.curso_mais_elevado_frequentou
+        description: Nível mais alto de curso frequentado pela pessoa
+      - name: renda.renda_media_familia
+        description: Renda média mensal da família
+      - name: renda.renda_media_familia_original
+        description: Valor original da renda média mensal da família, formato NNNNNNNNN
+      - name: renda.renda_outras_rendas_original
+        description: Valor original de outras rendas da família. Campo numérico de 2 posições formato NN
+      - name: renda.renda_emprego_ultimo_mes_original
+        description: Valor original da renda de emprego no último mês. Campo numérico de 2 posições formato NN
+      - name: renda.renda_aposentadoria_original
+        description: Valor original da renda de aposentadoria. Campo numérico de 2 posições formato NN
+      - name: renda.renda_bruta_12_meses_original
+        description: Valor original da renda bruta nos últimos 12 meses. Campo numérico de 2 posições formato NN
+      - name: renda.renda_doacao_original
+        description: Valor original de rendas provenientes de doações. Campo numérico de 2 posições formato NN
+      - name: renda.renda_pensao_alimenticia_original
+        description: Valor original de pensão alimentícia recebida. Campo numérico de 2 posições formato NN
+      - name: renda.renda_seguro_desemprego_original
+        description: Valor original de seguro-desemprego recebido. Campo numérico de 2 posições formato NN
+      - name: renda.nao_recebe_remuneracao
+        description: Indica se a pessoa não recebe remuneração
+      - name: renda.funcao_principal_trabalho
+        description: Função principal desempenhada no trabalho
+      - name: domicilio.especie_domicilio
+        description: Tipo de domicílio (casa, apartamento, etc.)
+      - name: domicilio.iluminacao
+        description: Tipo de iluminação disponível no domicílio
+      - name: domicilio.comodos
+        description: Número de cômodos no domicílio
+      - name: domicilio.forma_abastecimento_agua
+        description: Forma de abastecimento de água no domicílio
+      - name: domicilio.possui_agua_encanada
+        description: Indica se o domicílio possui água encanada
+      - name: domicilio.escoamento_sanitario
+        description: Tipo de escoamento sanitário do domicílio
+      - name: domicilio.local
+        description: Localização do domicílio (urbano, rural, etc.)
+      - name: domicilio.despesa_agua_esgoto_original
+        description: Despesa original com água e esgoto. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
+      - name: domicilio.despesa_alimentacao_original
+        description: Despesa original com alimentação. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
+      - name: domicilio.despesa_aluguel_original
+        description: Despesa original com aluguel. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
+      - name: domicilio.despesa_energia_original
+        description: Despesa original com energia elétrica. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
+      - name: domicilio.despesa_gas_original
+        description: Despesa original com gás. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
+      - name: domicilio.despesa_transporte_original
+        description: Despesa original com transporte. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
+      - name: membros.cpf
+        description: CPF do membro da família
+      - name: membros.id_membro_familia
+        description: Identificação do membro da família
+      - name: membros.nome
+        description: Nome do membro da família
+      - name: membros.parentesco_responsavel_familia
+        description: Relação de parentesco com o responsável familiar
+      - name: cpf_particao
+        description: CPF utilizado para o particionamento de dados
