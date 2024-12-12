@@ -82,15 +82,15 @@ with
             ic.valor_renda_media as renda_media_familia,
             ic.valor_renda_media_original as renda_media_familia_original,
             r.data_particao,
-            r.renda_outras_rendas,
-            r.renda_emprego_ultimo_mes,
-            r.renda_aposentadoria,
-            r.renda_bruta_12_meses,
-            r.renda_doacao,
-            r.renda_pensao_alimenticia,
-            r.renda_seguro_desemprego,
-            r.nao_recebe_remuneracao,
-            r.funcao_principal_trabalho
+            safe_cast(r.renda_outras_rendas AS int64) as renda_outras_rendas,
+            safe_cast(r.renda_emprego_ultimo_mes AS int64) as renda_emprego_ultimo_mes,
+            safe_cast(r.renda_aposentadoria AS int64) as renda_aposentadoria,
+            safe_cast(r.renda_bruta_12_meses AS int64) as renda_bruta_12_meses,
+            safe_cast(r.renda_doacao AS int64) as renda_doacao,
+            safe_cast(r.renda_pensao_alimenticia AS int64) as renda_pensao_alimenticia,
+            safe_cast(r.renda_seguro_desemprego AS int64) as renda_seguro_desemprego,
+            safe_cast(r.nao_recebe_remuneracao AS int64) as nao_recebe_remuneracao,
+            safe_cast(r.funcao_principal_trabalho AS int64) as funcao_principal_trabalho
         from `rj-smas.protecao_social_cadunico.renda` r
         left join
             identificacao_controle ic
@@ -111,12 +111,12 @@ with
                     d.possui_agua_encanada_domicilio as possui_agua_encanada,
                     d.escoamento_sanitario_domicilio as escoamento_sanitario,
                     d.local_domicilio as local,
-                    f.despesa_agua_esgoto,
-                    f.despesa_alimentacao,
-                    f.despesa_aluguel,
-                    f.despesa_energia,
-                    f.despesa_gas,
-                    f.despesa_transporte
+                    safe_cast(f.despesa_agua_esgoto AS int64) as despesa_agua_esgoto,
+                    safe_cast(f.despesa_alimentacao AS int64) as despesa_alimentacao,
+                    safe_cast(f.despesa_aluguel AS int64) as despesa_aluguel,
+                    safe_cast(f.despesa_energia AS int64) as despesa_energia,
+                    safe_cast(f.despesa_gas AS int64) as despesa_gas,
+                    safe_cast(f.despesa_transporte AS int64) as despesa_transporte
                 )
             ) as domicilio
         from `rj-smas.protecao_social_cadunico.familia` f
