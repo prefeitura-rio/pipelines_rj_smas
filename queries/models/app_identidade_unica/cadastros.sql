@@ -17,7 +17,7 @@ with
             dp.id_membro_familia,
             dp.id_familia,
             dp.data_particao,
-            i.nome,
+            {{ proper_br('i.nome') }} as nome,
             i.raca_cor,
             i.sexo,
             i.municipio_nascimento,
@@ -27,8 +27,8 @@ with
             i.data_nascimento,
             i.data_ultima_atualizacao,
             i.data_cadastro,
-            i.nome_mae,
-            i.nome_pai,
+            {{ proper_br('i.nome_mae') }} as nome_mae,
+            {{ proper_br('i.nome_pai') }} as nome_pai,
             i.trabalho_infantil,
             count(*) over (
                 partition by dp.id_familia, dp.data_particao
@@ -79,18 +79,20 @@ with
         select
             r.id_familia,
             r.id_membro_familia,
-            ic.valor_renda_media as renda_media_familia,
+            safe_cast(
+                safe_cast(ic.valor_renda_media_original as int64) / 100 as float64
+            ) as renda_media_familia,
             ic.valor_renda_media_original as renda_media_familia_original,
             r.data_particao,
-            safe_cast(r.renda_outras_rendas AS int64) as renda_outras_rendas,
-            safe_cast(r.renda_emprego_ultimo_mes AS int64) as renda_emprego_ultimo_mes,
-            safe_cast(r.renda_aposentadoria AS int64) as renda_aposentadoria,
-            safe_cast(r.renda_bruta_12_meses AS int64) as renda_bruta_12_meses,
-            safe_cast(r.renda_doacao AS int64) as renda_doacao,
-            safe_cast(r.renda_pensao_alimenticia AS int64) as renda_pensao_alimenticia,
-            safe_cast(r.renda_seguro_desemprego AS int64) as renda_seguro_desemprego,
-            safe_cast(r.nao_recebe_remuneracao AS int64) as nao_recebe_remuneracao,
-            safe_cast(r.funcao_principal_trabalho AS int64) as funcao_principal_trabalho
+            safe_cast(r.renda_outras_rendas as int64) as renda_outras_rendas,
+            safe_cast(r.renda_emprego_ultimo_mes as int64) as renda_emprego_ultimo_mes,
+            safe_cast(r.renda_aposentadoria as int64) as renda_aposentadoria,
+            safe_cast(r.renda_bruta_12_meses as int64) as renda_bruta_12_meses,
+            safe_cast(r.renda_doacao as int64) as renda_doacao,
+            safe_cast(r.renda_pensao_alimenticia as int64) as renda_pensao_alimenticia,
+            safe_cast(r.renda_seguro_desemprego as int64) as renda_seguro_desemprego,
+            safe_cast(r.nao_recebe_remuneracao as int64) as nao_recebe_remuneracao,
+            safe_cast(r.funcao_principal_trabalho as int64) as funcao_principal_trabalho
         from `rj-smas.protecao_social_cadunico.renda` r
         left join
             identificacao_controle ic
@@ -111,12 +113,12 @@ with
                     d.possui_agua_encanada_domicilio as possui_agua_encanada,
                     d.escoamento_sanitario_domicilio as escoamento_sanitario,
                     d.local_domicilio as local,
-                    safe_cast(f.despesa_agua_esgoto AS int64) as despesa_agua_esgoto,
-                    safe_cast(f.despesa_alimentacao AS int64) as despesa_alimentacao,
-                    safe_cast(f.despesa_aluguel AS int64) as despesa_aluguel,
-                    safe_cast(f.despesa_energia AS int64) as despesa_energia,
-                    safe_cast(f.despesa_gas AS int64) as despesa_gas,
-                    safe_cast(f.despesa_transporte AS int64) as despesa_transporte
+                    safe_cast(f.despesa_agua_esgoto as int64) as despesa_agua_esgoto,
+                    safe_cast(f.despesa_alimentacao as int64) as despesa_alimentacao,
+                    safe_cast(f.despesa_aluguel as int64) as despesa_aluguel,
+                    safe_cast(f.despesa_energia as int64) as despesa_energia,
+                    safe_cast(f.despesa_gas as int64) as despesa_gas,
+                    safe_cast(f.despesa_transporte as int64) as despesa_transporte
                 )
             ) as domicilio
         from `rj-smas.protecao_social_cadunico.familia` f
@@ -278,7 +280,17 @@ with
             dp.escolaridade,
             dp.renda,
             d.domicilio,
-            m.membros,
+            array(
+                select
+                    struct(
+                        m.cpf,
+                        m.id_membro_familia,
+                        m.nome,
+                        m.parentesco_responsavel_familia
+                    )
+                from unnest(m.membros) m
+                where m.id_membro_familia != dp.id_membro_familia
+            ) as membros,
             safe_cast(dp.cpf as int64) as cpf_particao
         from dados dp
         left join
