@@ -27,7 +27,6 @@ with
             on dp.id_membro_familia = i.id_membro_familia
             and dp.id_familia = i.id_familia
             and dp.data_particao = i.data_particao
-        where dp.id_familia = '01968108688' and dp.data_particao = '2024-09-14'
     ),
 
     identificacao_controle as (
@@ -77,7 +76,8 @@ with
             r.renda_doacao_original,
             r.renda_pensao_alimenticia_original,
             r.renda_seguro_desemprego_original,
-            r.nao_recebe_remuneracao
+            r.nao_recebe_remuneracao,
+            r.funcao_principal_trabalho
         from `rj-smas.protecao_social_cadunico.renda` r
         left join
             identificacao_controle ic
@@ -89,7 +89,6 @@ with
         select
             id_familia,
             data_particao,
-
             array_agg(
                 struct(
                     especie_domicilio,
@@ -110,10 +109,20 @@ with
             id_familia,
             id_membro_familia,
             data_particao,
-            id_sabe_ler_escrever,
+            sabe_ler_escrever,
             curso_mais_elevado_frequentou,
         from `rj-smas.protecao_social_cadunico.escolaridade`
     ),
+
+    condicao_rua AS (
+        select
+            id_familia,
+            id_membro_familia,
+            data_particao,
+            TRUE as condicao_rua
+        from `rj-smas.protecao_social_cadunico.condicao_rua`
+    ),
+
 
     membros as (
         select
@@ -160,8 +169,10 @@ with
             r.renda_pensao_alimenticia_original,
             r.renda_seguro_desemprego_original,
             r.nao_recebe_remuneracao,
-            e.id_sabe_ler_escrever,
+            r.funcao_principal_trabalho,
+            e.sabe_ler_escrever,
             e.curso_mais_elevado_frequentou,
+            cr.condicao_rua
         from documento_pessoa_tb dp
         left join
             deficiencia as pd
@@ -178,6 +189,11 @@ with
             on dp.id_membro_familia = e.id_membro_familia
             and dp.id_familia = e.id_familia
             and dp.data_particao = e.data_particao
+        left join
+            condicao_rua as cr
+            on dp.id_membro_familia = cr.id_membro_familia
+            and dp.id_familia = cr.id_familia
+            and dp.data_particao = cr.data_particao
         where cpf is not null
 
     ),
@@ -202,6 +218,7 @@ with
                     dp.data_cadastro,
                     dp.nome_mae,
                     dp.nome_pai,
+                    dp.condicao_rua,
                     dp.numeros_membros_familia
                 )
             ) as dados,
@@ -217,11 +234,12 @@ with
                     dp.renda_doacao_original,
                     dp.renda_pensao_alimenticia_original,
                     dp.renda_seguro_desemprego_original,
-                    dp.nao_recebe_remuneracao
+                    dp.nao_recebe_remuneracao,
+                    dp.funcao_principal_trabalho
                 )
             ) as renda,
             array_agg(
-                struct(dp.id_sabe_ler_escrever, dp.curso_mais_elevado_frequentou)
+                struct(dp.sabe_ler_escrever, dp.curso_mais_elevado_frequentou)
             ) as escolaridade
         from documento_pessoa_tb_filter dp
         where rank = 1
