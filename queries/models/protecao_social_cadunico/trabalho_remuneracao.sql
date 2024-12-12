@@ -210,7 +210,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,83,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,83,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,83,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS outras_fontes,
 
@@ -226,7 +226,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,45,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao,
 
@@ -242,7 +242,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,65,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,65,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,65,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS aposentadoria,
 
@@ -266,7 +266,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,54,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,54,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,54,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao_bruta,
 
@@ -282,7 +282,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,59,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,59,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS doacoes,
 
@@ -290,7 +290,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,77,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,77,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,77,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
@@ -306,7 +306,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,71,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,71,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,71,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS seguro_desemprego,
 
@@ -525,7 +525,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,83,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,83,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,83,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS outras_fontes,
 
@@ -541,7 +541,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,45,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao,
 
@@ -557,7 +557,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,65,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,65,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,65,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS aposentadoria,
 
@@ -581,7 +581,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,54,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,54,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,54,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao_bruta,
 
@@ -597,7 +597,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,59,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,59,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,59,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS doacoes,
 
@@ -605,7 +605,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,77,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,77,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,77,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
@@ -621,7 +621,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,71,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,71,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,71,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS seguro_desemprego,
 
@@ -840,7 +840,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS outras_fontes,
 
@@ -856,7 +856,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao,
 
@@ -872,7 +872,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS aposentadoria,
 
@@ -896,7 +896,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao_bruta,
 
@@ -912,7 +912,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS doacoes,
 
@@ -920,7 +920,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
@@ -936,7 +936,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS seguro_desemprego,
 
@@ -1239,7 +1239,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS outras_fontes,
 
@@ -1255,7 +1255,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao,
 
@@ -1271,7 +1271,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS aposentadoria,
 
@@ -1295,7 +1295,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao_bruta,
 
@@ -1311,7 +1311,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS doacoes,
 
@@ -1319,7 +1319,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
@@ -1335,7 +1335,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS seguro_desemprego,
 
@@ -1638,7 +1638,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS outras_fontes,
 
@@ -1654,7 +1654,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao,
 
@@ -1670,7 +1670,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS aposentadoria,
 
@@ -1694,7 +1694,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao_bruta,
 
@@ -1710,7 +1710,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS doacoes,
 
@@ -1718,7 +1718,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
@@ -1734,7 +1734,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS seguro_desemprego,
 
@@ -2057,7 +2057,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS outras_fontes,
 
@@ -2073,7 +2073,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao,
 
@@ -2089,7 +2089,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS aposentadoria,
 
@@ -2113,7 +2113,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao_bruta,
 
@@ -2129,7 +2129,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS doacoes,
 
@@ -2137,7 +2137,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
@@ -2153,7 +2153,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS seguro_desemprego,
 
@@ -2476,7 +2476,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS outras_fontes,
 
@@ -2492,7 +2492,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao,
 
@@ -2508,7 +2508,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS aposentadoria,
 
@@ -2532,7 +2532,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao_bruta,
 
@@ -2548,7 +2548,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS doacoes,
 
@@ -2556,7 +2556,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
@@ -2572,7 +2572,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS seguro_desemprego,
 
@@ -2895,7 +2895,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS outras_fontes,
 
@@ -2911,7 +2911,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao,
 
@@ -2927,7 +2927,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS aposentadoria,
 
@@ -2951,7 +2951,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao_bruta,
 
@@ -2967,7 +2967,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS doacoes,
 
@@ -2975,7 +2975,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
@@ -2991,7 +2991,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS seguro_desemprego,
 
@@ -3314,7 +3314,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,89,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,89,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS outras_fontes,
 
@@ -3330,7 +3330,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,45,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,45,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao,
 
@@ -3346,7 +3346,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,68,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,68,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS aposentadoria,
 
@@ -3370,7 +3370,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,55,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,55,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS remuneracao_bruta,
 
@@ -3386,7 +3386,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,61,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,61,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS doacoes,
 
@@ -3394,7 +3394,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,82,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,82,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS pensao_alimenticia,
 
@@ -3410,7 +3410,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,75,6), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,75,6)) AS INT64) / 1
         END AS FLOAT64
     ) AS seguro_desemprego,
 

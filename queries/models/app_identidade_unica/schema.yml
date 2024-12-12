@@ -63,20 +63,20 @@ models :
         description: Renda média mensal da família
       - name: renda.renda_media_familia_original
         description: Valor original da renda média mensal da família, formato NNNNNNNNN
-      - name: renda.renda_outras_rendas_original
-        description: Valor original de outras rendas da família. Campo numérico de 2 posições formato NN
-      - name: renda.renda_emprego_ultimo_mes_original
-        description: Valor original da renda de emprego no último mês. Campo numérico de 2 posições formato NN
-      - name: renda.renda_aposentadoria_original
-        description: Valor original da renda de aposentadoria. Campo numérico de 2 posições formato NN
-      - name: renda.renda_bruta_12_meses_original
-        description: Valor original da renda bruta nos últimos 12 meses. Campo numérico de 2 posições formato NN
-      - name: renda.renda_doacao_original
-        description: Valor original de rendas provenientes de doações. Campo numérico de 2 posições formato NN
-      - name: renda.renda_pensao_alimenticia_original
-        description: Valor original de pensão alimentícia recebida. Campo numérico de 2 posições formato NN
-      - name: renda.renda_seguro_desemprego_original
-        description: Valor original de seguro-desemprego recebido. Campo numérico de 2 posições formato NN
+      - name: renda.renda_outras_rendas
+        description: Valor original de outras rendas da família.
+      - name: renda.renda_emprego_ultimo_mes
+        description: Valor original da renda de emprego no último mês.
+      - name: renda.renda_aposentadoria
+        description: Valor original da renda de aposentadoria.
+      - name: renda.renda_bruta_12_meses
+        description: Valor original da renda bruta nos últimos 12 meses.
+      - name: renda.renda_doacao
+        description: Valor original de rendas provenientes de doações.
+      - name: renda.renda_pensao_alimenticia
+        description: Valor original de pensão alimentícia recebida.
+      - name: renda.renda_seguro_desemprego
+        description: Valor original de seguro-desemprego recebido.
       - name: renda.nao_recebe_remuneracao
         description: Indica se a pessoa não recebe remuneração
       - name: renda.funcao_principal_trabalho
@@ -97,18 +97,18 @@ models :
         description: Tipo de escoamento sanitário do domicílio
       - name: domicilio.local
         description: Localização do domicílio (urbano, rural, etc.)
-      - name: domicilio.despesa_agua_esgoto_original
-        description: Despesa original com água e esgoto. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
-      - name: domicilio.despesa_alimentacao_original
-        description: Despesa original com alimentação. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
-      - name: domicilio.despesa_aluguel_original
-        description: Despesa original com aluguel. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
-      - name: domicilio.despesa_energia_original
-        description: Despesa original com energia elétrica. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
-      - name: domicilio.despesa_gas_original
-        description: Despesa original com gás. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
-      - name: domicilio.despesa_transporte_original
-        description: Despesa original com transporte. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
+      - name: domicilio.despesa_agua_esgoto
+        description: Despesa original com água e esgoto.
+      - name: domicilio.despesa_alimentacao
+        description: Despesa original com alimentação.
+      - name: domicilio.despesa_aluguel
+        description: Despesa original com aluguel.
+      - name: domicilio.despesa_energia
+        description: Despesa original com energia elétrica.
+      - name: domicilio.despesa_gas
+        description: Despesa original com gás.
+      - name: domicilio.despesa_transporte
+        description: Despesa original com transporte.
       - name: membros
         description: infomações sobre os membros da família
       - name: membros.cpf

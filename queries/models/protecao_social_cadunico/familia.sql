@@ -332,7 +332,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,338,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_agua_esgoto,
 
@@ -340,7 +340,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,350,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_alimentacao,
 
@@ -356,7 +356,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,362,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_aluguel,
 
@@ -372,7 +372,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,332,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_energia,
 
@@ -396,7 +396,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,344,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_gas,
 
@@ -412,7 +412,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,368,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_medicamentos,
 
@@ -420,7 +420,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,356,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_transporte,
 
@@ -761,7 +761,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,338,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_agua_esgoto,
 
@@ -769,7 +769,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,350,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_alimentacao,
 
@@ -785,7 +785,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,362,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_aluguel,
 
@@ -801,7 +801,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,332,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_energia,
 
@@ -825,7 +825,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,344,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_gas,
 
@@ -841,7 +841,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,368,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_medicamentos,
 
@@ -849,7 +849,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,356,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_transporte,
 
@@ -1190,7 +1190,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,338,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_agua_esgoto,
 
@@ -1198,7 +1198,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,350,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_alimentacao,
 
@@ -1214,7 +1214,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,362,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_aluguel,
 
@@ -1230,7 +1230,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,332,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_energia,
 
@@ -1254,7 +1254,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,344,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_gas,
 
@@ -1270,7 +1270,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,368,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_medicamentos,
 
@@ -1278,7 +1278,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,356,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_transporte,
 
@@ -1619,7 +1619,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,338,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_agua_esgoto,
 
@@ -1627,7 +1627,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,350,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_alimentacao,
 
@@ -1643,7 +1643,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,362,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_aluguel,
 
@@ -1659,7 +1659,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,332,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_energia,
 
@@ -1683,7 +1683,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,344,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_gas,
 
@@ -1699,7 +1699,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,368,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_medicamentos,
 
@@ -1707,7 +1707,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,356,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_transporte,
 
@@ -2048,7 +2048,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,338,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_agua_esgoto,
 
@@ -2056,7 +2056,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,350,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_alimentacao,
 
@@ -2072,7 +2072,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,362,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_aluguel,
 
@@ -2088,7 +2088,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,332,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_energia,
 
@@ -2112,7 +2112,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,344,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_gas,
 
@@ -2128,7 +2128,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,368,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_medicamentos,
 
@@ -2136,7 +2136,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,356,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_transporte,
 
@@ -2477,7 +2477,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,338,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_agua_esgoto,
 
@@ -2485,7 +2485,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,350,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_alimentacao,
 
@@ -2501,7 +2501,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,362,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_aluguel,
 
@@ -2517,7 +2517,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,332,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_energia,
 
@@ -2541,7 +2541,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,344,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_gas,
 
@@ -2557,7 +2557,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,368,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_medicamentos,
 
@@ -2565,7 +2565,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,356,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_transporte,
 
@@ -2906,7 +2906,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,338,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_agua_esgoto,
 
@@ -2914,7 +2914,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,350,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_alimentacao,
 
@@ -2930,7 +2930,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,362,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_aluguel,
 
@@ -2946,7 +2946,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,332,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_energia,
 
@@ -2970,7 +2970,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,344,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_gas,
 
@@ -2986,7 +2986,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,368,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_medicamentos,
 
@@ -2994,7 +2994,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,356,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_transporte,
 
@@ -3335,7 +3335,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,338,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_agua_esgoto,
 
@@ -3343,7 +3343,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,350,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_alimentacao,
 
@@ -3359,7 +3359,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,362,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_aluguel,
 
@@ -3375,7 +3375,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,332,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_energia,
 
@@ -3399,7 +3399,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,344,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_gas,
 
@@ -3415,7 +3415,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,368,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_medicamentos,
 
@@ -3423,7 +3423,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,356,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_transporte,
 
@@ -3798,7 +3798,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,338,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,338,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_agua_esgoto,
 
@@ -3806,7 +3806,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,350,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,350,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_alimentacao,
 
@@ -3822,7 +3822,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,362,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,362,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_aluguel,
 
@@ -3838,7 +3838,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,332,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,332,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_energia,
 
@@ -3862,7 +3862,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,344,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,344,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_gas,
 
@@ -3878,7 +3878,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,368,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,368,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_medicamentos,
 
@@ -3886,7 +3886,7 @@ SELECT
     SAFE_CAST(
         CASE
             WHEN REGEXP_CONTAINS(SUBSTRING(text,356,5), r'^\s*$') THEN NULL
-            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 100
+            ELSE SAFE_CAST( TRIM(SUBSTRING(text,356,5)) AS INT64) / 1
         END AS FLOAT64
     ) AS despesa_transporte,
 
