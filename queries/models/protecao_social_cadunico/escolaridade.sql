@@ -182,6 +182,15 @@ SELECT
             ELSE TRIM(SUBSTRING(text,40,1))
         END AS STRING
     ) AS id_sabe_ler_escrever,
+    --column: cod_sabe_ler_escrever_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^\s*$') THEN NULL
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^1$') THEN 'Sim'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^2$') THEN 'Não'
+            ELSE TRIM(SUBSTRING(text,40,1))
+        END AS STRING
+    ) AS sabe_ler_escrever,
 
     --column: dta_integracao_escolaridade_membro
     NULL AS data_integracao_escolaridade_membro, --Essa coluna não esta na versao posterior
@@ -421,6 +430,15 @@ SELECT
             ELSE TRIM(SUBSTRING(text,40,1))
         END AS STRING
     ) AS id_sabe_ler_escrever,
+    --column: cod_sabe_ler_escrever_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^\s*$') THEN NULL
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^1$') THEN 'Sim'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^2$') THEN 'Não'
+            ELSE TRIM(SUBSTRING(text,40,1))
+        END AS STRING
+    ) AS sabe_ler_escrever,
 
     --column: dta_integracao_escolaridade_membro
     NULL AS data_integracao_escolaridade_membro, --Essa coluna não esta na versao posterior
@@ -660,6 +678,15 @@ SELECT
             ELSE TRIM(SUBSTRING(text,40,1))
         END AS STRING
     ) AS id_sabe_ler_escrever,
+    --column: cod_sabe_ler_escrever_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^\s*$') THEN NULL
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^1$') THEN 'Sim'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^2$') THEN 'Não'
+            ELSE TRIM(SUBSTRING(text,40,1))
+        END AS STRING
+    ) AS sabe_ler_escrever,
 
     --column: dta_integracao_escolaridade_membro
     NULL AS data_integracao_escolaridade_membro, --Essa coluna não esta na versao posterior
@@ -899,6 +926,15 @@ SELECT
             ELSE TRIM(SUBSTRING(text,40,1))
         END AS STRING
     ) AS id_sabe_ler_escrever,
+    --column: cod_sabe_ler_escrever_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^\s*$') THEN NULL
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^1$') THEN 'Sim'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^2$') THEN 'Não'
+            ELSE TRIM(SUBSTRING(text,40,1))
+        END AS STRING
+    ) AS sabe_ler_escrever,
 
     --column: dta_integracao_escolaridade_membro
     NULL AS data_integracao_escolaridade_membro, --Essa coluna não esta na versao posterior
@@ -1138,6 +1174,15 @@ SELECT
             ELSE TRIM(SUBSTRING(text,40,1))
         END AS STRING
     ) AS id_sabe_ler_escrever,
+    --column: cod_sabe_ler_escrever_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^\s*$') THEN NULL
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^1$') THEN 'Sim'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^2$') THEN 'Não'
+            ELSE TRIM(SUBSTRING(text,40,1))
+        END AS STRING
+    ) AS sabe_ler_escrever,
 
     --column: dta_integracao_escolaridade_membro
     NULL AS data_integracao_escolaridade_membro, --Essa coluna não esta na versao posterior
@@ -1377,6 +1422,15 @@ SELECT
             ELSE TRIM(SUBSTRING(text,40,1))
         END AS STRING
     ) AS id_sabe_ler_escrever,
+    --column: cod_sabe_ler_escrever_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^\s*$') THEN NULL
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^1$') THEN 'Sim'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^2$') THEN 'Não'
+            ELSE TRIM(SUBSTRING(text,40,1))
+        END AS STRING
+    ) AS sabe_ler_escrever,
 
     --column: dta_integracao_escolaridade_membro
     NULL AS data_integracao_escolaridade_membro, --Essa coluna não esta na versao posterior
@@ -1616,6 +1670,15 @@ SELECT
             ELSE TRIM(SUBSTRING(text,40,1))
         END AS STRING
     ) AS id_sabe_ler_escrever,
+    --column: cod_sabe_ler_escrever_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^\s*$') THEN NULL
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^1$') THEN 'Sim'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^2$') THEN 'Não'
+            ELSE TRIM(SUBSTRING(text,40,1))
+        END AS STRING
+    ) AS sabe_ler_escrever,
 
     --column: dta_integracao_escolaridade_membro
     NULL AS data_integracao_escolaridade_membro, --Essa coluna não esta na versao posterior
@@ -1867,6 +1930,15 @@ SELECT
             ELSE TRIM(SUBSTRING(text,40,1))
         END AS STRING
     ) AS id_sabe_ler_escrever,
+    --column: cod_sabe_ler_escrever_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^\s*$') THEN NULL
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^1$') THEN 'Sim'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^2$') THEN 'Não'
+            ELSE TRIM(SUBSTRING(text,40,1))
+        END AS STRING
+    ) AS sabe_ler_escrever,
 
     --column: dta_integracao_escolaridade_membro
     SAFE.PARSE_DATE(
@@ -2123,6 +2195,15 @@ SELECT
             ELSE TRIM(SUBSTRING(text,40,1))
         END AS STRING
     ) AS id_sabe_ler_escrever,
+    --column: cod_sabe_ler_escrever_memb
+    CAST(
+        CASE
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^\s*$') THEN NULL
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^1$') THEN 'Sim'
+            WHEN REGEXP_CONTAINS(SUBSTRING(text,40,1), r'^2$') THEN 'Não'
+            ELSE TRIM(SUBSTRING(text,40,1))
+        END AS STRING
+    ) AS sabe_ler_escrever,
 
     --column: dta_integracao_escolaridade_membro
     SAFE.PARSE_DATE(

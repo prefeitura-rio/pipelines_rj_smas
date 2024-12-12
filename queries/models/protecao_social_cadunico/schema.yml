@@ -706,6 +706,8 @@ models :
         description: '1 – Origem Autodeclarado,2 – Origem Presença | version: 0620'
       - name: id_sabe_ler_escrever
         description: 'Pessoa sabe ler e escrever: 1-Sim, 2-Não | version: 0620'
+      - name: sabe_ler_escrever
+        description: 'Pessoa sabe ler e escrever: 1-Sim, 2-Não | version: 0620'
       - name: data_integracao_escolaridade_membro
         description: 'Data de integração com o sistema Presença | version: 0620'
       - name: escola_nao_tem_inep
