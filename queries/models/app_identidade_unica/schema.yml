@@ -11,6 +11,8 @@ models :
         description: Código Familiar
       - name: data_particao
         description: Data do particionamento dos dados
+      - name: dados
+        description: dados primarios da pessoa
       - name: dados.cpf_valido_indicador
         description: Indicador de CPF válido
       - name: dados.nome
@@ -43,14 +45,20 @@ models :
         description: Indica se a pessoa esteve envolvida em trabalho infantil
       - name: dados.numeros_membros_familia
         description: Número total de membros da família
+      - name: deficiencia
+        description: informaçoes sobre deficiencia
       - name: deficiencia.tem_deficiencia
         description: Indicador se a pessoa tem algum tipo de deficiência
       - name: deficiencia.tipo_deficiencia
         description: Tipo de deficiência que a pessoa possui
+      - name: escolaridade
+        description: informações sobre escolaridade
       - name: escolaridade.sabe_ler_escrever
         description: Indica se a pessoa sabe ler e escrever
       - name: escolaridade.curso_mais_elevado_frequentou
         description: Nível mais alto de curso frequentado pela pessoa
+      - name: renda
+        description: informações sobre renda
       - name: renda.renda_media_familia
         description: Renda média mensal da família
       - name: renda.renda_media_familia_original
@@ -73,6 +81,8 @@ models :
         description: Indica se a pessoa não recebe remuneração
       - name: renda.funcao_principal_trabalho
         description: Função principal desempenhada no trabalho
+      - name: domicilio
+        description: infomações sobre domicilio
       - name: domicilio.especie_domicilio
         description: Tipo de domicílio (casa, apartamento, etc.)
       - name: domicilio.iluminacao
@@ -99,6 +109,8 @@ models :
         description: Despesa original com gás. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
       - name: domicilio.despesa_transporte_original
         description: Despesa original com transporte. Campo numérico de 5 posições formato NNNNN (não existem casas decimais)
+      - name: membros
+        description: infomações sobre os membros da família
       - name: membros.cpf
         description: CPF do membro da família
       - name: membros.id_membro_familia
