@@ -12,7 +12,7 @@
 
 with
     documento_pessoa_tb as (
-        select
+        select distinct
             trim(dp.cpf) as cpf,
             dp.id_membro_familia,
             dp.id_familia,
@@ -30,16 +30,14 @@ with
             {{ proper_br('i.nome_mae') }} as nome_mae,
             {{ proper_br('i.nome_pai') }} as nome_pai,
             i.trabalho_infantil,
-            count(*) over (
-                partition by dp.id_familia, dp.data_particao
-                order by dp.data_particao desc
-            ) as numeros_membros_familia
         from `rj-smas.protecao_social_cadunico.documento_pessoa` dp
         left join
             `rj-smas.protecao_social_cadunico.identificacao_primeira_pessoa` i
             on dp.id_membro_familia = i.id_membro_familia
             and dp.id_familia = i.id_familia
             and dp.data_particao = i.data_particao
+        where
+            dp.cpf is not null
     ),
 
     identificacao_controle as (
@@ -144,6 +142,20 @@ with
         from `rj-smas.protecao_social_cadunico.condicao_rua`
     ),
 
+    rank_membros as (
+        select
+            cpf,
+            id_membro_familia,
+            nome,
+            parentesco_responsavel_familia,
+            id_familia,
+            data_particao,
+            row_number() over (
+                partition by cpf, id_familia order by data_particao desc
+            ) as rn
+        from documento_pessoa_tb
+    ),
+
     membros as (
         select
             id_familia,
@@ -151,7 +163,8 @@ with
             array_agg(
                 struct(cpf, id_membro_familia, nome, parentesco_responsavel_familia)
             ) as membros
-        from documento_pessoa_tb
+        from rank_membros
+        where rn = 1
         group by id_familia, data_particao
     ),
 
@@ -160,8 +173,10 @@ with
             dp.cpf,
             dp.id_membro_familia,
             dp.id_familia,
-            dp.numeros_membros_familia,
             dp.data_particao,
+            count(distinct dp.cpf) over (
+                partition by dp.id_familia, dp.data_particao
+            ) as numeros_membros_familia,
             row_number() over (
                 partition by dp.cpf order by dp.data_particao desc
             ) as rank,
@@ -242,7 +257,7 @@ with
                     dp.nome_pai,
                     dp.condicao_rua,
                     dp.trabalho_infantil,
-                    dp.numeros_membros_familia
+                    numeros_membros_familia
                 )
             ) as dados,
             array_agg(struct(dp.tem_deficiencia, dp.tipo_deficiencia)) as deficiencia,
@@ -289,7 +304,7 @@ with
                         m.parentesco_responsavel_familia
                     )
                 from unnest(m.membros) m
-                where m.id_membro_familia != dp.id_membro_familia
+                where m.cpf != dp.cpf
             ) as membros,
             safe_cast(dp.cpf as int64) as cpf_particao
         from dados dp
