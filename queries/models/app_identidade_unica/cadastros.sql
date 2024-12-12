@@ -1,3 +1,15 @@
+{{
+    config(
+        materialized="table",
+        cluster_by="cpf",
+        partition_by={
+            "field": "cpf_particao",
+            "data_type": "int64",
+            "range": {"start": 0, "end": 100000000000, "interval": 34722222},
+        },
+    )
+}}
+
 with
     documento_pessoa_tb as (
         select
@@ -213,6 +225,7 @@ with
             dp.data_particao,
             array_agg(
                 struct(
+                    {{ validate_cpf("cpf") }} as cpf_valido_indicador,
                     dp.nome,
                     dp.raca_cor,
                     dp.sexo,
