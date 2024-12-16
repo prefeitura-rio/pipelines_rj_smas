@@ -801,6 +801,13 @@ def get_dbt_models_to_materialize(
                 parameters_list_ordered.append(model)
                 break
 
+    # add a manual table to the quee
+    parameters_list_ordered.append(
+        {
+            "dataset_id": "app_identidade_unica",
+            "table_id": "cadastros",
+        }
+    )
     parameters_list_log = json.dumps(parameters_list_ordered, indent=4)
     log(f"{len(parameters_list_ordered)} TABLES TO MATERIALIZE:\n{parameters_list_log}")
     return parameters_list_ordered
