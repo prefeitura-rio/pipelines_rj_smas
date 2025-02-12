@@ -53,7 +53,7 @@ with
             data_alteracao as data_alteracao_familia,
             data_limite_catastro_atual as data_limite_cadastro_atual_familia,
 
-            concat(ic.id_uf, ic.id_municipio) as id_municipio,
+            concat(id_uf, id_municipio) as id_municipio,
             id_uf,
             cep,
             {{ proper_br('localidade') }} as localidade,
@@ -195,14 +195,14 @@ with
     municipio_bd as (
         select id_uf, sigla_uf, id_municipio, nome as nome_municipio,
         from `basedosdados.br_bd_diretorios_brasil.municipio`
-    )
+    ),
 
     endereco as (
         select
             ic.id_familia,
             ic.data_particao,
 
-            lower(bd.sigla_uf) as sigla_uf
+            lower(bd.sigla_uf) as sigla_uf,
             bd.nome_municipio,
 
             ic.cep,
@@ -215,7 +215,7 @@ with
             ic.complemento_adicional,
             ic.unidade_territorial
         from identificacao_controle ic
-        left join municipio_bd bd on id_municipio = bd.id_municipio
+        left join municipio_bd bd on ic.id_municipio = bd.id_municipio
     ),
 
     dados_familia as (
