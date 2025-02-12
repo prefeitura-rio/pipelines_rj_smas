@@ -800,6 +800,7 @@ def get_dbt_models_to_materialize(
                 log(f"ADDING MODEL TO ORDERED PARAMETERS LIST: {model_name}\n{model}")
                 parameters_list_ordered.append(model)
                 break
+
     parameters_list_log = json.dumps(parameters_list_ordered, indent=4)
     log(f"{len(parameters_list_ordered)} TABLES TO MATERIALIZE:\n{parameters_list_log}")
     return parameters_list_ordered

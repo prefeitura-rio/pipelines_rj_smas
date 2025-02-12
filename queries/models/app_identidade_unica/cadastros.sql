@@ -36,12 +36,30 @@ with
             on dp.id_membro_familia = i.id_membro_familia
             and dp.id_familia = i.id_familia
             and dp.data_particao = i.data_particao
-        where
-            dp.cpf is not null
+        where dp.cpf is not null
     ),
 
     identificacao_controle as (
-        select id_familia, data_particao, valor_renda_media, valor_renda_media_original
+        select
+            id_familia,
+            data_particao,
+            valor_renda_media,
+            valor_renda_media_original,
+
+            condicao_cadastro as condicao_cadastral_familia,
+            estado_cadastro as estado_cadastral_familia,
+            data_alteracao as data_alteracao_familia,
+            data_limite_catastro_atual as data_limite_cadastro_atual_familia,
+
+            cep,
+            localidade,
+            tipo_logradouro,
+            logradouro,
+            numero_logradouro,
+            titulo_logradouro,
+            complemento,
+            complemento_adicional,
+            unidade_territorial,
         from `rj-smas.protecao_social_cadunico.identificacao_controle`
     ),
 
@@ -168,6 +186,35 @@ with
         group by id_familia, data_particao
     ),
 
+    endereco as (
+        select
+            id_familia,
+            data_particao,
+
+            cep,
+            localidade,
+            tipo_logradouro,
+            logradouro,
+            numero_logradouro,
+            titulo_logradouro,
+            complemento,
+            complemento_adicional,
+            unidade_territorial
+        from identificacao_controle
+    ),
+
+    dados_familia as (
+        select
+            id_familia,
+            data_particao,
+
+            condicao_cadastral_familia,
+            estado_cadastral_familia,
+            data_alteracao_familia,
+            data_limite_cadastro_atual_familia
+        from identificacao_controle
+    ),
+
     documento_pessoa_tb_filter as (
         select
             dp.cpf,
@@ -195,6 +242,7 @@ with
             dp.trabalho_infantil,
             pd.tem_deficiencia,
             pd.tipo_deficiencia,
+
             r.renda_media_familia,
             r.renda_media_familia_original,
             r.renda_outras_rendas,
@@ -206,9 +254,27 @@ with
             r.renda_seguro_desemprego,
             r.nao_recebe_remuneracao,
             r.funcao_principal_trabalho,
+
             e.sabe_ler_escrever,
             e.curso_mais_elevado_frequentou,
-            cr.condicao_rua
+
+            cr.condicao_rua,
+
+            en.cep,
+            en.localidade,
+            en.tipo_logradouro,
+            en.logradouro,
+            en.numero_logradouro,
+            en.titulo_logradouro,
+            en.complemento,
+            en.complemento_adicional,
+            en.unidade_territorial,
+
+            df.condicao_cadastral_familia,
+            df.estado_cadastral_familia,
+            df.data_alteracao_familia,
+            df.data_limite_cadastro_atual_familia
+
         from documento_pessoa_tb dp
         left join
             deficiencia as pd
@@ -230,6 +296,15 @@ with
             on dp.id_membro_familia = cr.id_membro_familia
             and dp.id_familia = cr.id_familia
             and dp.data_particao = cr.data_particao
+        left join
+            endereco as en
+            on dp.id_familia = en.id_familia
+            and dp.data_particao = en.data_particao
+        left join
+            dados_familia as df
+            on dp.id_familia = df.id_familia
+            and dp.data_particao = df.data_particao
+
         where cpf is not null
 
     ),
@@ -249,6 +324,7 @@ with
                     dp.municipio_nascimento,
                     dp.sigla_uf_municipio_nascimento,
                     dp.estado_cadastral,
+
                     dp.parentesco_responsavel_familia,
                     dp.data_nascimento,
                     dp.data_ultima_atualizacao,
@@ -257,6 +333,12 @@ with
                     dp.nome_pai,
                     dp.condicao_rua,
                     dp.trabalho_infantil,
+
+                    dp.condicao_cadastral_familia,
+                    dp.estado_cadastral_familia,
+                    dp.data_alteracao_familia,
+                    dp.data_limite_cadastro_atual_familia,
+
                     numeros_membros_familia
                 )
             ) as dados,
@@ -278,7 +360,22 @@ with
             ) as renda,
             array_agg(
                 struct(dp.sabe_ler_escrever, dp.curso_mais_elevado_frequentou)
-            ) as escolaridade
+            ) as escolaridade,
+
+            array_agg(
+                struct(
+                    dp.cep,
+                    dp.localidade,
+                    dp.tipo_logradouro,
+                    dp.logradouro,
+                    dp.numero_logradouro,
+                    dp.titulo_logradouro,
+                    dp.complemento,
+                    dp.complemento_adicional,
+                    dp.unidade_territorial
+                )
+            ) as endereco
+
         from documento_pessoa_tb_filter dp
         where rank = 1
         group by dp.cpf, dp.id_membro_familia, dp.id_familia, dp.data_particao
