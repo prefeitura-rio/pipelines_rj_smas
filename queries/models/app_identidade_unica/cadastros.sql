@@ -323,10 +323,12 @@ with
                 struct(
                     {{ validate_cpf("cpf") }} as cpf_valido_indicador,
                     dp.nome,
-                    lower(dp.raca_cor),
-                    lower(dp.sexo),
+                    lower(dp.raca_cor) as raca_cor,
+                    lower(dp.sexo) as sexo,
                     dp.municipio_nascimento,
-                    lower(dp.sigla_uf_municipio_nascimento),
+                    lower(
+                        dp.sigla_uf_municipio_nascimento
+                    ) as sigla_uf_municipio_nascimento,
                     dp.estado_cadastral,
 
                     dp.parentesco_responsavel_familia,
