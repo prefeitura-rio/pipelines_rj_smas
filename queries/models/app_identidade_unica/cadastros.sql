@@ -18,12 +18,14 @@ with
             dp.id_familia,
             dp.data_particao,
             {{ proper_br('i.nome') }} as nome,
-            i.raca_cor,
-            i.sexo,
-            i.municipio_nascimento,
-            i.sigla_uf_municipio_nascimento,
-            i.estado_cadastral,
-            i.parentesco_responsavel_familia,
+            {{ proper_br('i.raca_cor') }} as raca_cor,
+            {{ proper_br('i.sexo') }} as sexo,
+            {{ proper_br('i.municipio_nascimento') }} as municipio_nascimento,
+            lower(i.sigla_uf_municipio_nascimento),
+            {{ proper_br('i.estado_cadastral') }} as estado_cadastral,
+            {{ proper_br('i.parentesco_responsavel_familia') }}
+            as parentesco_responsavel_familia,
+
             i.data_nascimento,
             i.data_ultima_atualizacao,
             i.data_cadastro,
@@ -46,20 +48,21 @@ with
             valor_renda_media,
             valor_renda_media_original,
 
-            condicao_cadastro as condicao_cadastral_familia,
-            estado_cadastro as estado_cadastral_familia,
+            {{ proper_br('condicao_cadastro') }} as condicao_cadastral_familia,
+            {{ proper_br('estado_cadastro') }} as estado_cadastral_familia,
             data_alteracao as data_alteracao_familia,
             data_limite_catastro_atual as data_limite_cadastro_atual_familia,
 
             cep,
-            localidade,
-            tipo_logradouro,
-            logradouro,
+            {{ proper_br('localidade') }} as localidade,
+            {{ proper_br('tipo_logradouro') }} as tipo_logradouro,
+            {{ proper_br('logradouro') }} as logradouro,
             numero_logradouro,
-            titulo_logradouro,
-            complemento,
-            complemento_adicional,
-            unidade_territorial,
+            {{ proper_br('titulo_logradouro') }} as titulo_logradouro,
+            {{ proper_br('complemento') }} as complemento,
+            {{ proper_br('complemento_adicional') }} as complemento_adicional,
+            {{ proper_br('unidade_territorial') }} as unidade_territorial
+
         from `rj-smas.protecao_social_cadunico.identificacao_controle`
     ),
 
@@ -151,7 +154,8 @@ with
             id_membro_familia,
             data_particao,
             sabe_ler_escrever,
-            curso_mais_elevado_frequentou,
+            {{ proper_br('curso_mais_elevado_frequentou') }}
+            as curso_mais_elevado_frequentou,
         from `rj-smas.protecao_social_cadunico.escolaridade`
     ),
 
@@ -319,10 +323,10 @@ with
                 struct(
                     {{ validate_cpf("cpf") }} as cpf_valido_indicador,
                     dp.nome,
-                    dp.raca_cor,
-                    dp.sexo,
+                    lower(dp.raca_cor),
+                    lower(dp.sexo),
                     dp.municipio_nascimento,
-                    dp.sigla_uf_municipio_nascimento,
+                    lower(dp.sigla_uf_municipio_nascimento),
                     dp.estado_cadastral,
 
                     dp.parentesco_responsavel_familia,
