@@ -21,7 +21,7 @@ with
             {{ proper_br('i.raca_cor') }} as raca_cor,
             {{ proper_br('i.sexo') }} as sexo,
             {{ proper_br('i.municipio_nascimento') }} as municipio_nascimento,
-            lower(i.sigla_uf_municipio_nascimento),
+            lower(i.sigla_uf_municipio_nascimento) as sigla_uf_municipio_nascimento,
             {{ proper_br('i.estado_cadastral') }} as estado_cadastral,
             {{ proper_br('i.parentesco_responsavel_familia') }}
             as parentesco_responsavel_familia,
