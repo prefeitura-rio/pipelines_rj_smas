@@ -397,6 +397,7 @@ with
             dp.deficiencia,
             dp.escolaridade,
             dp.renda,
+            dp.endereco,
             d.domicilio,
             array(
                 select
