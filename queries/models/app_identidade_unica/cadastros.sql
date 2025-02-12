@@ -244,7 +244,7 @@ with
             dp.data_particao,
             count(distinct dp.cpf) over (
                 partition by dp.id_familia, dp.data_particao
-            ) as numeros_membros_familia,
+            ) as numero_membros_familia,
             row_number() over (
                 partition by dp.cpf order by dp.data_particao desc
             ) as rank,
@@ -362,7 +362,7 @@ with
                     dp.data_alteracao_familia,
                     dp.data_limite_cadastro_atual_familia,
 
-                    numeros_membros_familia
+                    numero_membros_familia
                 )
             ) as dados,
             array_agg(struct(dp.tem_deficiencia, dp.tipo_deficiencia)) as deficiencia,
