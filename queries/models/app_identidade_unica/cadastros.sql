@@ -53,6 +53,8 @@ with
             data_alteracao as data_alteracao_familia,
             data_limite_catastro_atual as data_limite_cadastro_atual_familia,
 
+            concat(ic.id_uf, ic.id_municipio) as id_municipio,
+            id_uf,
             cep,
             {{ proper_br('localidade') }} as localidade,
             {{ proper_br('tipo_logradouro') }} as tipo_logradouro,
@@ -190,21 +192,30 @@ with
         group by id_familia, data_particao
     ),
 
+    municipio_bd as (
+        select id_uf, sigla_uf, id_municipio, nome as nome_municipio,
+        from `basedosdados.br_bd_diretorios_brasil.municipio`
+    )
+
     endereco as (
         select
-            id_familia,
-            data_particao,
+            ic.id_familia,
+            ic.data_particao,
 
-            cep,
-            localidade,
-            tipo_logradouro,
-            logradouro,
-            numero_logradouro,
-            titulo_logradouro,
-            complemento,
-            complemento_adicional,
-            unidade_territorial
-        from identificacao_controle
+            lower(bd.sigla_uf) as sigla_uf
+            bd.nome_municipio,
+
+            ic.cep,
+            ic.localidade,
+            ic.tipo_logradouro,
+            ic.logradouro,
+            ic.numero_logradouro,
+            ic.titulo_logradouro,
+            ic.complemento,
+            ic.complemento_adicional,
+            ic.unidade_territorial
+        from identificacao_controle ic
+        left join municipio_bd bd on id_municipio = bd.id_municipio
     ),
 
     dados_familia as (
@@ -264,6 +275,8 @@ with
 
             cr.condicao_rua,
 
+            en.sigla_uf,
+            en.nome_municipio,
             en.cep,
             en.localidade,
             en.tipo_logradouro,
@@ -370,6 +383,8 @@ with
 
             array_agg(
                 struct(
+                    dp.sigla_uf,
+                    dp.nome_municipio,
                     dp.cep,
                     dp.localidade,
                     dp.tipo_logradouro,
