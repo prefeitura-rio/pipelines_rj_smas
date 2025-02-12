@@ -208,11 +208,17 @@ with
             ic.cep,
             ic.localidade,
             ic.tipo_logradouro,
-            ic.logradouro,
+            trim(
+                concat(ifnull(ic.titulo_logradouro, ''), ' ', ic.logradouro)
+            ) as logradouro,
             ic.numero_logradouro,
-            ic.titulo_logradouro,
-            ic.complemento,
-            ic.complemento_adicional,
+            trim(
+                concat(
+                    ifnull(ic.complemento, ''),
+                    ' ',
+                    ifnull(ic.complemento_adicional, '')
+                )
+            ) as complemento,
             ic.unidade_territorial
         from identificacao_controle ic
         left join municipio_bd bd on ic.id_municipio = bd.id_municipio
@@ -282,9 +288,7 @@ with
             en.tipo_logradouro,
             en.logradouro,
             en.numero_logradouro,
-            en.titulo_logradouro,
             en.complemento,
-            en.complemento_adicional,
             en.unidade_territorial,
 
             df.condicao_cadastral_familia,
@@ -390,9 +394,7 @@ with
                     dp.tipo_logradouro,
                     dp.logradouro,
                     dp.numero_logradouro,
-                    dp.titulo_logradouro,
                     dp.complemento,
-                    dp.complemento_adicional,
                     dp.unidade_territorial
                 )
             ) as endereco
