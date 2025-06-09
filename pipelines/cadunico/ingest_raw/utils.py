@@ -342,6 +342,7 @@ def convert_string_to_json(s):
 def create_cadunico_dbt_consolidated_models(
     dataframe: pd.DataFrame, model_dataset_id: str, model_table_id: str
 ):
+
     df = dataframe.copy()
     df["reg"] = df["reg"].apply(lambda x: x if len(x) > 1 else f"0{x}")
     df["version"] = df["version"].str.replace(".", "").apply(lambda x: x if len(x) > 3 else f"0{x}")
@@ -655,6 +656,7 @@ def parse_columns_version_control(df):
 
 
 def create_layout_column_cross_version_control_bq_table(dataframe, dataset_id, table_id):
+
     new_dataframe = parse_columns_version_control(df=dataframe)
 
     output_path = Path("/tmp/cadunico/final_layout")
