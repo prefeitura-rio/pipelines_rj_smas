@@ -2113,12 +2113,14 @@ models :
       - name: data_transferencia_membro
         description: 'Data de TRANSFERÊNCIA da Pessoa no CadÚnico formato DDMMAAAA
           | version: 0624'
-      - name: filiacao_1_nom_completo_mae_membt
-        description: 'Não sabe nome da mãe: 0 – Opção não marcada no formulário, 1
-          – Opção marcada no formulário | version: 0624'
+      - name: filiacao_1_nome_completo_mae_membt
+        description: 'Filiacao 1 ou Nome da mãe | version: 0624'
       - name: filiacao_2
         description: 'Filiacao 2 | version: 0624'
       - name: id_filiacao_1_nom_completo_mae_membt
+        description: 'Não sabe nome da mãe: 0 – Opção não marcada no formulário, 1
+          – Opção marcada no formulário | version: 0624'
+      - name: filiacao_1_nom_completo_mae_membt
         description: 'Não sabe nome da mãe: 0 – Opção não marcada no formulário, 1
           – Opção marcada no formulário | version: 0624'
       - name: id_filiacao_2

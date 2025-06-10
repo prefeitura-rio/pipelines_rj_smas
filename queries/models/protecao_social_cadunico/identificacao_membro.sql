@@ -155,14 +155,15 @@ SELECT
         END    ) AS data_transferencia_membro,
 
     --column: filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+    NULL AS filiacao_1_nome_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: filiacao_2
     NULL AS filiacao_2, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-
+    --column: ind_filiacao_1_nom_completo_mae_membt
+    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -439,14 +440,15 @@ SELECT
         END    ) AS data_transferencia_membro,
 
     --column: filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+    NULL AS filiacao_1_nome_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: filiacao_2
     NULL AS filiacao_2, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-
+    --column: ind_filiacao_1_nom_completo_mae_membt
+    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -723,14 +725,15 @@ SELECT
         END    ) AS data_transferencia_membro,
 
     --column: filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+    NULL AS filiacao_1_nome_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: filiacao_2
     NULL AS filiacao_2, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-
+    --column: ind_filiacao_1_nom_completo_mae_membt
+    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -1007,14 +1010,15 @@ SELECT
         END    ) AS data_transferencia_membro,
 
     --column: filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+    NULL AS filiacao_1_nome_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: filiacao_2
     NULL AS filiacao_2, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-
+    --column: ind_filiacao_1_nom_completo_mae_membt
+    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -1291,14 +1295,15 @@ SELECT
         END    ) AS data_transferencia_membro,
 
     --column: filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+    NULL AS filiacao_1_nome_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: filiacao_2
     NULL AS filiacao_2, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-
+    --column: ind_filiacao_1_nom_completo_mae_membt
+    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -1575,14 +1580,15 @@ SELECT
         END    ) AS data_transferencia_membro,
 
     --column: filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+    NULL AS filiacao_1_nome_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: filiacao_2
     NULL AS filiacao_2, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-
+    --column: ind_filiacao_1_nom_completo_mae_membt
+    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -1859,14 +1865,15 @@ SELECT
         END    ) AS data_transferencia_membro,
 
     --column: filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+    NULL AS filiacao_1_nome_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: filiacao_2
     NULL AS filiacao_2, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-
+    --column: ind_filiacao_1_nom_completo_mae_membt
+    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -2143,14 +2150,15 @@ SELECT
         END    ) AS data_transferencia_membro,
 
     --column: filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+    NULL AS filiacao_1_nome_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: filiacao_2
     NULL AS filiacao_2, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-
+    --column: ind_filiacao_1_nom_completo_mae_membt
+    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -2427,14 +2435,15 @@ SELECT
         END    ) AS data_transferencia_membro,
 
     --column: filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+    NULL AS filiacao_1_nome_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: filiacao_2
     NULL AS filiacao_2, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-
+    --column: ind_filiacao_1_nom_completo_mae_membt
+    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -2716,7 +2725,7 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,174,70), r'^\s*$') THEN NULL
             ELSE TRIM(SUBSTRING(text,174,70))
         END AS STRING
-    ) AS filiacao_1_nom_completo_mae_membt,
+    ) AS filiacao_1_nome_completo_mae_membt,
 
     --column: filiacao_2
     CAST(
@@ -3008,7 +3017,7 @@ SELECT
             WHEN REGEXP_CONTAINS(SUBSTRING(text,174,70), r'^\s*$') THEN NULL
             ELSE TRIM(SUBSTRING(text,174,70))
         END AS STRING
-    ) AS filiacao_1_nom_completo_mae_membt,
+    ) AS filiacao_1_nome_completo_mae_membt,
 
     --column: filiacao_2
     CAST(
