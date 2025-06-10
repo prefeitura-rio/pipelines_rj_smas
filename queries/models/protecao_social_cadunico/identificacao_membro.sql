@@ -162,8 +162,7 @@ SELECT
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-    --column: ind_filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -447,8 +446,7 @@ SELECT
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-    --column: ind_filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -732,8 +730,7 @@ SELECT
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-    --column: ind_filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -1017,8 +1014,7 @@ SELECT
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-    --column: ind_filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -1302,8 +1298,7 @@ SELECT
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-    --column: ind_filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -1587,8 +1582,7 @@ SELECT
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-    --column: ind_filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -1872,8 +1866,7 @@ SELECT
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-    --column: ind_filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -2157,8 +2150,7 @@ SELECT
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-    --column: ind_filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
@@ -2442,8 +2434,7 @@ SELECT
 
     --column: ind_filiacao_1_nom_completo_mae_membt
     NULL AS id_filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
-    --column: ind_filiacao_1_nom_completo_mae_membt
-    NULL AS filiacao_1_nom_completo_mae_membt, --Essa coluna não esta na versao posterior
+
 
     --column: ind_filiacao_2
     NULL AS id_filiacao_2, --Essa coluna não esta na versao posterior
