@@ -120,10 +120,8 @@ def convert_agendamentos_to_dataframe(agendamentos: List[Agendamento]) -> pd.Dat
     Returns:
         DataFrame com os dados dos agendamentos
     """
-
     log(f"Convertendo {len(agendamentos)} agendamentos para DataFrame")
 
-    # Converte os objetos Agendamento para dicionários
     data = []
     for agendamento in agendamentos:
         data.append(
