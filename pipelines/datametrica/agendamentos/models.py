@@ -7,6 +7,7 @@ class Agendamento:
     """
     Modelo de dados para representar um agendamento da Datametrica.
     """
+
     id: int
     id_capacidade: int
     nome_completo: str
