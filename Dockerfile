@@ -6,7 +6,10 @@ FROM python:${PYTHON_VERSION}
 
 # Setting environment with prefect version
 ARG PREFECT_VERSION=1.4.1
-ENV PREFECT_VERSION $PREFECT_VERSION
+ENV PREFECT_VERSION=$PREFECT_VERSION
+
+# Install git for dependency installation
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
 # Setup virtual environment and prefect
 ENV VIRTUAL_ENV=/opt/venv
