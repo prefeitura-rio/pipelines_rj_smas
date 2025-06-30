@@ -69,7 +69,5 @@ with Flow(
 # Storage and run configs
 datametrica__agendamentos__flow.storage = GCS(constants.GCS_FLOWS_BUCKET.value)
 datametrica__agendamentos__flow.run_config = KubernetesRun(image=constants.DOCKER_IMAGE.value)
-datametrica__agendamentos__flow.state_handlers = [handler_inject_bd_credentials]
-
 datametrica__agendamentos__flow.schedule = daily_schedule
 datametrica__agendamentos__flow.executor = LocalDaskExecutor(num_workers=1)
