@@ -12,11 +12,12 @@ from prefeitura_rio.pipelines_utils.tasks import create_table_and_upload_to_gcs
 
 from pipelines.constants import constants
 from pipelines.datametrica.agendamentos.tasks import (
-    convert_agendamentos_to_dataframe,
-    fetch_agendamentos_from_api,
     get_datametrica_credentials,
+    fetch_agendamentos_from_api,
     transform_agendamentos_data,
+    convert_agendamentos_to_dataframe,
 )
+
 from pipelines.utils.tasks import create_date_partitions
 
 with Flow(
@@ -28,6 +29,7 @@ with Flow(
     parallelism=10,
     skip_if_running=False,
 ) as datametrica__agendamentos__flow:
+
     #########################
     #  Define parameters    #
     #########################
@@ -41,19 +43,14 @@ with Flow(
     #  Start flow           #
     #########################
 
-    # Get API credentials
     credentials = get_datametrica_credentials()
 
-    # Fetch data from API
     raw_data = fetch_agendamentos_from_api(credentials=credentials, date=date_param)
 
-    # Transform data to typed objects
     processed_data = transform_agendamentos_data(raw_data)
 
-    # Convert to DataFrame
     df = convert_agendamentos_to_dataframe(processed_data)
 
-    # Create date partitions
     partitions_path = create_date_partitions(
         dataframe=df,
         partition_column="data_hora",
