@@ -17,7 +17,7 @@ class constants(Enum):
     # Agent labels
     ######################################
     # EXAMPLE_AGENT_LABEL = "example_agent"
-
+    CRM_AGENT_LABEL = "smas"
     ######################################
     # Other constants
     ######################################

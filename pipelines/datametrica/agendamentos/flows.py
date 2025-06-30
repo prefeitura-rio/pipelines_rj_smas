@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-from prefect import Flow, Parameter
+from prefect import Parameter
 from prefect.run_configs import KubernetesRun
 from prefect.storage import GCS
+from prefect.executors import LocalDaskExecutor
+from prefeitura_rio.pipelines_utils.custom import Flow
 from prefeitura_rio.pipelines_utils.state_handlers import (
     handler_initialize_sentry,
     handler_inject_bd_credentials,
@@ -16,6 +18,7 @@ from pipelines.datametrica.agendamentos.tasks import (
     transform_agendamentos_data,
 )
 from pipelines.utils.tasks import create_date_partitions
+from pipelines.datametrica.agendamentos.schedules import daily_schedule
 
 with Flow(
     name="rj-smas: Datametrica - Extração de agendamentos",
@@ -66,3 +69,7 @@ with Flow(
 # Storage and run configs
 datametrica__agendamentos__flow.storage = GCS(constants.GCS_FLOWS_BUCKET.value)
 datametrica__agendamentos__flow.run_config = KubernetesRun(image=constants.DOCKER_IMAGE.value)
+datametrica__agendamentos__flow.state_handlers = [handler_inject_bd_credentials]
+
+datametrica__agendamentos__flow.schedule = daily_schedule
+datametrica__agendamentos__flow.executor = LocalDaskExecutor(num_workers=1)
