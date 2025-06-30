@@ -28,7 +28,6 @@ with Flow(
     parallelism=10,
     skip_if_running=False,
 ) as datametrica__agendamentos__flow:
-
     #########################
     #  Define parameters    #
     #########################
