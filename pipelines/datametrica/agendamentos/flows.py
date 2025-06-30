@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-from prefect import Parameter
-from prefect.executors import LocalDaskExecutor
+from prefect import Flow, Parameter
 from prefect.run_configs import KubernetesRun
 from prefect.storage import GCS
-from prefeitura_rio.pipelines_utils.custom import Flow
 from prefeitura_rio.pipelines_utils.state_handlers import (
     handler_initialize_sentry,
     handler_inject_bd_credentials,
@@ -66,7 +64,5 @@ with Flow(
     )
 
 # Storage and run configs
-datametrica__agendamentos__flow.state_handlers = [handler_inject_bd_credentials]
 datametrica__agendamentos__flow.storage = GCS(constants.GCS_FLOWS_BUCKET.value)
 datametrica__agendamentos__flow.run_config = KubernetesRun(image=constants.DOCKER_IMAGE.value)
-datametrica__agendamentos__flow.executor = LocalDaskExecutor(num_workers=1)
