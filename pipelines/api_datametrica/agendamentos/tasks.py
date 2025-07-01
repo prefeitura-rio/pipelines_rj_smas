@@ -10,7 +10,7 @@ from prefeitura_rio.pipelines_utils.logging import log
 from pipelines.constants import constants
 
 
-@task
+@task()
 def get_datametrica_credentials() -> Dict[str, str]:
     """
     Recupera as credenciais da API da Datametrica do Infisical.
@@ -39,7 +39,7 @@ def get_datametrica_credentials() -> Dict[str, str]:
         raise
 
 
-@task
+@task()
 def fetch_agendamentos_from_api(
     credentials: Dict[str, str], date: Optional[str] = None
 ) -> List[Dict[str, Any]]:
@@ -81,7 +81,7 @@ def fetch_agendamentos_from_api(
         raise
 
 
-@task
+@task()
 def transform_agendamentos_data(agendamentos_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
     Transforma e valida os dados brutos dos agendamentos.
@@ -116,7 +116,7 @@ def transform_agendamentos_data(agendamentos_data: List[Dict[str, Any]]) -> List
     return agendamentos
 
 
-@task
+@task()
 def convert_agendamentos_to_dataframe(agendamentos: List[Dict[str, Any]]) -> pd.DataFrame:
     """
     Converte a lista de agendamentos para um DataFrame pandas.
