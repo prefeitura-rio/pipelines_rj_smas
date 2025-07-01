@@ -15,17 +15,15 @@ from prefeitura_rio.pipelines_utils.tasks import (
     task_run_dbt_model_task,
 )
 
-from pipelines.api_datametrica.agendamentos.schedules import (
+from pipelines.api_datametrica.agendamentos.schedules import (  # pylint: disable=E0611, E0401
     daily_schedule,
-)  # pylint: disable=E0611, E0401
-
+)
 from pipelines.api_datametrica.agendamentos.tasks import (
     convert_agendamentos_to_dataframe,
     fetch_agendamentos_from_api,
     get_datametrica_credentials,
     transform_agendamentos_data,
 )
-
 from pipelines.constants import constants  # pylint: disable=E0611, E0401
 from pipelines.utils.tasks import create_date_partitions
 
