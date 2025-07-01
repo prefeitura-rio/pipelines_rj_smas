@@ -1,7 +1,7 @@
 {{
     config(
-        schema="datametrica_staging",
-        alias="agendamentos_cadunicos",
+        schema="brutos_data_metrica_staging",
+        alias="agendamentos_cadunico",
         materialized="table",
         partition_by={
             "field": "data_hora",
@@ -23,8 +23,8 @@ with source_data as (
         unidade_endereco,
         unidade_bairro,
         -- Add metadata fields
-        _current_timestamp() as processed_at
-    from {{ source('brutos_data_metrica_staging', 'agendamentos_cadunicos') }}
+        current_timestamp() as processed_at
+    from {{ source('brutos_data_metrica_staging', 'agendamentos_cadunico') }}
     where data_hora is not null
 )
 

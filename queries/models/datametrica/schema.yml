@@ -2,28 +2,44 @@ version: 2
 
 sources:
   - name: brutos_data_metrica_staging
-    description: Raw data from Datametrica API
+    description: Dados brutos da API Datametrica
     tables:
-      - name: agendamentos_cadunicos
-        description: Agendamentos (appointments) data from Datametrica
+      - name: agendamentos_cadunico
+        description: Dados de agendamentos da Datametrica
         columns:
           - name: id
-            description: Unique identifier for the appointment
+            description: Identificador único do agendamento
             tests:
               - not_null
               - unique
+          - name: id_capacidade
+            description: ID da capacidade
+          - name: nome_completo
+            description: Nome completo do paciente
+          - name: primeiro_nome
+            description: Primeiro nome do paciente
           - name: cpf
-            description: Patient CPF
+            description: CPF do paciente
             tests:
               - not_null
+          - name: telefone
+            description: Telefone do paciente
+          - name: tipo
+            description: Tipo do agendamento
           - name: data_hora
-            description: Appointment date and time
+            description: Data e hora do agendamento
             tests:
               - not_null
+          - name: unidade_nome
+            description: Nome da unidade de saúde
+          - name: unidade_endereco
+            description: Endereço da unidade de saúde
+          - name: unidade_bairro
+            description: Bairro da unidade de saúde
 
 models:
   - name: stg_agendamentos_cadunico
-    description: Staging model for Datametrica appointments data
+    description: Modelo staging dos dados de agendamentos da Datametrica
     columns:
       - name: id
         description: Unique identifier for the appointment
