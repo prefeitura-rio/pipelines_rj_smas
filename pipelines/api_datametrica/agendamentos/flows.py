@@ -44,7 +44,7 @@ with Flow(
     table_id = Parameter("table_id", default="agendamentos_cadunicos", required=False)
     dump_mode = Parameter("dump_mode", default="append", required=False)
     materialize_after_dump = Parameter("materialize_after_dump", default=True, required=False)
-    date_param = Parameter("date", default=None, required=False)
+    date_parameter = Parameter("date", default=None, required=False)
 
     #########################
     #  Start flow           #
@@ -52,7 +52,7 @@ with Flow(
 
     credentials = get_datametrica_credentials()
 
-    raw_data = fetch_agendamentos_from_api(credentials=credentials, date=date_param)
+    raw_data = fetch_agendamentos_from_api(credentials=credentials, date=date_parameter)
     raw_data.set_upstream(credentials)
 
     processed_data = transform_agendamentos_data(raw_data)
@@ -89,7 +89,10 @@ with Flow(
 datametrica_agendamentos_flow.state_handlers = [handler_inject_bd_credentials]
 datametrica_agendamentos_flow.storage = GCS(constants.GCS_FLOWS_BUCKET.value)
 datametrica_agendamentos_flow.run_config = KubernetesRun(
-    image=constants.DOCKER_IMAGE.value, labels=[constants.SMAS_AGENT_LABEL.value]
+    image=constants.DOCKER_IMAGE.value,
+    labels=[
+        constants.SMAS_AGENT_LABEL.value,
+    ],
 )
 datametrica_agendamentos_flow.schedule = daily_schedule
 datametrica_agendamentos_flow.executor = LocalDaskExecutor(num_workers=1)

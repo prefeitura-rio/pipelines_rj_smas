@@ -11,9 +11,6 @@ from prefeitura_rio.pipelines_utils.infisical import (
 )
 from prefeitura_rio.pipelines_utils.logging import log  # pylint: disable=E0611, E0401
 
-from pipelines.api_datametrica.agendamentos.utils import (
-    build_agendamentos_url,  # pylint: disable=E0611, E0401
-)
 from pipelines.constants import constants  # pylint: disable=E0611, E0401
 
 
@@ -59,7 +56,12 @@ def fetch_agendamentos_from_api(
     Returns:
         Lista de dicionários com os dados dos agendamentos
     """
-    url = build_agendamentos_url(credentials["url"], date)
+    # Build URL inline to avoid import issues
+    base_url = credentials["url"].rstrip("/")
+    if date is None:
+        from datetime import datetime, timedelta
+        date = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
+    url = f"{base_url}/api/agendamentos/{date}"
 
     log(f"Buscando agendamentos na URL: {url}")
 
