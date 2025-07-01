@@ -10,7 +10,6 @@ from prefeitura_rio.pipelines_utils.state_handlers import (
 )
 from prefeitura_rio.pipelines_utils.tasks import create_table_and_upload_to_gcs
 
-from pipelines.constants import constants
 from pipelines.api_datametrica.agendamentos.schedules import daily_schedule
 from pipelines.api_datametrica.agendamentos.tasks import (
     convert_agendamentos_to_dataframe,
@@ -18,6 +17,7 @@ from pipelines.api_datametrica.agendamentos.tasks import (
     get_datametrica_credentials,
     transform_agendamentos_data,
 )
+from pipelines.constants import constants
 from pipelines.utils.tasks import create_date_partitions
 
 with Flow(

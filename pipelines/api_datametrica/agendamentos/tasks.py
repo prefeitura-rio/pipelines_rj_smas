@@ -7,6 +7,7 @@ from prefect import task
 from prefeitura_rio.pipelines_utils.infisical import get_secret
 from prefeitura_rio.pipelines_utils.logging import log
 
+from pipelines.constants import constants
 
 
 @task
@@ -18,12 +19,9 @@ def get_datametrica_credentials() -> Dict[str, str]:
         Dict com 'url' e 'token'
     """
 
-    from pipelines.constants import constants
-
     log("Recuperando credenciais da Datametrica do Infisical")
 
     try:
-        # TODO: Adjustar infisical abaixo
 
         dm_path = constants.DATAMETRICA_PATH.value
         url = get_secret(constants.DATAMETRICA_URL.value, path=dm_path)[
