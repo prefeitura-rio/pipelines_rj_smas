@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
+# pylint: disable=invalid-name
+# flake8: noqa: E501
 from typing import Any, Dict, List, Optional
 
 import pandas as pd
 import requests
-from prefect import task
-from prefeitura_rio.pipelines_utils.infisical import get_secret
-from prefeitura_rio.pipelines_utils.logging import log
+from prefect import task  # pylint: disable=E0611, E0401
+from prefeitura_rio.pipelines_utils.infisical import get_secret  # pylint: disable=E0611, E0401
+from prefeitura_rio.pipelines_utils.logging import log  # pylint: disable=E0611, E0401
 
-from pipelines.constants import constants
+from pipelines.api_datametrica.agendamentos.utils import build_agendamentos_url  # pylint: disable=E0611, E0401
+from pipelines.constants import constants  # pylint: disable=E0611, E0401
 
 
-@task()
+@task
 def get_datametrica_credentials() -> Dict[str, str]:
     """
     Recupera as credenciais da API da Datametrica do Infisical.
@@ -22,7 +25,6 @@ def get_datametrica_credentials() -> Dict[str, str]:
     log("Recuperando credenciais da Datametrica do Infisical")
 
     try:
-
         dm_path = constants.DATAMETRICA_PATH.value
         url = get_secret(constants.DATAMETRICA_URL.value, path=dm_path)[
             constants.DATAMETRICA_URL.value
@@ -39,7 +41,7 @@ def get_datametrica_credentials() -> Dict[str, str]:
         raise
 
 
-@task()
+@task
 def fetch_agendamentos_from_api(
     credentials: Dict[str, str], date: Optional[str] = None
 ) -> List[Dict[str, Any]]:
@@ -53,8 +55,6 @@ def fetch_agendamentos_from_api(
     Returns:
         Lista de dicionários com os dados dos agendamentos
     """
-    from pipelines.api_datametrica.agendamentos.utils import build_agendamentos_url
-
     url = build_agendamentos_url(credentials["url"], date)
 
     log(f"Buscando agendamentos na URL: {url}")
@@ -81,7 +81,7 @@ def fetch_agendamentos_from_api(
         raise
 
 
-@task()
+@task
 def transform_agendamentos_data(agendamentos_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
     Transforma e valida os dados brutos dos agendamentos.
@@ -116,7 +116,7 @@ def transform_agendamentos_data(agendamentos_data: List[Dict[str, Any]]) -> List
     return agendamentos
 
 
-@task()
+@task
 def convert_agendamentos_to_dataframe(agendamentos: List[Dict[str, Any]]) -> pd.DataFrame:
     """
     Converte a lista de agendamentos para um DataFrame pandas.
