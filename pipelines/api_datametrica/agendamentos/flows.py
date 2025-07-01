@@ -41,7 +41,7 @@ with Flow(
     #########################
 
     dataset_id = Parameter("dataset_id", default="brutos_data_metrica_staging", required=False)
-    table_id = Parameter("table_id", default="agendamentos_cadunicos", required=False)
+    table_id = Parameter("table_id", default="agendamentos_cadunico", required=False)
     dump_mode = Parameter("dump_mode", default="append", required=False)
     materialize_after_dump = Parameter("materialize_after_dump", default=True, required=False)
     date_parameter = Parameter("date", default=None, required=False)
