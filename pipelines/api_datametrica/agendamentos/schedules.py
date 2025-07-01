@@ -9,32 +9,6 @@ from prefect.schedules.clocks import IntervalClock
 
 from pipelines.constants import constants
 
-hour_schedule = Schedule(
-    clocks=[
-        IntervalClock(
-            interval=timedelta(minutes=60),
-            start_date=datetime(2021, 1, 1, 0, 4, 0),
-            labels=[constants.SMAS_AGENT_LABEL.value],
-            parameter_defaults={
-                "dump_mode": "append",
-            },
-        )
-    ]
-)
-
-ten_min_schedule = Schedule(
-    clocks=[
-        IntervalClock(
-            interval=timedelta(minutes=10),
-            start_date=datetime(2021, 1, 1, 0, 4, 0),
-            labels=[constants.SMAS_AGENT_LABEL.value],
-            parameter_defaults={
-                "dump_mode": "append",
-            },
-        )
-    ]
-)
-
 daily_schedule = Schedule(
     clocks=[
         IntervalClock(
