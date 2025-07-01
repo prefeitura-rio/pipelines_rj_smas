@@ -6,10 +6,14 @@ from typing import Any, Dict, List, Optional
 import pandas as pd
 import requests
 from prefect import task  # pylint: disable=E0611, E0401
-from prefeitura_rio.pipelines_utils.infisical import get_secret  # pylint: disable=E0611, E0401
+from prefeitura_rio.pipelines_utils.infisical import (
+    get_secret,  # pylint: disable=E0611, E0401
+)
 from prefeitura_rio.pipelines_utils.logging import log  # pylint: disable=E0611, E0401
 
-from pipelines.api_datametrica.agendamentos.utils import build_agendamentos_url  # pylint: disable=E0611, E0401
+from pipelines.api_datametrica.agendamentos.utils import (
+    build_agendamentos_url,  # pylint: disable=E0611, E0401
+)
 from pipelines.constants import constants  # pylint: disable=E0611, E0401
 
 
