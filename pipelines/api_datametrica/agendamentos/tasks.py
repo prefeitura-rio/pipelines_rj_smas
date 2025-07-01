@@ -56,7 +56,7 @@ def fetch_agendamentos_from_api(
     Returns:
         Lista de dicionários com os dados dos agendamentos
     """
-    from pipelines.datametrica.agendamentos.utils import build_agendamentos_url
+    from pipelines.api_datametrica.agendamentos.utils import build_agendamentos_url
 
     url = build_agendamentos_url(credentials["url"], date)
 
