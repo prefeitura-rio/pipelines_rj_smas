@@ -53,10 +53,13 @@ with Flow(
     credentials = get_datametrica_credentials()
 
     raw_data = fetch_agendamentos_from_api(credentials=credentials, date=date_param)
+    raw_data.set_upstream(credentials)
 
     processed_data = transform_agendamentos_data(raw_data)
+    processed_data.set_upstream(raw_data)
 
     df = convert_agendamentos_to_dataframe(processed_data)
+    df.set_upstream(processed_data)
 
     partitions_path = create_date_partitions(
         dataframe=df,
@@ -73,6 +76,7 @@ with Flow(
         dump_mode=dump_mode,
         biglake_table=False,
     )
+    create_table.set_upstream(partitions_path)
 
     with case(materialize_after_dump, True):
         run_dbt = task_run_dbt_model_task(
