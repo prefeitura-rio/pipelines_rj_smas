@@ -14,7 +14,7 @@ hour_schedule = Schedule(
         IntervalClock(
             interval=timedelta(minutes=60),
             start_date=datetime(2021, 1, 1, 0, 4, 0),
-            labels=[constants.CRM_AGENT_LABEL.value],
+            labels=[constants.SMAS_AGENT_LABEL.value],
             parameter_defaults={
                 "dump_mode": "append",
             },
@@ -27,7 +27,7 @@ ten_min_schedule = Schedule(
         IntervalClock(
             interval=timedelta(minutes=10),
             start_date=datetime(2021, 1, 1, 0, 4, 0),
-            labels=[constants.CRM_AGENT_LABEL.value],
+            labels=[constants.SMAS_AGENT_LABEL.value],
             parameter_defaults={
                 "dump_mode": "append",
             },
@@ -40,7 +40,7 @@ daily_schedule = Schedule(
         IntervalClock(
             interval=timedelta(days=1),
             start_date=datetime(2021, 1, 1, 0, 4, 0),
-            labels=[constants.CRM_AGENT_LABEL.value],
+            labels=[constants.SMAS_AGENT_LABEL.value],
             parameter_defaults={
                 "dump_mode": "append",
             },
