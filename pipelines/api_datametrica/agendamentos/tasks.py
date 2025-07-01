@@ -17,16 +17,21 @@ def get_datametrica_credentials() -> Dict[str, str]:
     Returns:
         Dict com 'url' e 'token'
     """
-    
 
     from pipelines.constants import constants
 
     log("Recuperando credenciais da Datametrica do Infisical")
 
     try:
-        #TODO: Adjustar infisical abaixo
-        url = get_secret(, "URL")
-        token = get_secret(, "TOKEN")
+        # TODO: Adjustar infisical abaixo
+
+        dm_path = constants.DATAMETRICA_PATH.value
+        url = get_secret(constants.DATAMETRICA_URL.value, path=dm_path)[
+            constants.DATAMETRICA_URL.value
+        ]
+        token = get_secret(constants.DATAMETRICA_TOKEN.value, path=dm_path)[
+            constants.DATAMETRICA_TOKEN.value
+        ]
 
         log("Credenciais recuperadas com sucesso")
         return {"url": url, "token": token}

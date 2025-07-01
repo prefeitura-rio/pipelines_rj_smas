@@ -17,13 +17,11 @@ class constants(Enum):
     # Agent labels
     ######################################
     # EXAMPLE_AGENT_LABEL = "example_agent"
-    CRM_AGENT_LABEL = "smas"
+    SMAS_AGENT_LABEL = "smas"
     ######################################
     # Other constants
     ######################################
     # EXAMPLE_CONSTANT = "example_constant"
-
-    ######################################
-    # Datametrica API
-    ######################################
-    DATAMETRICA_PATH = "api_data_metrica"
+    DATAMETRICA_PATH = "/api_data_metrica"
+    DATAMETRICA_URL = "URL"
+    DATAMETRICA_TOKEN = "TOKEN"
