@@ -60,6 +60,7 @@ def fetch_agendamentos_from_api(
     base_url = credentials["url"].rstrip("/")
     if date is None:
         from datetime import datetime, timedelta
+
         date = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
     url = f"{base_url}/api/agendamentos/{date}"
 
