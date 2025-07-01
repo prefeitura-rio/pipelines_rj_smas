@@ -8,7 +8,6 @@ from prefeitura_rio.pipelines_utils.infisical import get_secret
 from prefeitura_rio.pipelines_utils.logging import log
 
 
-
 @task
 def get_datametrica_credentials() -> Dict[str, str]:
     """
