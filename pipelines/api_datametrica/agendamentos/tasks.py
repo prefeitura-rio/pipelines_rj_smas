@@ -7,7 +7,6 @@ from prefect import task
 from prefeitura_rio.pipelines_utils.infisical import get_secret
 from prefeitura_rio.pipelines_utils.logging import log
 
-from pipelines.api_datametrica.agendamentos.models import Agendamento
 
 
 @task
@@ -85,28 +84,28 @@ def fetch_agendamentos_from_api(
 
 
 @task
-def transform_agendamentos_data(agendamentos_data: List[Dict[str, Any]]) -> List[Agendamento]:
+def transform_agendamentos_data(agendamentos_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
-    Transforma os dados brutos em objetos Agendamento tipados.
+    Transforma e valida os dados brutos dos agendamentos.
     """
     log(f"Transformando {len(agendamentos_data)} registros")
 
     agendamentos = []
     for data in agendamentos_data:
         try:
-            agendamento = Agendamento(
-                id=data["id"],
-                id_capacidade=data["id_capacidade"],
-                nome_completo=data["nome_completo"],
-                primeiro_nome=data["primeiro_nome"],
-                cpf=data["cpf"],
-                telefone=data["telefone"],
-                tipo=data["tipo"],
-                data_hora=data["data_hora"],
-                nome=data["nome"],
-                endereco=data["endereco"],
-                bairro=data["bairro"],
-            )
+            agendamento = {
+                "id": data["id"],
+                "id_capacidade": data["id_capacidade"],
+                "nome_completo": data["nome_completo"],
+                "primeiro_nome": data["primeiro_nome"],
+                "cpf": data["cpf"],
+                "telefone": data["telefone"],
+                "tipo": data["tipo"],
+                "data_hora": data["data_hora"],
+                "unidade_nome": data["nome"],
+                "unidade_endereco": data["endereco"],
+                "unidade_bairro": data["bairro"],
+            }
             agendamentos.append(agendamento)
         except KeyError as e:
             log(f"Erro ao processar registro: campo {e} não encontrado")
@@ -120,7 +119,7 @@ def transform_agendamentos_data(agendamentos_data: List[Dict[str, Any]]) -> List
 
 
 @task
-def convert_agendamentos_to_dataframe(agendamentos: List[Agendamento]) -> pd.DataFrame:
+def convert_agendamentos_to_dataframe(agendamentos: List[Dict[str, Any]]) -> pd.DataFrame:
     """
     Converte a lista de agendamentos para um DataFrame pandas.
 
@@ -129,25 +128,7 @@ def convert_agendamentos_to_dataframe(agendamentos: List[Agendamento]) -> pd.Dat
     """
     log(f"Convertendo {len(agendamentos)} agendamentos para DataFrame")
 
-    data = []
-    for agendamento in agendamentos:
-        data.append(
-            {
-                "id": agendamento.id,
-                "id_capacidade": agendamento.id_capacidade,
-                "nome_completo": agendamento.nome_completo,
-                "primeiro_nome": agendamento.primeiro_nome,
-                "cpf": agendamento.cpf,
-                "telefone": agendamento.telefone,
-                "tipo": agendamento.tipo,
-                "data_hora": agendamento.data_hora,
-                "unidade_nome": agendamento.nome,
-                "unidade_endereco": agendamento.endereco,
-                "unidade_bairro": agendamento.bairro,
-            }
-        )
-
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(agendamentos)
     log(f"DataFrame criado com {len(df)} registros e {len(df.columns)} colunas")
 
     return df
