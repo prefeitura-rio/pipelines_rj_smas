@@ -4,8 +4,9 @@ from typing import Any, Dict, List, Optional
 import pandas as pd
 import requests
 from prefect import task
-from prefeitura_rio.pipelines_utils.logging import log
 from prefeitura_rio.pipelines_utils.infisical import get_secret
+from prefeitura_rio.pipelines_utils.logging import log
+
 from pipelines.datametrica.agendamentos.models import Agendamento
 
 
