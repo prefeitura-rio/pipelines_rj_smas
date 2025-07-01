@@ -47,8 +47,10 @@ with Flow(
     raw_data = fetch_agendamentos_from_api(credentials=credentials, date=date_param)
 
     processed_data = transform_agendamentos_data(raw_data)
+    processed_data.set_upstream(raw_data)
 
     df = convert_agendamentos_to_dataframe(processed_data)
+    df.set_upstream(processed_data)
 
     partitions_path = create_date_partitions(
         dataframe=df,
@@ -56,6 +58,7 @@ with Flow(
         file_format="csv",
         root_folder="./data_agendamentos/",
     )
+    partitions_path.set_upstream(df)
 
     # Upload to GCS and BigQuery
     create_table = create_table_and_upload_to_gcs(
@@ -65,8 +68,10 @@ with Flow(
         dump_mode=dump_mode,
         biglake_table=False,
     )
+    create_table.set_upstream(partitions_path)
 
 # Storage and run configs
+datametrica__agendamentos__flow.state_handlers = [handler_inject_bd_credentials]
 datametrica__agendamentos__flow.storage = GCS(constants.GCS_FLOWS_BUCKET.value)
 datametrica__agendamentos__flow.run_config = KubernetesRun(
     image=constants.DOCKER_IMAGE.value, labels=[constants.SMAS_AGENT_LABEL.value]
