@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: brutos_data_metrica_staging
+    description: Raw data from Datametrica API
+    tables:
+      - name: agendamentos_cadunicos
+        description: Agendamentos (appointments) data from Datametrica
+        columns:
+          - name: id
+            description: Unique identifier for the appointment
+            tests:
+              - not_null
+              - unique
+          - name: cpf
+            description: Patient CPF
+            tests:
+              - not_null
+          - name: data_hora
+            description: Appointment date and time
+            tests:
+              - not_null
+
+models:
+  - name: stg_agendamentos_cadunico
+    description: Staging model for Datametrica appointments data
+    columns:
+      - name: id
+        description: Unique identifier for the appointment
+        tests:
+          - not_null
+          - unique
+      - name: data_hora
+        description: Appointment date and time
+        tests:
+          - not_null

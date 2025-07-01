@@ -24,3 +24,10 @@ models:
     example:
       +materialized: view
       +schema: example
+    datametrica:
+      staging:
+        +materialized: table
+        +schema: datametrica_staging
+      marts:
+        +materialized: table
+        +schema: datametrica
