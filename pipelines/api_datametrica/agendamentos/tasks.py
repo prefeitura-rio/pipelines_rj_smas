@@ -30,6 +30,8 @@ def get_datametrica_credentials() -> Dict[str, str]:
         url_infisical = constants.DATAMETRICA_URL.value
         token = constants.DATAMETRICA_TOKEN.value
 
+        token = get_secret(token, path=dm_path)[token]
+
         log(f"dm_path: {dm_path}, url_infisical: {url_infisical}, token: {token} ")
         url = get_secret(url_infisical, path=dm_path)
         log(f"primeira url: {url}")
