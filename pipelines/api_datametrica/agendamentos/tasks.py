@@ -25,26 +25,19 @@ def get_datametrica_credentials() -> Dict[str, str]:
 
     log("Recuperando credenciais da Datametrica do Infisical")
 
-    try:
-        dm_path = constants.DATAMETRICA_PATH.value
-        url_infisical = constants.DATAMETRICA_URL.value
-        token = constants.DATAMETRICA_TOKEN.value
+    dm_path = constants.DATAMETRICA_PATH.value
+    url_infisical = constants.DATAMETRICA_URL.value
+    token_infisical = constants.DATAMETRICA_TOKEN.value
 
-        token = get_secret(token, path=dm_path)[token]
+    log(f"dm_path: {dm_path}, url_infisical: {url_infisical}, token: {token} ")
+    url = get_secret(url_infisical, path=dm_path)
+    log(f"primeira url: {url}")
+    url = url.get(url_infisical)
+    log(f"segunda url: {url}")
+    token = get_secret(token_infisical, path=dm_path)[token_infisical]
 
-        log(f"dm_path: {dm_path}, url_infisical: {url_infisical}, token: {token} ")
-        url = get_secret(url_infisical, path=dm_path)
-        log(f"primeira url: {url}")
-        url = url.get(url_infisical)
-        log(f"segunda url: {url}")
-        token = get_secret(token, path=dm_path)[token]
-
-        log("Credenciais recuperadas com sucesso")
+    log("Credenciais recuperadas com sucesso")
         return {"url": url, "token": token}
-
-    except Exception as e:
-        log(f"Erro ao recuperar credenciais: {e}")
-        raise
 
 
 @task
