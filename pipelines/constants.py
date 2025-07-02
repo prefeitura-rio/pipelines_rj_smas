@@ -23,5 +23,5 @@ class constants(Enum):
     ######################################
     # EXAMPLE_CONSTANT = "example_constant"
     DATAMETRICA_PATH = "/api_data_metrica"
-    DATAMETRICA_URL = "URL"
-    DATAMETRICA_TOKEN = "TOKEN"
+    DATAMETRICA_URL = "/URL"
+    DATAMETRICA_TOKEN = "/TOKEN"

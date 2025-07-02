@@ -27,11 +27,19 @@ def get_datametrica_credentials() -> Dict[str, str]:
 
     try:
         dm_path = constants.DATAMETRICA_PATH.value
-        url = constants.DATAMETRICA_URL.value
-        token = constants.DATAMETRICA_TOKEN.value
+        raw_url = get_secret(constants.DATAMETRICA_URL.value, path=dm_path)
+        raw_token = get_secret(constants.DATAMETRICA_TOKEN.value, path=dm_path)
 
-        url = get_secret(url, path=dm_path)[url]
-        token = get_secret(token, path=dm_path)[token]
+        # Handle both possible return types (str from newer prefeitura_rio, dict from older)
+        url = raw_url if isinstance(raw_url, str) else raw_url.get(constants.DATAMETRICA_URL.value)
+        token = (
+            raw_token
+            if isinstance(raw_token, str)
+            else raw_token.get(constants.DATAMETRICA_TOKEN.value)
+        )
+
+        if not url or not token:
+            raise ValueError("Datametrica credentials not found in Infisical path")
 
         log("Credenciais recuperadas com sucesso")
         return {"url": url, "token": token}
