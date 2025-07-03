@@ -57,7 +57,7 @@ def fetch_agendamentos_from_api(
         from datetime import datetime, timedelta
 
         date = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
-    url = f"{base_url}/api/agendamentos/{date}"
+    url = f"{base_url}/{date}"
 
     log(f"Buscando agendamentos na URL: {url}")
 
