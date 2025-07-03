@@ -13,7 +13,7 @@ daily_schedule = Schedule(
     clocks=[
         IntervalClock(
             interval=timedelta(days=1),
-            start_date=datetime(2021, 1, 1, 0, 4, 0),
+            start_date=datetime(2021, 1, 1, 18, 0, 0),
             labels=[constants.SMAS_AGENT_LABEL.value],
             parameter_defaults={
                 "dump_mode": "append",
