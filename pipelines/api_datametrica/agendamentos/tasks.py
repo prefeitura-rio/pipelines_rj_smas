@@ -25,15 +25,12 @@ def get_datametrica_credentials() -> Dict[str, str]:
 
     log("Recuperando credenciais da Datametrica do Infisical")
 
-    dm_path = constants.DATAMETRICA_PATH.value
     url_infisical = constants.DATAMETRICA_URL.value
     token_infisical = constants.DATAMETRICA_TOKEN.value
+    url = get_secret(url_infisical).get(url_infisical)
+    if not url.startswith("http"):
+        url = f"http://{url}"
 
-    log(f"dm_path: {dm_path}, url_infisical: {url_infisical}, token_infisical: {token_infisical} ")
-    url = get_secret(url_infisical)
-    log(f"primeira url: {url}")
-    url = url.get(url_infisical)
-    log(f"segunda url: {url}")
     token = get_secret(token_infisical)[token_infisical]
 
     log("Credenciais recuperadas com sucesso")
