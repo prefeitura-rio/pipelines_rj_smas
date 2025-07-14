@@ -27,4 +27,4 @@ models:
     datametrica:
       staging:
         +materialized: table
-        +schema: brutos_data_metrica_staging
+        +schema: brutos_data_metrica

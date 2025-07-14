@@ -42,11 +42,31 @@ models:
     description: Modelo staging dos dados de agendamentos da Datametrica
     columns:
       - name: id
-        description: Unique identifier for the appointment
+        description: Identificador único do agendamento
         tests:
           - not_null
           - unique
-      - name: data_hora
-        description: Appointment date and time
+      - name: id_capacidade
+        description: ID da capacidade do agendamento
+      - name: nome_completo
+        description: Nome completo do paciente
+      - name: cpf
+        description: CPF do paciente (Cadastro de Pessoa Física)
         tests:
           - not_null
+      - name: telefone
+        description: Telefone do paciente
+      - name: tipo
+        description: Tipo de agendamento
+      - name: data_hora
+        description: Data e hora do agendamento
+        tests:
+          - not_null
+      - name: unidade_nome
+        description: Nome da unidade de saúde
+      - name: unidade_endereco
+        description: Endereço da unidade de saúde
+      - name: unidade_bairro
+        description: Bairro da unidade de saúde
+      - name: processed_at
+        description: Data e hora em que o registro foi processado

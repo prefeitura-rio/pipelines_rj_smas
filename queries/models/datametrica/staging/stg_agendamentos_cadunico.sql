@@ -1,6 +1,6 @@
 {{
     config(
-        schema="brutos_data_metrica_staging",
+        schema="brutos_data_metrica",
         alias="agendamentos_cadunico",
         materialized="table",
         partition_by={
