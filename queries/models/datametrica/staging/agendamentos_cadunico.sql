@@ -21,9 +21,8 @@ with source_data as (
         unidade_nome,
         unidade_endereco,
         unidade_bairro,
-        -- Add metadata fields
         current_timestamp() as processed_at
-    from {{ source('brutos_data_metrica_staging', 'agendamentos_cadunico') }}
+    from {{ source('brutos_data_metrica', 'agendamentos_cadunico') }}
     where data_hora is not null
 )
 
