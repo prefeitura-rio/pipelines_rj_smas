@@ -1,7 +1,6 @@
 {{
     config(
         schema="brutos_data_metrica",
-        alias="agendamentos_cadunico",
         materialized="table",
         partition_by={
             "field": "data_hora",

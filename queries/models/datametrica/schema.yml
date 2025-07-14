@@ -38,8 +38,10 @@ sources:
             description: Bairro da unidade de saúde
 
 models:
-  - name: stg_agendamentos_cadunico
+  - name: agendamentos_cadunico
     description: Modelo staging dos dados de agendamentos da Datametrica
+    config:
+      schema: brutos_data_metrica
     columns:
       - name: id
         description: Identificador único do agendamento
