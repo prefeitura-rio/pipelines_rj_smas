@@ -70,7 +70,7 @@ def fetch_agendamentos_from_api(
     headers = {
         "Authorization": f"Bearer {credentials['token']}",
         "Content-Type": "application/json",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "User-Agent": "Pipeline-Bot/1.0",
     }
 
     try:
