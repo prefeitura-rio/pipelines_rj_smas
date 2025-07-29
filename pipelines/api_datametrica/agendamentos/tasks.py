@@ -3,6 +3,7 @@
 # flake8: noqa: E501
 from typing import Any, Dict, List, Optional
 
+import httpx
 import pandas as pd
 import requests
 import urllib3
@@ -70,24 +71,28 @@ def fetch_agendamentos_from_api(
     headers = {
         "Authorization": f"Bearer {credentials['token']}",
         "Content-Type": "application/json",
-        "User-Agent": "python-requests/2.32.3",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        "Accept": "application/json",
+        "Referer": "https://cadunico.rio/",
+        "Origin": "https://cadunico.rio",
     }
 
     try:
-        response = requests.get(url, headers=headers, timeout=30, verify=False)
+        # response = requests.get(url, headers=headers, timeout=30, verify=False)
+        with httpx.Client(http2=True, verify=False, headers=headers) as client:
+            response = client.get(url)
+            # Log response details for debugging
+            log(f"Status code: {response.status_code}")
+            if response.status_code == 403:
+                log(f"Response headers: {dict(response.headers)}")
+                log(f"Response body: {response.text[:500]}")  # First 500 chars
 
-        # Log response details for debugging
-        log(f"Status code: {response.status_code}")
-        if response.status_code == 403:
-            log(f"Response headers: {dict(response.headers)}")
-            log(f"Response body: {response.text[:500]}")  # First 500 chars
+            response.raise_for_status()
 
-        response.raise_for_status()
+            agendamentos_data = response.json()
+            log(f"Recuperados {len(agendamentos_data)} agendamentos")
 
-        agendamentos_data = response.json()
-        log(f"Recuperados {len(agendamentos_data)} agendamentos")
-
-        return agendamentos_data
+            return agendamentos_data
 
     except requests.exceptions.RequestException as e:
         log(f"Erro ao buscar agendamentos: {e}")
