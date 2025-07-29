@@ -74,7 +74,7 @@ def fetch_agendamentos_from_api(
     }
 
     try:
-        response = requests.get(url, headers=headers, timeout=30, verify=False)
+        response = requests.get(url, headers=headers, timeout=30)
 
         # Log response details for debugging
         log(f"Status code: {response.status_code}")
