@@ -14,6 +14,7 @@ prefeitura-rio = { git = "https://github.com/prefeitura-rio/prefeitura-rio.git",
     "pipelines",
     "pipelines-templates",
 ] }
+httpx = {extras = ["http2"], version = "^0.28.1"}
 
 [tool.poetry.group.dev]
 optional = true
