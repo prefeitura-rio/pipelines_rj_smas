@@ -5,7 +5,11 @@ from typing import Any, Dict, List, Optional
 
 import pandas as pd
 import requests
+import urllib3
 from prefect import task  # pylint: disable=E0611, E0401
+
+# Disable SSL warnings for internal APIs
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 from prefeitura_rio.pipelines_utils.infisical import (
     get_secret,  # pylint: disable=E0611, E0401
 )
@@ -68,7 +72,7 @@ def fetch_agendamentos_from_api(
     }
 
     try:
-        response = requests.get(url, headers=headers, timeout=30)
+        response = requests.get(url, headers=headers, timeout=30, verify=False)
         response.raise_for_status()
 
         agendamentos_data = response.json()
