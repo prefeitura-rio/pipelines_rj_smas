@@ -70,11 +70,11 @@ def fetch_agendamentos_from_api(
     headers = {
         "Authorization": f"Bearer {credentials['token']}",
         "Content-Type": "application/json",
-        "User-Agent": "Pipeline-Bot/1.0",
+        "User-Agent": "python-requests/2.32.3",
     }
 
     try:
-        response = requests.get(url, headers=headers, timeout=30)
+        response = requests.get(url, headers=headers, timeout=30, verify=False)
 
         # Log response details for debugging
         log(f"Status code: {response.status_code}")
