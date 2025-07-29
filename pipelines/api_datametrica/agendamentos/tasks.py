@@ -71,6 +71,9 @@ def fetch_agendamentos_from_api(
         "Authorization": f"Bearer {credentials['token']}",
         "Content-Type": "application/json",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        "Accept": "application/json",
+        "Referer": "https://cadunico.rio/",
+        "Origin": "https://cadunico.rio"
     }
 
     try:
