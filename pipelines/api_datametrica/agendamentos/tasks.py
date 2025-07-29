@@ -65,14 +65,23 @@ def fetch_agendamentos_from_api(
     url = f"{base_url}/{date}"
 
     log(f"Buscando agendamentos na URL: {url}")
+    log(f"Token (primeiros 10 chars): {credentials['token'][:10]}...")
 
     headers = {
         "Authorization": f"Bearer {credentials['token']}",
         "Content-Type": "application/json",
+        "User-Agent": "Pipeline-Prefect-Bot/1.0",
     }
 
     try:
         response = requests.get(url, headers=headers, timeout=30, verify=False)
+
+        # Log response details for debugging
+        log(f"Status code: {response.status_code}")
+        if response.status_code == 403:
+            log(f"Response headers: {dict(response.headers)}")
+            log(f"Response body: {response.text[:500]}")  # First 500 chars
+
         response.raise_for_status()
 
         agendamentos_data = response.json()
@@ -82,6 +91,9 @@ def fetch_agendamentos_from_api(
 
     except requests.exceptions.RequestException as e:
         log(f"Erro ao buscar agendamentos: {e}")
+        if hasattr(e, "response") and e.response is not None:
+            log(f"Response status: {e.response.status_code}")
+            log(f"Response text: {e.response.text[:500]}")
         raise
     except Exception as e:
         log(f"Erro inesperado: {e}")
