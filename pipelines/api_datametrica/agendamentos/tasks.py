@@ -34,6 +34,7 @@ def get_datametrica_credentials() -> Dict[str, str]:
     token = get_secret(token_infisical)[token_infisical]
 
     log("Credenciais recuperadas com sucesso")
+    log(f"URL: {url}")
     return {"url": url, "token": token}
 
 
