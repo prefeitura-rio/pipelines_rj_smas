@@ -17,9 +17,7 @@ from prefect.engine.state import Skipped  # pylint: disable=E0611, E0401
 # Disable SSL warnings for internal APIs
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # pylint: disable=E0611, E0401
-from prefeitura_rio.pipelines_utils.infisical import (
-    get_secret
-)
+from prefeitura_rio.pipelines_utils.infisical import get_secret
 from prefeitura_rio.pipelines_utils.logging import log  # pylint: disable=E0611, E0401
 
 from pipelines.constants import constants  # pylint: disable=E0611, E0401
