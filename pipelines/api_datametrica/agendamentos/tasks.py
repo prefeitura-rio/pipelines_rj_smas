@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=invalid-name
 # flake8: noqa: E501
+"""
+Tasks for agendamentos do cadunico
+"""
 from typing import Any, Dict, List, Optional
 
-import httpx
+import httpx  # pylint: disable=E0611, E0401
 import pandas as pd
 import requests
 import urllib3
 from prefect import task  # pylint: disable=E0611, E0401
+from prefect.engine.signals import ENDRUN  # pylint: disable=E0611, E0401
+from prefect.engine.state import Skipped  # pylint: disable=E0611, E0401
 
 # Disable SSL warnings for internal APIs
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+# pylint: disable=E0611, E0401
 from prefeitura_rio.pipelines_utils.infisical import (
-    get_secret,  # pylint: disable=E0611, E0401
+    get_secret
 )
 from prefeitura_rio.pipelines_utils.logging import log  # pylint: disable=E0611, E0401
 
@@ -113,6 +119,12 @@ def transform_agendamentos_data(agendamentos_data: List[Dict[str, Any]]) -> List
     log(f"Transformando {len(agendamentos_data)} registros")
 
     agendamentos = []
+    print("\n\n", agendamentos_data)
+    if agendamentos_data.get("message"):
+        skip = f"\nNenhum agendamento encontrado para a data {agendamentos_data.get('data_consultada')}\n"
+        log(skip)
+        raise ENDRUN(state=Skipped(skip))
+
     for data in agendamentos_data:
         try:
             agendamento = {
