@@ -68,22 +68,22 @@ with Flow(
         root_folder="./data_agendamentos/",
     )
 
-    # Upload to GCS and BigQuery
-    create_table = create_table_and_upload_to_gcs(
-        data_path=partitions_path,
-        dataset_id=dataset_id,
-        table_id=table_id,
-        dump_mode=dump_mode,
-        biglake_table=False,
-    )
-    create_table.set_upstream(partitions_path)
+    # # Upload to GCS and BigQuery
+    # create_table = create_table_and_upload_to_gcs(
+    #     data_path=partitions_path,
+    #     dataset_id=dataset_id,
+    #     table_id=table_id,
+    #     dump_mode=dump_mode,
+    #     biglake_table=False,
+    # )
+    # create_table.set_upstream(partitions_path)
 
-    with case(materialize_after_dump, True):
-        run_dbt = task_run_dbt_model_task(
-            dataset_id=dataset_id,
-            table_id=table_id,
-        )
-        run_dbt.set_upstream(create_table)
+    # with case(materialize_after_dump, True):
+    #     run_dbt = task_run_dbt_model_task(
+    #         dataset_id=dataset_id,
+    #         table_id=table_id,
+    #     )
+    #     run_dbt.set_upstream(create_table)
 
 # Storage and run configs
 datametrica_agendamentos_flow.state_handlers = [handler_inject_bd_credentials]
