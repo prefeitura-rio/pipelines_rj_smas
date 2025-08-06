@@ -117,8 +117,9 @@ def transform_agendamentos_data(agendamentos_data: List[Dict[str, Any]]) -> List
     log(f"Transformando {len(agendamentos_data)} registros")
 
     agendamentos = []
-    print("\n\n", agendamentos_data)
-    if agendamentos_data.get("message"):
+
+    print("\n\n", type(agendamentos_data))
+    if isinstance(agendamentos_data, dict):
         skip = f"\nNenhum agendamento encontrado para a data {agendamentos_data.get('data_consultada')}\n"
         log(skip)
         raise ENDRUN(state=Skipped(skip))
