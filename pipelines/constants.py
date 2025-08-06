@@ -17,8 +17,11 @@ class constants(Enum):
     # Agent labels
     ######################################
     # EXAMPLE_AGENT_LABEL = "example_agent"
-
+    SMAS_AGENT_LABEL = "smas"
     ######################################
     # Other constants
     ######################################
     # EXAMPLE_CONSTANT = "example_constant"
+    DATAMETRICA_PATH = "/"
+    DATAMETRICA_URL = "API_DATA_METRICA_URL"
+    DATAMETRICA_TOKEN = "API_DATA_METRICA_TOKEN"
