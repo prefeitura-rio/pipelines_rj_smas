@@ -4,6 +4,7 @@
 """
 Tasks for agendamentos do cadunico
 """
+
 from typing import Any, Dict, List, Optional
 
 import httpx  # pylint: disable=E0611, E0401

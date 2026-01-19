@@ -2,6 +2,7 @@
 """
 Schedules for datametrica agendamentos pipeline
 """
+
 from datetime import datetime, timedelta
 
 from prefect.schedules import Schedule
